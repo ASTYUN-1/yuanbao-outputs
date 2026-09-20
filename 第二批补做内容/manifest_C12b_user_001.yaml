@@ -1,0 +1,19 @@
+# === TILT-CONTRACT-MANIFEST ===
+# task_id: C12b-补传
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: Yuanbao
+# produced_at: 2026-09-20
+# batch: user_001
+# output_files:
+#   - events_user_001.jsonl   (rows: 115)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations: []
+# === END MANIFEST ===

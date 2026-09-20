@@ -1,0 +1,24 @@
+# === TILT-CONTRACT-MANIFEST ===
+# task_id: C12b-补传
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: Yuanbao
+# produced_at: 2026-09-20
+# batch: user_003
+# output_files:
+#   - events_user_003.jsonl   (rows: 111)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - "SPEC 12.3 的 count_late_edits / count_self_corrections / count_voluntary_repeats / count_same_category_tasks / count_off_task_activities / calc_path_deviation 未给出实现，本产出按备注所列定义实现并据此造数"
+#   - "6.0 明列 SPEC 4.4 乘积式与 SPEC 12.3 加权求和式不一致；按 6.0 要求统一采用 12.3 的 0-10 实现版"
+#   - "事件仅使用 task_complete / task_retry / session_start / session_end / settings_change 五个枚举；因期望区间要求 writing_general 与 photography 的 off_task_activities 为 0，未投放 report_view / task_share / domain_switch"
+#   - "session_start / session_end / settings_change 沿用 6.3 固定 schema，其 domain / task_id / task_level 按当日归属任务占位填充，不代表任务结果"
+#   - "objective_slope 的 objective_level_in_week 按截至该周的累计口径计算（当周内取不到 3 条同级任务时会退化为 0，与期望区间不兼容）"
+# === END MANIFEST ===
