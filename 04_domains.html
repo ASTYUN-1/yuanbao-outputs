@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- === TILT-CONTRACT-MANIFEST ===
+# task_id: C13
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝 (Yuanbao)
+# produced_at: 2026-09-20
+# batch: 04_domains
+# output_files:
+#   - prototype/04_domains.html   (rows: 50)
+# unverified_count: 1
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - "页内未提供『领域 - 评估器』映射：C13 任务书未给出该表，详情内以 [待核验] 标注，未自行绑定"
+#   - "机制强度筛选含 5 档按钮（按任务书要求 1-5），但 3.1 表 50 个领域中最高为 4，点 5 时结果为空"
+# === END MANIFEST === -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilt · 候选领域筛选</title>
+<style>
+  :root{
+    --bg:#0B0F14; --card:#141A21; --line:#232D38; --text:#E6EAF0;
+    --muted:#8B93A1; --accent:#2DD4BF; --accent-soft:rgba(45,212,191,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:#06090C; color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    display:flex; justify-content:center; min-height:100vh;
+  }
+  .phone{width:100%; max-width:375px; background:var(--bg); min-height:100vh; padding:22px 18px 90px; position:relative;}
+  .brand{font-size:12px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase; margin-bottom:14px;}
+  h1{font-size:20px; line-height:1.5; margin:0 0 8px; font-weight:600;}
+  p{margin:0 0 12px; font-size:14px; line-height:1.7; color:var(--muted);}
+  .note{font-size:12px; line-height:1.7; color:var(--muted);}
+  .search{
+    width:100%; font:inherit; font-size:14px; color:var(--text); background:var(--card);
+    border:1px solid var(--line); border-radius:12px; padding:11px 12px; margin:10px 0 14px; outline:none;
+  }
+  .search:focus{border-color:var(--accent)}
+  .flabel{font-size:12px; color:var(--muted); margin:6px 0 8px;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;}
+  .chips.scroll{flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch;}
+  .chip{
+    font:inherit; font-size:12px; padding:7px 12px; border-radius:20px; cursor:pointer;
+    background:var(--card); border:1px solid var(--line); color:var(--muted); white-space:nowrap;
+  }
+  .chip.on{border-color:var(--accent); background:var(--accent-soft); color:var(--accent);}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:10px;}
+  .card.sel{border-color:var(--accent); background:var(--accent-soft);}
+  .d-head{display:flex; justify-content:space-between; align-items:flex-start; gap:8px;}
+  .d-name{font-size:15px; line-height:1.5; color:var(--text); font-weight:500;}
+  .d-id{font-size:11px; color:var(--muted); margin-top:3px; word-break:break-all;}
+  .pick{
+    flex:0 0 auto; font:inherit; font-size:12px; padding:6px 10px; border-radius:8px; cursor:pointer;
+    border:1px solid var(--line); background:transparent; color:var(--muted);
+  }
+  .pick.on{border-color:var(--accent); background:var(--accent); color:#06221E; font-weight:600;}
+  .metrics{display:flex; gap:8px; margin:10px 0 0;}
+  .m{flex:1; background:rgba(255,255,255,.03); border-radius:8px; padding:7px 8px;}
+  .m .k{font-size:10px; color:var(--muted);}
+  .m .v{font-size:15px; color:var(--text); font-weight:600; line-height:1.3;}
+  .gardner{font-size:11px; color:var(--muted); margin-top:8px;}
+  .toggle{background:none; border:none; font:inherit; font-size:12px; color:var(--accent); cursor:pointer; padding:8px 0 0;}
+  .detail{margin-top:10px; border-top:1px solid var(--line); padding-top:10px;}
+  .detail .note{margin-bottom:6px;}
+  .detail .kv{display:flex; justify-content:space-between; font-size:12px; color:var(--muted); padding:3px 0;}
+  .detail .kv b{color:var(--text); font-weight:500;}
+  .empty{text-align:center; padding:28px 0; font-size:13px; color:var(--muted);}
+  .dock{
+    position:sticky; bottom:0; left:0; right:0; margin:16px -18px -90px; padding:12px 18px 22px;
+    background:linear-gradient(180deg, rgba(11,15,20,.6), var(--bg) 40%); border-top:1px solid var(--line);
+  }
+  .btn{
+    display:block; width:100%; font:inherit; font-size:15px; padding:14px; border-radius:12px; cursor:pointer;
+    border:1px solid var(--accent); background:var(--accent); color:#06221E; font-weight:600;
+  }
+  .btn:disabled{opacity:.4; cursor:default;}
+  .selbar{display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--muted); margin-bottom:10px;}
+  .selbar .n{color:var(--accent);}
+  .foot{margin-top:14px;}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="brand">Tilt · 候选领域</div>
+  <main id="app"></main>
+</div>
+
+<script>
+/* ============================================================
+   数据集中区：50 个领域的 ID 与三项数值严格取自 SPEC 3.1 表
+   ============================================================ */
+const DATA = {
+  meta: {
+    product: "Tilt",
+    page: "04_domains",
+    spec_version: "V1.3",
+    ssot_checksum: "TL-SSOT-2026-09-20-A",
+    storage_key: "tilt_c13_domains_v1",
+    api_domains: "/api/v1/domains",      /* TODO: 接入真实 API */
+    api_selection: "/api/v1/selection"   /* TODO: 接入真实 API */
+  },
+
+  copy: {
+    title: "候选领域",
+    lead: "下面是系统按你的 6 维自我坐标系映射出的一批候选领域。你可以筛到 3-5 个，在接下来 4 周里并行投入。",
+    hint: "领域只是载体，坐标系才是核心。选不选、选几个，都由你决定。",
+    search_ph: "搜索领域名或 ID",
+    filter_ms: "按机制强度筛选",
+    filter_gardner: "按智能类型筛选",
+    all: "全部",
+    level_ms: "机制强度 {n}",
+    count: "共 {n} 个领域",
+    empty: "当前筛选条件下没有领域",
+    pick: "选入",
+    picked: "已选",
+    detail_toggle: "展开详情",
+    detail_hide: "收起详情",
+    d_note: "三项数值直接取自 SPEC 3.1 表，本页不做解读；数值本身不代表好坏。",
+    d_startup: "启动成本",
+    d_feedback: "反馈速度",
+    d_mechanism: "机制强度",
+    d_gardner: "智能类型",
+    d_level: "MVP 任务等级",
+    d_level_val: "L1-L5",
+    d_eval: "评估器",
+    /* [待核验:C13 任务书未提供领域-评估器映射表，此处不自行绑定] */
+    d_eval_val: "[待核验:未提供领域-评估器映射表]",
+    d_parallel: "并行投入建议",
+    d_parallel_val: "每天 15-30 分钟 · 连续 4 周",
+    sel_label: "已选领域",
+    sel_hint: "建议选 3-5 个",
+    btn_next: "确定这 {n} 个方向",
+    btn_next_disabled: "至少选 3 个领域",
+    footer: "4 周之后你会看到各领域的进步斜率对比，而不是一个分数。要不要深入某个方向，判断权在你自己手里。",
+    unverified_note: "带 [待核验] 标记的内容表示本文档未提供依据，未做填充。"
+  },
+
+  /* 3.2 Gardner 8 大智能枚举 */
+  gardner: {
+    linguistic: "语言智能",
+    logical_mathematical: "逻辑-数学智能",
+    spatial: "空间智能",
+    bodily_kinesthetic: "身体-运动智能",
+    musical: "音乐智能",
+    interpersonal: "人际智能",
+    intrapersonal: "内省智能",
+    naturalist: "自然观察智能"
+  },
+
+  /* 3.1 表：50 个领域（ID / 中文名 / 智能类型 / 启动成本 / 反馈速度 / 机制强度） */
+  domains: [
+    { id:"writing_general",     name:"写作（通用）", gardner:"linguistic",           startup_cost:2, feedback_speed:3, mechanism_strength:2 },
+    { id:"translation",         name:"翻译",         gardner:"linguistic",           startup_cost:2, feedback_speed:3, mechanism_strength:1 },
+    { id:"podcasting",          name:"播客主持",     gardner:"linguistic",           startup_cost:3, feedback_speed:4, mechanism_strength:3 },
+    { id:"teaching",            name:"教学",         gardner:"linguistic",           startup_cost:2, feedback_speed:4, mechanism_strength:3 },
+    { id:"debating",            name:"辩论",         gardner:"linguistic",           startup_cost:3, feedback_speed:4, mechanism_strength:3 },
+    { id:"script_writing",      name:"剧本创作",     gardner:"linguistic",           startup_cost:3, feedback_speed:2, mechanism_strength:1 },
+    { id:"blogging",            name:"博客写作",     gardner:"linguistic",           startup_cost:2, feedback_speed:3, mechanism_strength:2 },
+    { id:"go",                  name:"围棋",         gardner:"logical_mathematical", startup_cost:2, feedback_speed:3, mechanism_strength:1 },
+    { id:"chess",               name:"国际象棋",     gardner:"logical_mathematical", startup_cost:2, feedback_speed:3, mechanism_strength:1 },
+    { id:"programming",         name:"编程",         gardner:"logical_mathematical", startup_cost:4, feedback_speed:3, mechanism_strength:1 },
+    { id:"math_olympiad",       name:"数学奥赛",     gardner:"logical_mathematical", startup_cost:4, feedback_speed:2, mechanism_strength:1 },
+    { id:"strategy_games",      name:"策略游戏",     gardner:"logical_mathematical", startup_cost:2, feedback_speed:4, mechanism_strength:3 },
+    { id:"cryptography",        name:"密码学",       gardner:"logical_mathematical", startup_cost:4, feedback_speed:2, mechanism_strength:1 },
+    { id:"bridge",              name:"桥牌",         gardner:"logical_mathematical", startup_cost:3, feedback_speed:3, mechanism_strength:2 },
+    { id:"photography",         name:"摄影",         gardner:"spatial",              startup_cost:2, feedback_speed:4, mechanism_strength:3 },
+    { id:"ui_design",           name:"UI 设计",      gardner:"spatial",              startup_cost:3, feedback_speed:3, mechanism_strength:2 },
+    { id:"modeling_3d",         name:"3D 建模",      gardner:"spatial",              startup_cost:4, feedback_speed:3, mechanism_strength:1 },
+    { id:"architecture_design", name:"建筑设计",     gardner:"spatial",              startup_cost:4, feedback_speed:2, mechanism_strength:1 },
+    { id:"video_editing",       name:"视频剪辑",     gardner:"spatial",              startup_cost:3, feedback_speed:4, mechanism_strength:3 },
+    { id:"animation",           name:"动画",         gardner:"spatial",              startup_cost:4, feedback_speed:2, mechanism_strength:1 },
+    { id:"painting",            name:"绘画",         gardner:"spatial",              startup_cost:3, feedback_speed:3, mechanism_strength:2 },
+    { id:"running",             name:"长跑",         gardner:"bodily_kinesthetic",   startup_cost:2, feedback_speed:5, mechanism_strength:3 },
+    { id:"fitness",             name:"健身",         gardner:"bodily_kinesthetic",   startup_cost:2, feedback_speed:5, mechanism_strength:3 },
+    { id:"yoga",                name:"瑜伽",         gardner:"bodily_kinesthetic",   startup_cost:2, feedback_speed:4, mechanism_strength:2 },
+    { id:"martial_arts",        name:"武术",         gardner:"bodily_kinesthetic",   startup_cost:3, feedback_speed:3, mechanism_strength:2 },
+    { id:"dance",               name:"舞蹈",         gardner:"bodily_kinesthetic",   startup_cost:3, feedback_speed:4, mechanism_strength:3 },
+    { id:"climbing",            name:"攀岩",         gardner:"bodily_kinesthetic",   startup_cost:3, feedback_speed:4, mechanism_strength:2 },
+    { id:"badminton",           name:"羽毛球",       gardner:"bodily_kinesthetic",   startup_cost:2, feedback_speed:5, mechanism_strength:4 },
+    { id:"piano",               name:"钢琴",         gardner:"musical",              startup_cost:4, feedback_speed:3, mechanism_strength:2 },
+    { id:"guitar",              name:"吉他",         gardner:"musical",              startup_cost:3, feedback_speed:3, mechanism_strength:2 },
+    { id:"composition",         name:"作曲",         gardner:"musical",              startup_cost:3, feedback_speed:2, mechanism_strength:1 },
+    { id:"singing",             name:"唱歌",         gardner:"musical",              startup_cost:2, feedback_speed:4, mechanism_strength:3 },
+    { id:"djing",               name:"DJ",           gardner:"musical",              startup_cost:3, feedback_speed:5, mechanism_strength:4 },
+    { id:"sales",               name:"销售",         gardner:"interpersonal",        startup_cost:3, feedback_speed:5, mechanism_strength:4 },
+    { id:"counseling",          name:"心理咨询",     gardner:"interpersonal",        startup_cost:4, feedback_speed:2, mechanism_strength:1 },
+    { id:"negotiation",         name:"谈判",         gardner:"interpersonal",        startup_cost:4, feedback_speed:4, mechanism_strength:3 },
+    { id:"mediation",           name:"调解",         gardner:"interpersonal",        startup_cost:4, feedback_speed:3, mechanism_strength:2 },
+    { id:"coaching",            name:"教练",         gardner:"interpersonal",        startup_cost:3, feedback_speed:4, mechanism_strength:3 },
+    { id:"recruiting",          name:"招聘",         gardner:"interpersonal",        startup_cost:3, feedback_speed:4, mechanism_strength:3 },
+    { id:"philosophy",          name:"哲学",         gardner:"intrapersonal",        startup_cost:4, feedback_speed:1, mechanism_strength:1 },
+    { id:"psychology",          name:"心理学",       gardner:"intrapersonal",        startup_cost:4, feedback_speed:2, mechanism_strength:1 },
+    { id:"meditation",          name:"冥想",         gardner:"intrapersonal",        startup_cost:2, feedback_speed:3, mechanism_strength:2 },
+    { id:"reading",             name:"读书",         gardner:"intrapersonal",        startup_cost:2, feedback_speed:2, mechanism_strength:1 },
+    { id:"biography_writing",   name:"传记写作",     gardner:"intrapersonal",        startup_cost:3, feedback_speed:2, mechanism_strength:1 },
+    { id:"cooking",             name:"烹饪",         gardner:"naturalist",           startup_cost:2, feedback_speed:5, mechanism_strength:3 },
+    { id:"gardening",           name:"园艺",         gardner:"naturalist",           startup_cost:2, feedback_speed:2, mechanism_strength:1 },
+    { id:"astronomy",           name:"天文",         gardner:"naturalist",           startup_cost:3, feedback_speed:2, mechanism_strength:1 },
+    { id:"biology",             name:"生物",         gardner:"naturalist",           startup_cost:3, feedback_speed:2, mechanism_strength:1 },
+    { id:"pet_training",        name:"宠物训练",     gardner:"naturalist",           startup_cost:3, feedback_speed:3, mechanism_strength:2 },
+    { id:"meteorology",         name:"气象",         gardner:"naturalist",           startup_cost:3, feedback_speed:3, mechanism_strength:1 }
+  ],
+
+  rules: { min_select:3, max_select:5 }
+};
+
+/* ============================================================
+   状态
+   ============================================================ */
+const state = { ms:"all", gardner:"all", kw:"", selected:[], expanded:null };
+
+function load(){
+  try{
+    const raw = localStorage.getItem(DATA.meta.storage_key);
+    if(raw){ const o = JSON.parse(raw); if(o && Array.isArray(o.selected)) state.selected = o.selected; }
+  }catch(e){}
+  /* TODO: 接入真实 API —— 按 user_id 拉取已选领域与候选列表排序 */
+}
+function save(){
+  try{ localStorage.setItem(DATA.meta.storage_key, JSON.stringify({ selected:state.selected, updated_at:new Date().toISOString() })); }catch(e){}
+  /* TODO: 接入真实 API —— PUT /api/v1/selection 上报用户选择，服务端需校验 3-5 个上限 */
+}
+
+/* ============================================================
+   渲染
+   ============================================================ */
+const app = document.getElementById("app");
+function el(html){ const d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
+function tpl(s, kv){ return s.replace(/\{(\w+)\}/g, function(m,k){ return kv[k] !== undefined ? kv[k] : m; }); }
+function isSel(id){ return state.selected.indexOf(id) > -1; }
+
+function visible(){
+  const kw = state.kw.trim().toLowerCase();
+  return DATA.domains.filter(function(d){
+    if(state.ms !== "all" && d.mechanism_strength !== parseInt(state.ms, 10)) return false;
+    if(state.gardner !== "all" && d.gardner !== state.gardner) return false;
+    if(kw && (d.name.toLowerCase().indexOf(kw) < 0) && (d.id.indexOf(kw) < 0)) return false;
+    return true;
+  });
+}
+
+function render(){
+  app.innerHTML = "";
+  const list = visible();
+
+  app.appendChild(el(
+    '<div>' +
+      '<h1>' + DATA.copy.title + '</h1>' +
+      '<p>' + DATA.copy.lead + '</p>' +
+      '<p class="note">' + DATA.copy.hint + '</p>' +
+    '</div>'
+  ));
+
+  /* 搜索 */
+  const input = el('<input class="search" id="kw" placeholder="' + DATA.copy.search_ph + '" value="' + state.kw + '">');
+  app.appendChild(input);
+  input.oninput = function(){ state.kw = this.value; render(); document.getElementById("kw").focus(); };
+
+  /* 机制强度筛选 1-5 */
+  app.appendChild(el('<div class="flabel">' + DATA.copy.filter_ms + '</div>'));
+  const msBox = el('<div class="chips" id="ms"></div>');
+  app.appendChild(msBox);
+  msBox.appendChild(chip(DATA.copy.all, state.ms === "all", function(){ state.ms = "all"; render(); }));
+  [5,4,3,2,1].forEach(function(n){
+    const cnt = DATA.domains.filter(function(d){ return d.mechanism_strength === n; }).length;
+    msBox.appendChild(chip(tpl(DATA.copy.level_ms, {n:n}) + " · " + cnt, state.ms === String(n), function(){ state.ms = String(n); render(); }));
+  });
+
+  /* 智能类型筛选 */
+  app.appendChild(el('<div class="flabel">' + DATA.copy.filter_gardner + '</div>'));
+  const gBox = el('<div class="chips scroll" id="gd"></div>');
+  app.appendChild(gBox);
+  gBox.appendChild(chip(DATA.copy.all + " · 50", state.gardner === "all", function(){ state.gardner = "all"; render(); }));
+  Object.keys(DATA.gardner).forEach(function(k){
+    const cnt = DATA.domains.filter(function(d){ return d.gardner === k; }).length;
+    gBox.appendChild(chip(DATA.gardner[k] + " · " + cnt, state.gardner === k, function(){ state.gardner = k; render(); }));
+  });
+
+  app.appendChild(el('<div class="note" style="margin:10px 0">' + tpl(DATA.copy.count, {n:list.length}) + '</div>'));
+
+  /* 列表 */
+  const box = el('<div id="list"></div>');
+  app.appendChild(box);
+  if(!list.length){ box.appendChild(el('<div class="empty">' + DATA.copy.empty + '</div>')); }
+  list.forEach(function(d){ box.appendChild(domainCard(d)); });
+
+  app.appendChild(el('<p class="note foot">' + DATA.copy.footer + '</p>'));
+  app.appendChild(el('<p class="note">' + DATA.copy.unverified_note + '</p>'));
+
+  /* 底部操作区 */
+  const n = state.selected.length;
+  const dock = el(
+    '<div class="dock">' +
+      '<div class="selbar"><span>' + DATA.copy.sel_label + ' <span class="n">' + n + '/' + DATA.rules.max_select + '</span></span><span>' + DATA.copy.sel_hint + '</span></div>' +
+      '<button class="btn" id="next"' + (n < DATA.rules.min_select ? ' disabled' : '') + '>' + (n >= DATA.rules.min_select ? tpl(DATA.copy.btn_next, {n:n}) : DATA.copy.btn_next_disabled) + '</button>' +
+    '</div>'
+  );
+  app.appendChild(dock);
+  document.getElementById("next").onclick = function(){
+    /* TODO: 接入真实 API —— 提交所选领域，进入 4 周并行投入流程 */
+    alert("已选择：" + state.selected.join("、"));
+  };
+}
+
+function chip(text, on, fn){
+  const b = el('<button class="chip' + (on ? ' on' : '') + '">' + text + '</button>');
+  b.onclick = fn;
+  return b;
+}
+
+function domainCard(d){
+  const sel = isSel(d.id);
+  const card = el('<div class="card' + (sel ? ' sel' : '') + '"></div>');
+
+  const head = el(
+    '<div class="d-head">' +
+      '<div><div class="d-name">' + d.name + '</div><div class="d-id">' + d.id + '</div></div>' +
+      '<button class="pick' + (sel ? ' on' : '') + '">' + (sel ? DATA.copy.picked : DATA.copy.pick) + '</button>' +
+    '</div>'
+  );
+  card.appendChild(head);
+  head.querySelector(".pick").onclick = function(){
+    if(sel){ state.selected = state.selected.filter(function(x){ return x !== d.id; }); }
+    else {
+      if(state.selected.length >= DATA.rules.max_select) return;
+      state.selected.push(d.id);
+    }
+    save(); render();
+  };
+
+  card.appendChild(el(
+    '<div class="metrics">' +
+      '<div class="m"><div class="k">' + DATA.copy.d_startup + '</div><div class="v">' + d.startup_cost + '</div></div>' +
+      '<div class="m"><div class="k">' + DATA.copy.d_feedback + '</div><div class="v">' + d.feedback_speed + '</div></div>' +
+      '<div class="m"><div class="k">' + DATA.copy.d_mechanism + '</div><div class="v">' + d.mechanism_strength + '</div></div>' +
+    '</div>'
+  ));
+  card.appendChild(el('<div class="gardner">' + DATA.copy.d_gardner + '：' + DATA.gardner[d.gardner] + '</div>'));
+
+  const tg = el('<button class="toggle">' + (state.expanded === d.id ? DATA.copy.detail_hide : DATA.copy.detail_toggle) + '</button>');
+  card.appendChild(tg);
+  tg.onclick = function(){ state.expanded = (state.expanded === d.id ? null : d.id); render(); };
+
+  if(state.expanded === d.id){
+    card.appendChild(el(
+      '<div class="detail">' +
+        '<div class="note">' + DATA.copy.d_note + '</div>' +
+        '<div class="kv"><span>' + DATA.copy.d_startup + '</span><b>' + d.startup_cost + '</b></div>' +
+        '<div class="kv"><span>' + DATA.copy.d_feedback + '</span><b>' + d.feedback_speed + '</b></div>' +
+        '<div class="kv"><span>' + DATA.copy.d_mechanism + '</span><b>' + d.mechanism_strength + '</b></div>' +
+        '<div class="kv"><span>' + DATA.copy.d_gardner + '</span><b>' + DATA.gardner[d.gardner] + '（' + d.gardner + '）</b></div>' +
+        '<div class="kv"><span>' + DATA.copy.d_level + '</span><b>' + DATA.copy.d_level_val + '</b></div>' +
+        '<div class="kv"><span>' + DATA.copy.d_parallel + '</span><b>' + DATA.copy.d_parallel_val + '</b></div>' +
+        '<div class="kv"><span>' + DATA.copy.d_eval + '</span><b>' + DATA.copy.d_eval_val + '</b></div>' +
+      '</div>'
+    ));
+  }
+  return card;
+}
+
+load();
+render();
+/* TODO: 接入真实 API —— 页面加载时按 user_id 拉取候选领域（含推荐排序），DATA.domains 仅作为静态兜底数据 */
+</script>
+</body>
+</html>

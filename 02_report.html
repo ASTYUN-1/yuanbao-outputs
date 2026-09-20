@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!-- === TILT-CONTRACT-MANIFEST ===
+# task_id: C13
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝 (Yuanbao)
+# produced_at: 2026-09-20
+# batch: 02_report
+# output_files:
+#   - prototype/02_report.html   (rows: 3)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - "曲线/雷达图数值为演示用样例数据（prototype 仅验证样式），非真实用户数据；累计时长、完成天数同为样例"
+#   - "斜率单位『客观水平点/天』为原型展示口径，仅用于页面可读性，不作为产品指标写入字段"
+# === END MANIFEST === -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilt · 4 周报告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0B0F14; --card:#141A21; --line:#232D38; --text:#E6EAF0;
+    --muted:#8B93A1; --accent:#2DD4BF; --accent-soft:rgba(45,212,191,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:#06090C; color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    display:flex; justify-content:center; min-height:100vh;
+  }
+  .phone{width:100%; max-width:375px; background:var(--bg); min-height:100vh; padding:22px 18px 48px;}
+  .brand{font-size:12px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase; margin-bottom:16px;}
+  h1{font-size:20px; line-height:1.5; margin:0 0 10px; font-weight:600;}
+  h2{font-size:15px; line-height:1.5; margin:22px 0 10px; font-weight:600;}
+  p{margin:0 0 12px; font-size:14px; line-height:1.7; color:var(--muted);}
+  .note{font-size:12px; line-height:1.7; color:var(--muted);}
+  .tag{display:inline-block; font-size:11px; color:var(--accent); border:1px solid var(--line); border-radius:20px; padding:3px 10px; margin-bottom:12px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:10px;}
+  .chart-wrap{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:8px;}
+  .tabs{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; margin:4px 0 14px; -webkit-overflow-scrolling:touch;}
+  .tab{
+    flex:0 0 auto; font:inherit; font-size:13px; padding:8px 14px; border-radius:20px; cursor:pointer;
+    background:var(--card); border:1px solid var(--line); color:var(--muted);
+  }
+  .tab.on{border-color:var(--accent); background:var(--accent-soft); color:var(--accent);}
+  .kpis{display:flex; gap:10px; margin-bottom:12px;}
+  .kpi{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 10px;}
+  .kpi .k{font-size:11px; color:var(--muted); margin-bottom:6px;}
+  .kpi .v{font-size:19px; font-weight:600; color:var(--text); line-height:1.2;}
+  .kpi .u{font-size:11px; color:var(--muted); margin-top:4px;}
+  .m-row{display:flex; align-items:center; gap:10px; padding:8px 0;}
+  .m-name{width:92px; flex:0 0 auto; font-size:12px; color:var(--muted);}
+  .m-track{flex:1; height:4px; background:var(--line); border-radius:4px; overflow:hidden;}
+  .m-track > i{display:block; height:100%; background:var(--accent);}
+  .m-val{width:34px; flex:0 0 auto; text-align:right; font-size:12px; color:var(--text);}
+  .cmp-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+  .cmp-name{font-size:14px; color:var(--text);}
+  .cmp-slope{font-size:12px; color:var(--muted);}
+  .cmp-track{height:6px; background:var(--line); border-radius:6px; overflow:hidden; margin-bottom:8px;}
+  .cmp-track > i{display:block; height:100%; background:var(--accent);}
+  .cmp-text{font-size:12px; line-height:1.7; color:var(--muted); margin-bottom:4px;}
+  .spec{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  .chip{font-size:11px; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:2px 7px;}
+  .divider{height:1px; background:var(--line); margin:20px 0;}
+  .btn{
+    display:block; width:100%; font:inherit; font-size:15px; padding:14px; border-radius:12px;
+    border:1px solid var(--accent); background:transparent; color:var(--accent); font-weight:600; cursor:pointer; margin-bottom:10px;
+  }
+  .btn:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .week{display:flex; gap:6px; margin-top:8px;}
+  .week > div{flex:1; font-size:10px; color:var(--muted); text-align:center; border-top:1px solid var(--line); padding-top:6px;}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="brand">Tilt · Week 4</div>
+  <main id="app"></main>
+</div>
+
+<script>
+/* ============================================================
+   数据集中区：文案、指标、领域、样例数据均在此，不在逻辑里硬编码
+   ============================================================ */
+const DATA = {
+  meta: {
+    product: "Tilt",
+    page: "02_report",
+    spec_version: "V1.3",
+    ssot_checksum: "TL-SSOT-2026-09-20-A",
+    api_endpoint: "/api/v1/report/4w"   /* TODO: 接入真实 API */
+  },
+
+  copy: {
+    tag: "4 周 · 报告样例",
+    title: "你的 4 周进展",
+    lead: "这份报告只呈现你在这 4 周里实际发生的行为，不评价你的能力高低。",
+    principle: "Tilt 给的是斜率，不是分数——天赋不是被「扫描」出来的，是被「试」出来的。",
+    sample_warn: "本页所有数值均为原型演示用样例数据，非任何真实用户数据。",
+    tab_label: "切换领域",
+    curve_title: "客观水平 · 时间曲线（28 天）",
+    curve_note: "横轴为 4 周共 28 天，纵轴为系统按行为数据算出的客观水平读数（0-100）。上下波动属于正常现象。",
+    radar_title: "5 维客观指标",
+    radar_note: "这 5 项来自系统全程自动采集的行为数据，不含任何主观打分。",
+    kpi_slope: "4 周斜率",
+    kpi_slope_unit: "客观水平点 / 天",
+    kpi_days: "有效投入天数",
+    kpi_days_unit: "共 28 天",
+    kpi_minutes: "累计投入",
+    kpi_minutes_unit: "分钟",
+    compare_title: "跨领域对比",
+    compare_lead: "下面按 4 周斜率从高到低排列，只做并列呈现，不替你排序决策。",
+    slope_high: "这一方向 4 周的斜率相对陡一些，可以作为继续观察的候选之一。",
+    slope_mid:  "这一方向 4 周的斜率居中，目前的信号还不够明确。",
+    slope_low:  "这一方向 4 周的斜率较平缓，也许和投入节奏、任务难度或反馈速度有关。",
+    weeks_title: "4 周任务递进节奏",
+    weeks_note: "每周使用的任务等级按固定节奏递进：第 1 周 L1-L2，第 2 周 L2-L3，第 3 周 L3-L4，第 4 周 L4-L5。",
+    decision_title: "接下来怎么走，由你决定",
+    decision_body: "4 周的数据只能说明「这段时间的进展速度」，不能说明「未来必然会怎样」。要不要在某一个方向上继续投入、投入多久，判断权在你自己手里。",
+    decision_note: "Tilt 不做职业推荐，也不承诺任何结果。",
+    btn_more: "再看 4 周（原型示意）",
+    btn_domains: "回到候选领域筛选（原型示意）",
+    chart_fail: "图表需要联网加载 Chart.js，下方文字读取不受影响。",
+    eval_label: "评估器",
+    gardner_label: "智能类型"
+  },
+
+  /* 3.5 5 维客观指标（字段名固定） */
+  metrics: [
+    { field:"bounce_back",            name:"挫败后反弹力" },
+    { field:"repetition",             name:"重复意愿" },
+    { field:"detail_sensitivity",     name:"细节敏感度" },
+    { field:"proactive_optimization", name:"主动优化倾向" },
+    { field:"pain_tolerance",         name:"痛苦耐受度" }
+  ],
+
+  /* 3.4 坐标系 6 维（用于展示本报告的映射来源） */
+  dimensions: [
+    { field:"cognitive_style",   name:"认知风格" },
+    { field:"energy_source",     name:"能量来源" },
+    { field:"feedback_speed",    name:"反馈速度" },
+    { field:"value_orientation", name:"价值取向" },
+    { field:"risk_attitude",     name:"风险态度" },
+    { field:"abstraction_level", name:"抽象层级" }
+  ],
+
+  /* 3.2 Gardner 枚举标签 */
+  gardner_label: {
+    linguistic: "语言智能",
+    logical_mathematical: "逻辑-数学智能",
+    spatial: "空间智能",
+    bodily_kinesthetic: "身体-运动智能",
+    musical: "音乐智能",
+    interpersonal: "人际智能",
+    intrapersonal: "内省智能",
+    naturalist: "自然观察智能"
+  },
+
+  /* 3.9 4 周任务递进节奏 */
+  weeks: [
+    { week:1, level:"L1-L2" },
+    { week:2, level:"L2-L3" },
+    { week:3, level:"L3-L4" },
+    { week:4, level:"L4-L5" }
+  ],
+
+  /* 本次报告涉及的领域：ID 与三项数值严格取自 3.1 表 */
+  domains: [
+    {
+      id:"writing_general", name:"写作（通用）",
+      gardner:"linguistic", startup_cost:2, feedback_speed:3, mechanism_strength:2,
+      evaluator_type:"llm_writing",
+      slope:0.95, active_days:22, total_minutes:610,
+      series:[14.0,16.8,16.5,19.2,19.0,18.8,21.5,21.2,24.0,23.7,23.5,26.2,26.0,28.8,28.5,28.2,31.0,30.8,33.5,33.2,33.0,35.8,35.5,38.2,38.0,37.8,40.5,40.2],
+      metrics:{ bounce_back:72, repetition:81, detail_sensitivity:58, proactive_optimization:66, pain_tolerance:54 }
+    },
+    {
+      id:"photography", name:"摄影",
+      gardner:"spatial", startup_cost:2, feedback_speed:4, mechanism_strength:3,
+      evaluator_type:"llm_image",
+      slope:0.66, active_days:19, total_minutes:525,
+      series:[16.0,18.5,17.9,20.4,19.8,19.3,21.8,21.2,23.7,23.1,22.6,25.1,24.5,27.0,26.4,25.9,28.4,27.8,30.3,29.7,29.2,31.7,31.1,33.6,33.0,32.5,35.0,34.4],
+      metrics:{ bounce_back:60, repetition:68, detail_sensitivity:77, proactive_optimization:59, pain_tolerance:62 }
+    },
+    {
+      id:"programming", name:"编程",
+      gardner:"logical_mathematical", startup_cost:4, feedback_speed:3, mechanism_strength:1,
+      evaluator_type:"auto_test",
+      slope:0.34, active_days:16, total_minutes:470,
+      series:[11.0,13.1,12.3,14.4,13.6,12.7,14.8,14.0,16.1,15.3,14.4,16.5,15.7,17.8,17.0,16.1,18.2,17.4,19.5,18.7,17.8,19.9,19.1,21.2,20.4,19.5,21.6,20.8],
+      metrics:{ bounce_back:49, repetition:41, detail_sensitivity:70, proactive_optimization:45, pain_tolerance:66 }
+    }
+  ],
+
+  /* 斜率档位文案阈值（仅用于挑选上面的引导性文案） */
+  slope_bands: { high:0.60, mid:0.35 }
+};
+
+/* ============================================================
+   渲染
+   ============================================================ */
+const app = document.getElementById("app");
+let chartLine = null, chartRadar = null;
+let current = DATA.domains[0].id;
+
+function el(html){ const d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
+function cur(){ return DATA.domains.filter(function(d){ return d.id === current; })[0]; }
+function slopeText(s){
+  if(s >= DATA.slope_bands.high) return DATA.copy.slope_high;
+  if(s >= DATA.slope_bands.mid)  return DATA.copy.slope_mid;
+  return DATA.copy.slope_low;
+}
+function sortedDomains(){
+  return DATA.domains.slice().sort(function(a,b){ return b.slope - a.slope; });
+}
+
+function render(){
+  if(chartLine){ chartLine.destroy(); chartLine = null; }
+  if(chartRadar){ chartRadar.destroy(); chartRadar = null; }
+  app.innerHTML = "";
+  const d = cur();
+
+  const head = el(
+    '<div>' +
+      '<span class="tag">' + DATA.copy.tag + '</span>' +
+      '<h1>' + DATA.copy.title + '</h1>' +
+      '<p>' + DATA.copy.lead + '</p>' +
+      '<p>' + DATA.copy.principle + '</p>' +
+      '<p class="note">' + DATA.copy.sample_warn + '</p>' +
+    '</div>'
+  );
+  app.appendChild(head);
+
+  /* 领域切换 */
+  const tabsBox = el('<div><div class="note" style="margin-bottom:6px">' + DATA.copy.tab_label + '</div><div class="tabs" id="tabs"></div></div>');
+  app.appendChild(tabsBox);
+  const tabs = tabsBox.querySelector("#tabs");
+  DATA.domains.forEach(function(dd){
+    const b = el('<button class="tab' + (dd.id === current ? ' on' : '') + '">' + dd.name + '</button>');
+    b.onclick = function(){ current = dd.id; render(); };
+    tabs.appendChild(b);
+  });
+
+  /* 当前领域元信息 */
+  const metaCard = el(
+    '<div class="card">' +
+      '<div style="font-size:15px;color:var(--text);margin-bottom:6px">' + d.name + ' · <span class="note">' + d.id + '</span></div>' +
+      '<div class="spec">' +
+        '<span class="chip">' + DATA.copy.gardner_label + '：' + DATA.gardner_label[d.gardner] + '</span>' +
+        '<span class="chip">' + DATA.copy.eval_label + '：' + d.evaluator_type + '</span>' +
+        '<span class="chip">启动成本 ' + d.startup_cost + '</span>' +
+        '<span class="chip">反馈速度 ' + d.feedback_speed + '</span>' +
+        '<span class="chip">机制强度 ' + d.mechanism_strength + '</span>' +
+      '</div>' +
+    '</div>'
+  );
+  app.appendChild(metaCard);
+
+  /* KPI */
+  const kpis = el(
+    '<div class="kpis">' +
+      '<div class="kpi"><div class="k">' + DATA.copy.kpi_slope + '</div><div class="v">' + d.slope.toFixed(2) + '</div><div class="u">' + DATA.copy.kpi_slope_unit + '</div></div>' +
+      '<div class="kpi"><div class="k">' + DATA.copy.kpi_days + '</div><div class="v">' + d.active_days + '</div><div class="u">' + DATA.copy.kpi_days_unit + '</div></div>' +
+      '<div class="kpi"><div class="k">' + DATA.copy.kpi_minutes + '</div><div class="v">' + d.total_minutes + '</div><div class="u">' + DATA.copy.kpi_minutes_unit + '</div></div>' +
+    '</div>'
+  );
+  app.appendChild(kpis);
+
+  /* 曲线 */
+  app.appendChild(el('<h2>' + DATA.copy.curve_title + '</h2>'));
+  const lineWrap = el('<div class="chart-wrap"><canvas id="line" height="220"></canvas></div><p class="note" style="margin-bottom:6px">' + DATA.copy.curve_note + '</p>');
+  app.appendChild(lineWrap);
+
+  /* 5 维雷达 */
+  app.appendChild(el('<h2>' + DATA.copy.radar_title + '</h2>'));
+  const radarWrap = el('<div class="chart-wrap"><canvas id="radar" height="240"></canvas></div><p class="note" style="margin-bottom:6px">' + DATA.copy.radar_note + '</p>');
+  app.appendChild(radarWrap);
+
+  /* 5 维数值条 */
+  const mBox = el('<div class="card" id="metric-rows"></div>');
+  app.appendChild(mBox);
+  const rows = mBox.querySelector("#metric-rows");
+  DATA.metrics.forEach(function(m){
+    const v = d.metrics[m.field];
+    rows.appendChild(el(
+      '<div class="m-row">' +
+        '<div class="m-name">' + m.name + '</div>' +
+        '<div class="m-track"><i style="width:' + v + '%"></i></div>' +
+        '<div class="m-val">' + v + '</div>' +
+      '</div>'
+    ));
+  });
+
+  /* 跨领域对比 */
+  app.appendChild(el('<h2>' + DATA.copy.compare_title + '</h2>'));
+  app.appendChild(el('<p style="margin-bottom:10px">' + DATA.copy.compare_lead + '</p>'));
+  const cmp = el('<div id="cmp"></div>');
+  app.appendChild(cmp);
+  const maxSlope = Math.max.apply(null, DATA.domains.map(function(x){ return x.slope; }));
+  sortedDomains().forEach(function(x){
+    cmp.appendChild(el(
+      '<div class="card">' +
+        '<div class="cmp-head"><span class="cmp-name">' + x.name + '</span><span class="cmp-slope">' + DATA.copy.kpi_slope + ' ' + x.slope.toFixed(2) + '</span></div>' +
+        '<div class="cmp-track"><i style="width:' + Math.round(x.slope / maxSlope * 100) + '%"></i></div>' +
+        '<div class="cmp-text">' + slopeText(x.slope) + '</div>' +
+        '<div class="spec">' +
+          '<span class="chip">启动成本 ' + x.startup_cost + '</span>' +
+          '<span class="chip">反馈速度 ' + x.feedback_speed + '</span>' +
+          '<span class="chip">机制强度 ' + x.mechanism_strength + '</span>' +
+        '</div>' +
+      '</div>'
+    ));
+  });
+
+  /* 递进节奏 */
+  app.appendChild(el('<h2>' + DATA.copy.weeks_title + '</h2>'));
+  const wk = el('<div class="card"><p class="note" style="margin-bottom:0">' + DATA.copy.weeks_note + '</p><div class="week"></div></div>');
+  app.appendChild(wk);
+  const wkRow = wk.querySelector(".week");
+  DATA.weeks.forEach(function(w){
+    wkRow.appendChild(el('<div>第 ' + w.week + ' 周<br>' + w.level + '</div>'));
+  });
+
+  /* 决策区 */
+  app.appendChild(el('<div class="divider"></div>'));
+  app.appendChild(el(
+    '<div>' +
+      '<h2 style="margin-top:0">' + DATA.copy.decision_title + '</h2>' +
+      '<p>' + DATA.copy.decision_body + '</p>' +
+      '<p class="note" style="margin-bottom:14px">' + DATA.copy.decision_note + '</p>' +
+      '<button class="btn" id="btn-more">' + DATA.copy.btn_more + '</button>' +
+      '<button class="btn" id="btn-domains">' + DATA.copy.btn_domains + '</button>' +
+    '</div>'
+  ));
+
+  drawLine(d);
+  drawRadar(d);
+}
+
+function drawLine(d){
+  const cv = document.getElementById("line");
+  if(typeof Chart === "undefined"){ cv.parentNode.parentNode.insertBefore(el('<p class="note">' + DATA.copy.chart_fail + '</p>'), cv.parentNode.nextSibling); cv.parentNode.style.display="none"; return; }
+  const labels = d.series.map(function(_, i){ return "D" + (i + 1); });
+  chartLine = new Chart(cv.getContext("2d"), {
+    type:"line",
+    data:{
+      labels: labels,
+      datasets:[{
+        label: d.name,
+        data: d.series,
+        borderColor:"#2DD4BF",
+        backgroundColor:"rgba(45,212,191,.14)",
+        borderWidth:2, tension:.25, fill:true,
+        pointRadius:0, pointHoverRadius:3, pointHoverBackgroundColor:"#2DD4BF"
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ intersect:false, mode:"index" },
+      scales:{
+        x:{ ticks:{ color:"#8B93A1", font:{size:9}, maxTicksLimit:8 }, grid:{ color:"rgba(255,255,255,.06)" } },
+        y:{ min:0, max:100, ticks:{ stepSize:25, color:"#8B93A1", font:{size:9} }, grid:{ color:"rgba(255,255,255,.06)" } }
+      },
+      plugins:{
+        legend:{ display:false },
+        tooltip:{ callbacks:{ title:function(items){ return "第 " + (items[0].dataIndex + 1) + " 天"; } } }
+      }
+    }
+  });
+}
+
+function drawRadar(d){
+  const cv = document.getElementById("radar");
+  if(typeof Chart === "undefined"){ cv.parentNode.parentNode.insertBefore(el('<p class="note">' + DATA.copy.chart_fail + '</p>'), cv.parentNode.nextSibling); cv.parentNode.style.display="none"; return; }
+  chartRadar = new Chart(cv.getContext("2d"), {
+    type:"radar",
+    data:{
+      labels: DATA.metrics.map(function(m){ return m.name; }),
+      datasets:[{
+        label: d.name,
+        data: DATA.metrics.map(function(m){ return d.metrics[m.field]; }),
+        borderColor:"#2DD4BF", backgroundColor:"rgba(45,212,191,.16)",
+        pointBackgroundColor:"#2DD4BF", pointBorderColor:"#0B0F14", borderWidth:2
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      scales:{
+        r:{
+          min:0, max:100,
+          ticks:{ stepSize:25, color:"#8B93A1", backdropColor:"transparent", font:{size:9} },
+          grid:{ color:"rgba(255,255,255,.08)" },
+          angleLines:{ color:"rgba(255,255,255,.08)" },
+          pointLabels:{ color:"#E6EAF0", font:{size:11} }
+        }
+      },
+      plugins:{
+        legend:{ display:false },
+        tooltip:{ callbacks:{ label:function(c){ return c.raw + " / 100"; } } }
+      }
+    }
+  });
+}
+
+/* TODO: 接入真实 API —— 页面加载时按 user_id + cycle 拉取 4 周报告数据，替换 DATA.domains 中的样例值 */
+render();
+</script>
+</body>
+</html>

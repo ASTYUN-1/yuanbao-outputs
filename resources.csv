@@ -1,0 +1,256 @@
+﻿# === TILT-CONTRACT-MANIFEST ===
+# task_id: C04
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝（Yuanbao）
+# produced_at: 2026-09-20
+# batch: all
+# output_files:
+#   - resources.csv   (rows: 227)
+# unverified_count: 198
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - 列序按第6.1节与6.2示例行执行（末尾为 verify_status,source）；第4.1节写作"末尾两列为 source、verify_status"，两处冲突，已按任务节执行并在此报备
+#   - url_or_location 全部为"平台名 · 入口位置"、无具体链接，故 platform/community/tool 行 verify_status 均为 待核验
+# === END MANIFEST ===
+domain_id,resource_type,name,url_or_location,why_recommended,verify_status,source
+writing_general,platform,"知乎 · 写作话题","知乎 · 写作话题页","每天发一篇 300-800 字短文，看赞同与评论的数量与内容变化，为 4 周内的反馈速度与重复意愿提供连续数据",待核验,cloud-draft
+writing_general,platform,"简书 · 写作专题投稿","简书 · 专题投稿页","投稿有明确发布对象与审核结果，可稳定统计连续更新天数与完成率",待核验,cloud-draft
+writing_general,community,"豆瓣 · 写作小组","豆瓣 · 写作相关小组","把文章贴进小组求点评，拿到他人视角的修改意见，检验细节敏感度",待核验,cloud-draft
+writing_general,book,"《写作这回事》斯蒂芬·金","公开出版物 · 书名检索","按书中固定字数、写完再改的做法执行 4 周，让练习动作可重复、可计量",ok,cloud-draft
+writing_general,tool,"石墨文档 · 历史版本","石墨文档 · 文档修订记录","每次改稿都留下版本记录，可量化主动优化倾向与改稿深度",待核验,cloud-draft
+translation,platform,"TED · 双语字幕演讲","TED · Talks 字幕页","每天译 1-2 分钟演讲稿再对照官方译文，立刻看到差距，是典型的短反馈练习",待核验,cloud-draft
+translation,platform,"译言网 · 译文发布区","译言网 · 译文发布区","把译文公开发布并接受读者纠错，可统计被指出错误数量的下降趋势",待核验,cloud-draft
+translation,community,"知乎 · 翻译话题","知乎 · 翻译话题页","译法争议讨论密集，可把拿不准的句子贴出去求判断，练细节敏感度",待核验,cloud-draft
+translation,book,"《英汉翻译教程》张培基","公开出版物 · 书名检索","每章翻译练习可作为每周固定作业，便于对比第 1 周与第 4 周的译文差异",待核验,cloud-draft
+translation,tool,"DeepL · 网页翻译框","DeepL · 网页版","先自己译再对照机器译文并标出机器译错的句子，命中率可作为细节敏感度的代理指标",待核验,cloud-draft
+podcasting,platform,"小宇宙 · 主播后台","小宇宙 · 播客上传页","每周录一期 5-10 分钟节目，看播放与完播数据，检验你对听众节奏的把握",待核验,cloud-draft
+podcasting,platform,"喜马拉雅 · 个人电台","喜马拉雅 · 创作中心","订阅数与留言是外部反馈，可观察选题变化是否带来留存变化",待核验,cloud-draft
+podcasting,community,"知乎 · 播客话题","知乎 · 播客话题页","可请教选题与设备问题，避免前两周卡在工具上而错过练习本身",待核验,cloud-draft
+podcasting,tool,"Audacity · 桌面端","Audacity · 录音与降噪","免费录音并做基础降噪，自己听回放即可发现口头禅与节奏问题，练自我修正",待核验,cloud-draft
+teaching,platform,"B站 · 知识区投稿","B站 · 投稿入口","把 5 分钟讲解录成视频发出去，用弹幕与评论判断哪里没讲清楚",待核验,cloud-draft
+teaching,platform,"知乎 · 教育话题回答","知乎 · 教育话题页","每天用 300 字讲清一个概念，看点赞与收藏的比例，检验表达效率",待核验,cloud-draft
+teaching,community,"豆瓣 · 学习与互助小组","豆瓣 · 学习相关小组","找同伴当学生做 15 分钟试讲并收反馈，直接看到对方是否真的听懂",待核验,cloud-draft
+teaching,book,"《教学的勇气》帕克·帕尔默","公开出版物 · 书名检索","每周围绕书中一个观点写一段教学反思，帮你看清自己更偏向讲结构还是陪练",ok,cloud-draft
+teaching,tool,"腾讯会议 · 在线试讲录制","腾讯会议 · 云录制","回看录像可客观统计讲解与提问的时间比，让改进有依据",待核验,cloud-draft
+debating,platform,"知乎 · 辩论话题","知乎 · 辩论话题页","每天对一个争议题写 200 字立论并接受反驳，练立论速度与预判能力",待核验,cloud-draft
+debating,platform,"B站 · 辩论赛事录像","B站 · 辩论赛事视频","看一段录像后先写自己的框架再对照选手框架，检验框架完整度",待核验,cloud-draft
+debating,community,"豆瓣 · 辩论与演讲小组","豆瓣 · 辩论相关小组","约线上 1v1 短辩，直接拿到对手的即时反驳，是反馈速度最快的练习",待核验,cloud-draft
+debating,tool,"Xmind · 论证结构图","Xmind · 思维导图","把论点拆成主张、依据、反驳三层，回看结构变化可量化 4 周的逻辑进步",待核验,cloud-draft
+script_writing,platform,"知乎 · 编剧话题","知乎 · 编剧话题页","每天写一场戏的对话并发布，看读者对人物动机的理解是否与你想的一致",待核验,cloud-draft
+script_writing,platform,"B站 · 编剧教学视频","B站 · 编剧教学区","按视频中的结构方法拆解一部熟悉的电影，产出可对比的分析笔记",待核验,cloud-draft
+script_writing,community,"豆瓣 · 剧本与影视小组","豆瓣 · 剧本相关小组","贴一页剧本求反馈，别人的疑问正好暴露你没有写清楚的地方",待核验,cloud-draft
+script_writing,book,"《故事》罗伯特·麦基","公开出版物 · 书名检索","用'场景必须有价值转折'作为每周改稿的检查项，让修改标准统一",ok,cloud-draft
+script_writing,tool,"Final Draft · 剧本编辑器","Final Draft · 试用版","标准格式让你专注在叙事本身，也方便别人阅读并给出反馈",待核验,cloud-draft
+blogging,platform,"知乎 · 个人专栏","知乎 · 专栏页","每周发布一篇长文，阅读与评论曲线能反映选题是否真的有人关心",待核验,cloud-draft
+blogging,platform,"微信公众号 · 个人订阅号","微信公众平台 · 后台","固定更新频率可统计连续发布天数，订阅数变化是慢但真实的反馈",待核验,cloud-draft
+blogging,community,"豆瓣 · 博客与写作小组","豆瓣 · 写作相关小组","互相读对方的更新并留言，形成稳定的反馈来源，避免自说自话",待核验,cloud-draft
+blogging,tool,"Notion · 选题与草稿库","Notion · 数据库视图","用看板记录选题、草稿、已发布状态，可直接统计 4 周的产出节奏",待核验,cloud-draft
+go,platform,"野狐围棋 · 对局平台","野狐围棋 · 对局大厅","每天 1-2 盘快棋，等级分变化是 4 周进步斜率最客观的指标",待核验,cloud-draft
+go,platform,"弈城围棋 · 对局平台","弈城围棋 · 对局大厅","换一个对手池可检验进步是否只在熟悉的对手身上成立",待核验,cloud-draft
+go,community,"知乎 · 围棋话题","知乎 · 围棋话题页","贴棋谱求复盘，别人的判断能暴露你自己看不到的盲点",待核验,cloud-draft
+go,tool,"KataGo · 本地分析引擎","KataGo · 开源分析引擎","每盘后算胜率曲线，量化从哪一步开始崩、以及重复犯的是哪类错误",待核验,cloud-draft
+chess,platform,"Lichess · 在线对局","Lichess · 对局与题库","免注册即可下棋且自动记录等级分，每天一盘就能得到连续曲线",待核验,cloud-draft
+chess,platform,"Chess.com · 每日谜题","Chess.com · 谜题练习","谜题有即时对错与难度分，可分开观察计算力与大局观的变化",待核验,cloud-draft
+chess,community,"知乎 · 国际象棋话题","知乎 · 国际象棋话题页","发自己的对局求复盘，能快速定位开局与中局的薄弱点",待核验,cloud-draft
+chess,tool,"Stockfish · 本地分析引擎","Stockfish · 开源分析引擎","每局生成评估分变化，把'感觉下错了'变成可定位的具体手数",待核验,cloud-draft
+programming,platform,"LeetCode · 题库","LeetCode · 每日一题","每日一题有通过与失败、耗时记录，4 周可统计通过率与平均用时下降",待核验,cloud-draft
+programming,platform,"GitHub · 个人仓库","GitHub · 仓库提交记录","每天一次 commit 形成连续记录，可量化持续性与主动优化倾向",待核验,cloud-draft
+programming,community,"知乎 · 编程话题","知乎 · 编程话题页","贴代码求 review，别人的意见能暴露你注意不到的工程习惯问题",待核验,cloud-draft
+programming,book,"《Python编程：从入门到实践》埃里克·马瑟斯","公开出版物 · 书名检索","按章节每天做一节练习并提交，练习有明确产出、难度递进清晰",ok,cloud-draft
+programming,tool,"VS Code · 编辑器","VS Code · 桌面端","配合插件统计每日编码时长与文件改动量，为重复意愿提供客观数据",待核验,cloud-draft
+math_olympiad,platform,"AoPS · 在线题库","Art of Problem Solving · 题库页","分难度题库有即时对错判定，可按正确率分档追踪 4 周变化",待核验,cloud-draft
+math_olympiad,platform,"B站 · 数学竞赛讲解","B站 · 竞赛数学教学区","先自己做题再看讲解，能区分'不会'和'会但慢'，练解题稳定性",待核验,cloud-draft
+math_olympiad,community,"知乎 · 数学竞赛话题","知乎 · 数学竞赛话题页","贴自己的解法求更优解，是长反馈领域里最快的外部校准",待核验,cloud-draft
+math_olympiad,tool,"GeoGebra · 图形验证","GeoGebra · 网页版","把解画出来验证，练自查能力，也能看出你对图形的直觉是否可靠",待核验,cloud-draft
+strategy_games,platform,"Board Game Arena · 在线对局","Board Game Arena · 网页对局","每天一局并记录胜负与得分，规则固定，结果可直接横向比较",待核验,cloud-draft
+strategy_games,platform,"Steam · 策略类游戏","Steam · 策略游戏分类","单机关卡有明确胜负与难度分级，可按通关难度追踪提升",待核验,cloud-draft
+strategy_games,community,"知乎 · 桌游话题","知乎 · 桌游话题页","交流开局思路，把'为什么输'变成可讨论的具体决策点",待核验,cloud-draft
+strategy_games,tool,"复盘笔记 · 每局决策记录","本地笔记 · 决策日志","记录每局的三个关键决策与结果，4 周后能看出决策质量是否变稳",待核验,cloud-draft
+cryptography,platform,"CryptoHack · 在线挑战","CryptoHack · 挑战关卡","分关挑战有即时通过判定，可统计通过关卡数与卡关时长",待核验,cloud-draft
+cryptography,platform,"CTFtime · 赛事日历","CTFtime · 赛事列表","参加入门 CTF，赛后公开 writeup 可对照自己的解法，拿到外部标准",待核验,cloud-draft
+cryptography,community,"知乎 · 密码学话题","知乎 · 密码学话题页","提问具体的算法困惑，前辈能指出你理解中的断层",待核验,cloud-draft
+cryptography,book,"《密码学原理与实践》道格拉斯·斯廷森","公开出版物 · 书名检索","每章配套习题可作为每周固定练习材料，难度曲线与 4 周节奏匹配",ok,cloud-draft
+cryptography,tool,"CyberChef · 在线编解码","CyberChef · 网页版","随手做编解码实验并立刻看到结果，降低前两周的动手门槛",待核验,cloud-draft
+bridge,platform,"Bridge Base Online · 在线桥牌","Bridge Base Online · 对局页","每天打若干副牌，系统记录结果，可分开统计叫牌与做庄的得分变化",待核验,cloud-draft
+bridge,platform,"Funbridge · 手机端练牌","Funbridge · 练习牌局","每副牌给出与全球玩家的对比分数，练完立刻知道差距在哪",待核验,cloud-draft
+bridge,community,"知乎 · 桥牌话题","知乎 · 桥牌话题页","贴牌例求叫牌建议，能暴露你对约定理解的偏差",待核验,cloud-draft
+bridge,tool,"牌例记录 · 每副复盘","本地笔记 · 牌例日志","记录每副牌的叫牌过程与结果，4 周后可统计叫牌失误率是否下降",待核验,cloud-draft
+photography,platform,"图虫 · 作品发布","图虫 · 作品页","每天发一张同主题照片，看点赞与评论的变化，主题统一便于 4 周对比",待核验,cloud-draft
+photography,platform,"小红书 · 摄影话题","小红书 · 摄影话题页","发布时附上参数，评论区常直接指出构图与曝光问题",待核验,cloud-draft
+photography,community,"知乎 · 摄影话题","知乎 · 摄影话题页","把同一场景的两张照片贴出去求选，能看出你的判断与他人偏好的差异",待核验,cloud-draft
+photography,book,"《摄影的艺术》布鲁斯·巴恩博","公开出版物 · 书名检索","每周围绕一个概念（如曝光控制）拍一组对照照片，练习可被检视",ok,cloud-draft
+photography,tool,"Snapseed · 手机后期","Snapseed · 移动端","后期前后对比能暴露现场拍摄时的取舍失误，练细节敏感度",待核验,cloud-draft
+ui_design,platform,"即时设计 · 在线设计","即时设计 · 网页版","每天做一版界面改稿并留存版本，4 周后可直接并排比较",待核验,cloud-draft
+ui_design,platform,"Dribbble · 作品浏览","Dribbble · 作品页","每天临摹一张优秀作品并发布，收藏与评论是外部反馈",待核验,cloud-draft
+ui_design,community,"知乎 · UI 设计话题","知乎 · UI 设计话题页","发稿求点评，别人的第一眼感受能检验你的视觉层级是否成立",待核验,cloud-draft
+ui_design,book,"《写给大家看的设计书》罗宾·威廉姆斯","公开出版物 · 书名检索","用对比、重复、对齐、亲密四条原则逐条检查自己的稿，改稿有标准",ok,cloud-draft
+ui_design,tool,"Figma · 网页版","Figma · 组件与变体","用组件快速出 A/B 两版，练主动优化倾向，也让反馈更具体",待核验,cloud-draft
+modeling_3d,platform,"Blender · 官方教程","Blender · 官方教程页","按官方入门系列每天做一个小模型，产出明确、难度递进",待核验,cloud-draft
+modeling_3d,platform,"Sketchfab · 模型发布","Sketchfab · 上传页","上传模型看浏览与点赞，并可与同类模型直观对比",待核验,cloud-draft
+modeling_3d,community,"知乎 · 3D 建模话题","知乎 · 3D 建模话题页","发布线框与成品图求指点，能快速发现拓扑与比例问题",待核验,cloud-draft
+modeling_3d,tool,"Blender · 桌面端","Blender · 建模与渲染","免费且能完成建模到渲染全流程，每天 30 分钟即可产出可交付物",待核验,cloud-draft
+architecture_design,platform,"ArchDaily · 案例库","ArchDaily · 项目案例页","每天分析一个案例并画一张平面示意，练空间阅读与转译",待核验,cloud-draft
+architecture_design,platform,"Pinterest · 建筑灵感板","Pinterest · 画板","收集并分类素材，可观察自己的偏好是否随 4 周逐渐收窄聚焦",待核验,cloud-draft
+architecture_design,community,"知乎 · 建筑话题","知乎 · 建筑话题页","贴出自己的方案求意见，能检验空间意图是否被读懂",待核验,cloud-draft
+architecture_design,book,"《建筑：形式、空间和秩序》弗朗西斯·D.K.钦","公开出版物 · 书名检索","每章配图练习可直接作为每日 15-30 分钟的产出，起步最稳",ok,cloud-draft
+architecture_design,book,"《建筑空间组合论》彭一刚","公开出版物 · 书名检索","中文语境下的空间分析范例，便于把观察转成自己的分析语言",ok,cloud-draft
+architecture_design,tool,"SketchUp · 网页版","SketchUp · 三维体块","快速搭体块模型，把想法变成可看的三维成果，便于他人反馈",待核验,cloud-draft
+video_editing,platform,"B站 · 短片投稿","B站 · 投稿入口","发布 1 分钟短片看完播率与弹幕分布，完播率直接反映节奏把控",待核验,cloud-draft
+video_editing,platform,"新片场 · 作品发布","新片场 · 作品页","面向创作者社区，评论更聚焦剪辑与调色等技术细节",待核验,cloud-draft
+video_editing,community,"知乎 · 视频剪辑话题","知乎 · 视频剪辑话题页","发片求吐槽，能发现你自己已经看习惯的节奏问题",待核验,cloud-draft
+video_editing,book,"《眨眼之间》沃尔特·默奇","公开出版物 · 书名检索","用书中剪辑原则逐条复盘自己的片子，让改片有依据而非凭感觉",ok,cloud-draft
+video_editing,tool,"DaVinci Resolve · 免费版","DaVinci Resolve · 剪辑与调色","免费即可完成剪辑到调色，每天一个小练习就有成片产出",待核验,cloud-draft
+animation,platform,"B站 · 动画区投稿","B站 · 动画区","发布短动画看播放与弹幕，观众对动作流畅度的反应很直接",待核验,cloud-draft
+animation,platform,"Vimeo · 作品页","Vimeo · 作品发布","播放完成度数据可看观众在哪一秒流失，定位节奏问题",待核验,cloud-draft
+animation,community,"知乎 · 动画话题","知乎 · 动画话题页","贴 GIF 求帧数与节奏建议，外力反馈能缩短独自摸索的时间",待核验,cloud-draft
+animation,book,"《动画师生存手册》理查德·威廉姆斯","公开出版物 · 书名检索","按书中的弹跳球与走路循环练习，是 4 周内反馈最快的经典练习",ok,cloud-draft
+animation,tool,"OpenToonz · 桌面端","OpenToonz · 二维动画","免费做逐帧练习并导出 GIF 检查，动作问题一眼可见",待核验,cloud-draft
+painting,platform,"小红书 · 绘画话题","小红书 · 绘画话题页","每天发一张速写，点赞与评论能反映你进步是否被他人看见",待核验,cloud-draft
+painting,platform,"ArtStation · 作品发布","ArtStation · 作品页","与更专业的作品同台，浏览与收藏数是硬反馈",待核验,cloud-draft
+painting,community,"知乎 · 绘画话题","知乎 · 绘画话题页","求具体修改意见，可检验你对形体与光影的判断偏差",待核验,cloud-draft
+painting,tool,"Procreate · iPad 版","Procreate · 作画回放","回放功能自动生成作画过程，可回看用笔顺序与时间分配",待核验,cloud-draft
+running,platform,"悦跑圈 · 跑步记录","悦跑圈 · 运动记录","自动记录配速与距离，4 周可算同等心率下配速的变化",待核验,cloud-draft
+running,platform,"Strava · 运动记录","Strava · 分段对比","同一路线的分段对比能看出每周的实际进步，而非主观感觉",待核验,cloud-draft
+running,community,"知乎 · 跑步话题","知乎 · 跑步话题页","发配速与心率数据求分析，避免自己误判强度",待核验,cloud-draft
+running,book,"《跑步圣经》乔治·希恩","公开出版物 · 书名检索","每天读一节再跑一次，把身体感受与文字对照，练习体验更可记录",ok,cloud-draft
+running,tool,"Keep · 训练计划","Keep · 跑步课程","结构化计划保证每周强度递进，避免 4 周内负荷失控导致中断",待核验,cloud-draft
+fitness,platform,"Keep · 训练课程","Keep · 训练跟练","跟练有完成度记录，可统计连续打卡率与动作完成率",待核验,cloud-draft
+fitness,platform,"B站 · 健身教学视频","B站 · 健身教学区","大量分解教学便于纠正动作，每天 20 分钟即可完成一次训练",待核验,cloud-draft
+fitness,community,"知乎 · 健身话题","知乎 · 健身话题页","发动作视频求纠正，外力反馈能显著降低受伤风险",待核验,cloud-draft
+fitness,book,"《力量训练基础》马克·瑞比托","公开出版物 · 书名检索","按书中线性进阶记录重量，4 周能看到明确的重量增长曲线",ok,cloud-draft
+fitness,tool,"薄荷健康 · 饮食记录","薄荷健康 · 记录页","记录摄入与体重变化，让力量变化有对照变量，避免误判",待核验,cloud-draft
+yoga,platform,"每日瑜伽 · 课程","每日瑜伽 · 课程页","按课程打卡并记录时长，可统计 4 周的连续性与体式完成度",待核验,cloud-draft
+yoga,platform,"B站 · 瑜伽跟练视频","B站 · 瑜伽教学区","免费跟练视频可按难度自选，便于把每天的时间控制在 15-30 分钟",待核验,cloud-draft
+yoga,community,"知乎 · 瑜伽话题","知乎 · 瑜伽话题页","描述体式中的身体感受求建议，能判断是柔韧受限还是发力方式问题",待核验,cloud-draft
+yoga,book,"《瑜伽之光》艾扬格","公开出版物 · 书名检索","每周围绕几组体式精读，把'做到'变成'做对'，练习更可评估",ok,cloud-draft
+martial_arts,platform,"B站 · 武术教学视频","B站 · 武术教学区","按套路分解每天练一段，录像前後对比即可看出动作稳定性变化",待核验,cloud-draft
+martial_arts,platform,"抖音 · 武术话题","抖音 · 武术话题页","发布练习片段看评论，能快速获得动作与节奏上的外部意见",待核验,cloud-draft
+martial_arts,community,"知乎 · 武术与格斗话题","知乎 · 武术话题页","发视频求指正，外力反馈弥补独自练习看不到自己动作的问题",待核验,cloud-draft
+martial_arts,tool,"手机慢动作录像 · 动作回放","手机相册 · 慢动作回放","慢放对比示范视频，可自己发现重心与发力顺序的问题",待核验,cloud-draft
+dance,platform,"B站 · 舞蹈教学视频","B站 · 舞蹈教学区","大量分解教学，每天跟练 15 分钟有明确动作目标",待核验,cloud-draft
+dance,platform,"抖音 · 舞蹈话题","抖音 · 舞蹈话题页","发布 15 秒片段看播放与评论，是反馈速度最快的渠道之一",待核验,cloud-draft
+dance,community,"知乎 · 舞蹈话题","知乎 · 舞蹈话题页","发练习视频求指点，可区分是记不住动作还是动作质感问题",待核验,cloud-draft
+dance,tool,"手机镜像录制 · 动作回放","手机相册 · 镜像回放","镜像回看能立即发现左右与幅度偏差，练自我修正",待核验,cloud-draft
+climbing,platform,"本地攀岩馆 · 难度线路区","本地商业岩馆 · 难度线路","按难度分级逐条攻克，完成的线路数量与难度是清晰的进步指标",待核验,cloud-draft
+climbing,platform,"抖音 · 攀岩话题","抖音 · 攀岩话题页","看他人 beta 思路再上墙，可缩短读线时间，练空间判断",待核验,cloud-draft
+climbing,community,"知乎 · 攀岩话题","知乎 · 攀岩话题页","发攀爬视频求线路读法建议，能发现动作效率低下的真正原因",待核验,cloud-draft
+climbing,tool,"手机录像 · 攀爬回放","手机相册 · 攀爬录像","回放看脚位与重心，把'掉了'变成可定位的具体原因",待核验,cloud-draft
+badminton,platform,"本地球馆 · 约球对抗","本地羽毛球馆 · 约球","每场对抗有明确胜负，可统计四周内同一对手的比分变化",待核验,cloud-draft
+badminton,platform,"B站 · 羽毛球教学视频","B站 · 羽毛球教学区","按分解动作每天练一个技术点，落点成功率可自行记录",待核验,cloud-draft
+badminton,community,"知乎 · 羽毛球话题","知乎 · 羽毛球话题页","发动作视频求纠正，能避免把错误动作练成肌肉记忆",待核验,cloud-draft
+badminton,tool,"手机高速录像 · 挥拍回放","手机相册 · 高速摄影","高速回放看击球点与时延，练细节敏感度",待核验,cloud-draft
+piano,platform,"Simply Piano · 手机课程","Simply Piano · 课程页","实时判定对错，4 周可追踪曲目通过数与准确率变化",待核验,cloud-draft
+piano,platform,"B站 · 钢琴教学视频","B站 · 钢琴教学区","按小节跟练，每天 20 分钟即可完成一个小段落",待核验,cloud-draft
+piano,community,"知乎 · 钢琴话题","知乎 · 钢琴话题页","发演奏录音求指点，能区分是识谱慢还是手型问题",待核验,cloud-draft
+piano,tool,"MuseScore · 乐谱库","MuseScore · 乐谱页","免费找谱并可回放试听，读谱与练耳都能落地",待核验,cloud-draft
+guitar,platform,"Yousician · 吉他课程","Yousician · 课程页","实时识别音准与节奏，即时反馈适合第 1-2 周建立手感",待核验,cloud-draft
+guitar,platform,"B站 · 吉他教学视频","B站 · 吉他教学区","按和弦与节奏型分块练习，每天一个小目标即可完成",待核验,cloud-draft
+guitar,community,"知乎 · 吉他话题","知乎 · 吉他话题页","发录音求诊断，能发现换和弦卡顿的真实原因",待核验,cloud-draft
+guitar,tool,"GuitarTuna · 调音器","GuitarTuna · 移动端","每次练习前校音，保证前后录音可比，避免音不准造成的假进步",待核验,cloud-draft
+composition,platform,"MuseScore · 作品发布","MuseScore · 作品页","发布乐谱看播放与评论，是作曲领域少见的短反馈渠道",待核验,cloud-draft
+composition,platform,"B站 · 作曲教学视频","B站 · 作曲与编曲教学区","按视频方法做 8 小节练习，产出短小、可在 30 分钟内完成",待核验,cloud-draft
+composition,community,"知乎 · 作曲与编曲话题","知乎 · 作曲话题页","贴 MIDI 求意见，能发现你自己听不出的配器与声部问题",待核验,cloud-draft
+composition,book,"《作曲基本原理》阿诺德·勋伯格","公开出版物 · 书名检索","每周围绕一个曲式做一段练习，结构清晰、产出可控",ok,cloud-draft
+composition,tool,"MuseScore · 打谱软件","MuseScore · 桌面端","写完即可播放，立刻听到结果，把反馈回路从几天缩短到几分钟",待核验,cloud-draft
+singing,platform,"全民K歌 · 演唱发布","全民K歌 · 作品页","系统给音准评分并有听众评论，4 周可追踪评分与收听变化",待核验,cloud-draft
+singing,platform,"B站 · 声乐教学视频","B站 · 声乐教学区","按气息与共鸣分解练习，每天 15 分钟即可完成一轮",待核验,cloud-draft
+singing,community,"知乎 · 声乐话题","知乎 · 声乐话题页","发干声求诊断，能区分是气息支撑不足还是音准问题",待核验,cloud-draft
+singing,tool,"手机录音 · 干声回放","手机 · 录音机","每周同一首歌对比录音，最容易听出气息与音准的实际变化",待核验,cloud-draft
+djing,platform,"Mixcloud · 混音发布","Mixcloud · 上传页","上传 15 分钟 mix 看收听与留言，作品有明确的交付对象",待核验,cloud-draft
+djing,platform,"B站 · DJ 教学视频","B站 · DJ 教学区","按对拍与过渡分解练习，每天一个小练习即可看到进步",待核验,cloud-draft
+djing,community,"知乎 · DJ 与电子音乐话题","知乎 · DJ 话题页","发 mix 求意见，能发现曲目编排上的情绪断层",待核验,cloud-draft
+djing,tool,"Mixxx · 免费 DJ 软件","Mixxx · 桌面端","免费即可练对拍与混音，每天 20 分钟能完成一段过渡练习",待核验,cloud-draft
+sales,platform,"闲鱼 · 二手交易发布","闲鱼 · 发布页","真实成交是最硬的反馈，每天优化一次标题与描述，可统计咨询量与成交率变化",待核验,cloud-draft
+sales,platform,"抖音 · 短视频与直播","抖音 · 创作者中心","观看、咨询、成交漏斗即时可见，便于检验话术改动的效果",待核验,cloud-draft
+sales,community,"知乎 · 销售话题","知乎 · 销售话题页","贴话术求拆解，能发现你自己察觉不到的说服漏洞",待核验,cloud-draft
+sales,book,"《影响力》罗伯特·西奥迪尼","公开出版物 · 书名检索","每周用一个原则改写一次话术，把说服变成可对照的小实验",ok,cloud-draft
+sales,tool,"飞书多维表格 · 客户跟进表","飞书多维表格 · 模板","记录每次沟通的转化结果，让话术改进有数据支撑而非靠印象",待核验,cloud-draft
+counseling,platform,"KnowYourself · 心理科普","KnowYourself · 内容页","每天读一篇并写一段我会怎么回应的假设练习，不涉及真实个案",待核验,cloud-draft
+counseling,platform,"B站 · 心理咨询教学视频","B站 · 心理咨询教学区","观摩咨询示范并写逐字稿笔记，练观察力与措辞分寸",待核验,cloud-draft
+counseling,community,"豆瓣 · 倾听与互助小组","豆瓣 · 心理相关小组","与同伴做只复述不评判的倾听练习并收集对方反馈，练习范围限于日常困扰、不涉及危机个案",待核验,cloud-draft
+counseling,book,"《给心理治疗师的礼物》欧文·亚隆","公开出版物 · 书名检索","每节写一段反思，帮你看清自己更偏向共情陪伴还是结构化引导",ok,cloud-draft
+negotiation,platform,"闲鱼 · 议价场景","闲鱼 · 议价对话","真实议价场景可记录每次让步幅度与成交结果，反馈即时且可量化",待核验,cloud-draft
+negotiation,platform,"B站 · 谈判教学视频","B站 · 谈判教学区","按视频方法预设底线与替代方案，再在真实小场景中检验",待核验,cloud-draft
+negotiation,community,"知乎 · 谈判话题","知乎 · 谈判话题页","贴出谈判过程求复盘，能发现你在哪一步过早让步",待核验,cloud-draft
+negotiation,book,"《谈判力》罗杰·费希尔","公开出版物 · 书名检索","每周用一个原则做一次真实小谈判并复盘，让练习有统一框架",ok,cloud-draft
+negotiation,tool,"飞书文档 · 谈判复盘模板","飞书文档 · 模板","记录每次谈判的底线、让步与结果，4 周后可看让步幅度是否收窄",待核验,cloud-draft
+mediation,platform,"B站 · 调解类节目片段","B站 · 调解节目视频","看真实冲突片段后写调解方案再对照结果，练中立与问题重构",待核验,cloud-draft
+mediation,platform,"中国大学MOOC · 沟通与冲突课程","中国大学MOOC · 课程页","有作业与互评机制，练习能被外部评分，避免自评偏差",待核验,cloud-draft
+mediation,community,"豆瓣 · 沟通与冲突小组","豆瓣 · 沟通相关小组","把日常小冲突匿名贴出求中立意见，检验你的表达是否真的不偏不倚",待核验,cloud-draft
+mediation,book,"《高难度谈话》道格拉斯·斯通","公开出版物 · 书名检索","用书中结构拆解一次真实冲突并复盘，让长反馈也有可检查的步骤",ok,cloud-draft
+coaching,platform,"B站 · 教练式提问教学","B站 · 教练技术教学区","按视频练习只提问不给建议，可统计自己提问与陈述的比例",待核验,cloud-draft
+coaching,platform,"中国大学MOOC · 管理与沟通课程","中国大学MOOC · 课程页","有作业与讨论区，能把对话方法落到具体场景里练习",待核验,cloud-draft
+coaching,community,"豆瓣 · 自我管理与互助小组","豆瓣 · 成长互助小组","与同伴做 20 分钟提问式对话并收集反馈，看对方是否真的自己找到答案",待核验,cloud-draft
+coaching,book,"《高绩效教练》约翰·惠特默","公开出版物 · 书名检索","用 GROW 模型作为每次练习的骨架，让 4 周的对话结构可比",ok,cloud-draft
+coaching,tool,"腾讯会议 · 对话录音回放","腾讯会议 · 云录制","回听提问与沉默的比例，量化少说多问的实际改善",待核验,cloud-draft
+recruiting,platform,"牛客 · 岗位与面经讨论","牛客 · 讨论区","大量真实岗位描述与面经，可练习从描述反推人才画像",待核验,cloud-draft
+recruiting,platform,"领英 · 岗位与人才内容","领英 · 内容页","阅读岗位描述并写出候选人画像，可与他人版本对照",待核验,cloud-draft
+recruiting,community,"知乎 · 招聘话题","知乎 · 招聘话题页","贴你写的岗位画像求从业者反馈，校准判断标准",待核验,cloud-draft
+recruiting,tool,"飞书多维表格 · 候选人评估表","飞书多维表格 · 模板","把判断标准写进评分表，看 4 周内评分与最终结果的一致率是否提高",待核验,cloud-draft
+philosophy,platform,"中国大学MOOC · 哲学导论课程","中国大学MOOC · 课程页","有作业与讨论区，观点会被回应，避免独自空转",待核验,cloud-draft
+philosophy,platform,"知乎 · 哲学话题","知乎 · 哲学话题页","每天写 200 字论证并接受反驳，练论证的严谨度",待核验,cloud-draft
+philosophy,community,"豆瓣 · 哲学小组","豆瓣 · 哲学小组","长文讨论能暴露你论证中的跳跃，是长反馈领域的必要外部校准",待核验,cloud-draft
+philosophy,book,"《大问题：简明哲学导论》罗伯特·所罗门","公开出版物 · 书名检索","每章一个问题作为 4 周主线，避免漫无目的地泛读",ok,cloud-draft
+philosophy,book,"《苏菲的世界》乔斯坦·贾德","公开出版物 · 书名检索","前两周建立整体框架最快，降低这个领域的启动成本",ok,cloud-draft
+psychology,platform,"中国大学MOOC · 心理学课程","中国大学MOOC · 课程页","有单元测试，正确率可逐周追踪",待核验,cloud-draft
+psychology,platform,"知乎 · 心理学话题","知乎 · 心理学话题页","每天解释一个现象并看是否被纠正，检验理解是否准确",待核验,cloud-draft
+psychology,community,"豆瓣 · 心理学小组","豆瓣 · 心理学小组","讨论真实案例的解释方式，能发现你概念使用上的偏差",待核验,cloud-draft
+psychology,book,"《心理学与生活》菲利普·津巴多","公开出版物 · 书名检索","每章配概念自查，把阅读转成可检验的掌握度",ok,cloud-draft
+psychology,tool,"Anki · 间隔复习卡片","Anki · 复习统计","每日复习留存率可量化，4 周能看出记忆与理解的斜率",待核验,cloud-draft
+meditation,platform,"潮汐 · 冥想音频","潮汐 · 冥想引导","有引导音频与时长记录，打卡数据连续且无需额外记录",待核验,cloud-draft
+meditation,platform,"B站 · 正念引导视频","B站 · 正念冥想区","免费引导便于每天固定时间练习，降低第 1 周的启动阻力",待核验,cloud-draft
+meditation,community,"豆瓣 · 正念与冥想小组","豆瓣 · 正念相关小组","交流分心与身体反应，减少独自练习时的误判与焦虑",待核验,cloud-draft
+meditation,book,"《正念的奇迹》一行禅师","公开出版物 · 书名检索","每天读一节再练习 10 分钟，动作统一便于 4 周比较",ok,cloud-draft
+meditation,tool,"手机计时器 · 静坐记录","手机 · 计时与备注","记录每日实际静坐时长与中断次数，是这个领域最简单的客观指标",待核验,cloud-draft
+reading,platform,"微信读书 · 书架与笔记","微信读书 · 书架页","阅读时长与划线笔记自动记录，可统计连续天数与笔记密度",待核验,cloud-draft
+reading,platform,"豆瓣读书 · 书评区","豆瓣读书 · 书评页","每本读完写 300 字书评并看回应，把输入转成可评价的输出",待核验,cloud-draft
+reading,community,"豆瓣 · 读书小组","豆瓣 · 读书小组","共读与讨论能提供外部视角，检验你的理解是否偏离文本",待核验,cloud-draft
+reading,book,"《如何阅读一本书》莫提默·艾德勒","公开出版物 · 书名检索","用书中四问做每本书的收尾，让读完变成可检查的成果",ok,cloud-draft
+reading,tool,"Anki · 读书卡片","Anki · 卡片库","把书中概念做成卡片，留存率可量化，避免读过即忘",待核验,cloud-draft
+biography_writing,platform,"微信公众号 · 人物稿发布","微信公众平台 · 后台","每两周发一篇 1500 字人物稿，阅读与在看数据是外部反馈",待核验,cloud-draft
+biography_writing,platform,"知乎 · 人物与非虚构写作话题","知乎 · 非虚构话题页","每天写一段人物细节并看读者反应，练细节选取能力",待核验,cloud-draft
+biography_writing,community,"豆瓣 · 非虚构写作小组","豆瓣 · 非虚构小组","贴采访提纲与初稿求反馈，能发现叙述中缺失的动机链条",待核验,cloud-draft
+biography_writing,tool,"讯飞听见 · 录音转写","讯飞听见 · 转写服务","把一次访谈转成文字稿，练从原始材料中提炼结构的能力",待核验,cloud-draft
+cooking,platform,"下厨房 · 菜谱与作品","下厨房 · 菜谱页","跟着菜谱做并发作品，点赞与跟做数是直接的外部反馈",待核验,cloud-draft
+cooking,platform,"B站 · 烹饪教学视频","B站 · 美食教学区","按视频做同一道菜三次并对比成品，练稳定性与细节控制",待核验,cloud-draft
+cooking,community,"知乎 · 烹饪话题","知乎 · 烹饪话题页","发成品照求改进建议，细节敏感度提升最快",待核验,cloud-draft
+cooking,book,"《食物与厨艺》哈洛德·马基","公开出版物 · 书名检索","每周围绕一个原理做一次对照实验，练因果理解而非照搬步骤",ok,cloud-draft
+cooking,tool,"厨房电子秤 · 定量记录","厨房秤 · 称量与计时","把用量和时间量化，让配方可复现，4 周可看成品稳定性是否提升",待核验,cloud-draft
+gardening,platform,"小红书 · 园艺话题","小红书 · 园艺话题页","发植物生长记录看反馈，长周期领域里同伴对照尤其重要",待核验,cloud-draft
+gardening,platform,"B站 · 园艺教学视频","B站 · 园艺教学区","按视频操作并观察反应，练对植物信号的观察与判断",待核验,cloud-draft
+gardening,community,"豆瓣 · 园艺与植物小组","豆瓣 · 园艺小组","求诊断病虫害与养护问题，外部判断能补上经验不足",待核验,cloud-draft
+gardening,book,"《园艺百科全书》英国皇家园艺学会","公开出版物 · 书名检索","按书查养护要点，减少前两周因信息错误导致的失败",待核验,cloud-draft
+gardening,tool,"手机拍照 · 生长记录","手机相册 · 定点拍摄","每周同角度拍照，是长反馈领域里最直观的进步证据",待核验,cloud-draft
+astronomy,platform,"Stellarium · 星空模拟","Stellarium · 网页版","每晚按星图找目标并记录找到与否，找不到次数可逐周下降",待核验,cloud-draft
+astronomy,platform,"B站 · 天文科普视频","B站 · 天文科普区","先看讲解再实观测，把知识转成可验证的观察动作",待核验,cloud-draft
+astronomy,community,"知乎 · 天文话题","知乎 · 天文话题页","发观测记录与照片求指正，前辈能指出识别错误",待核验,cloud-draft
+astronomy,book,"《夜观星空》特伦斯·迪金森","公开出版物 · 书名检索","按书中月度星图安排每晚观测，让 4 周练习有明确计划",ok,cloud-draft
+astronomy,tool,"手机长曝光 · 拍摄记录","手机相机 · 长曝光模式","每晚拍一张同一区域，进步与器材操作熟练度都看得见",待核验,cloud-draft
+biology,platform,"中国大学MOOC · 生物学课程","中国大学MOOC · 课程页","有单元测试，正确率可逐周追踪",待核验,cloud-draft
+biology,platform,"B站 · 生物科普与实验视频","B站 · 生物科普区","先看实验演示再写机制解释，检验是否真的理解因果",待核验,cloud-draft
+biology,community,"知乎 · 生物学话题","知乎 · 生物学话题页","贴你的解释求纠正，能发现概念混淆之处",待核验,cloud-draft
+biology,book,"《陈阅增普通生物学》陈阅增 主编","公开出版物 · 书名检索","每章配习题，把阅读转成可检验的掌握度",ok,cloud-draft
+biology,tool,"Anki · 概念卡片","Anki · 卡片库","每日复习留存率可量化，适合这个记忆量大的领域",待核验,cloud-draft
+pet_training,platform,"B站 · 宠物训练教学视频","B站 · 宠物训练区","按视频做 5 分钟短训并记录成功率，动作与目标都很明确",待核验,cloud-draft
+pet_training,platform,"小红书 · 宠物训练话题","小红书 · 宠物训练话题页","发训练前后视频看反馈，能获得具体改进建议",待核验,cloud-draft
+pet_training,community,"知乎 · 宠物行为话题","知乎 · 宠物话题页","发视频求行为解读，避免误读动物动机而用错方法",待核验,cloud-draft
+pet_training,tool,"手机录像 · 行为记录","手机相册 · 训练录像","记录每次指令的成功率，4 周可看出服从率曲线",待核验,cloud-draft
+meteorology,platform,"中国气象局 · 公开数据页","中国气象局 · 数据服务页","用真实数据做每日预报练习，次日核验准确率，形成短反馈闭环",待核验,cloud-draft
+meteorology,platform,"B站 · 气象科普视频","B站 · 气象科普区","先看机制讲解再对照实况，练从原理推现象的能力",待核验,cloud-draft
+meteorology,community,"知乎 · 气象话题","知乎 · 气象话题页","发预报依据求讨论，检验推理链是否成立",待核验,cloud-draft
+meteorology,book,"《气象学与生活》C. 唐纳德·阿伦斯","公开出版物 · 书名检索","每章配一个可自己验证的现象，把理论转成可观察",ok,cloud-draft
+meteorology,tool,"Windy · 天气图","Windy · 天气图页","看图做 24 小时预报再对照实况，是这个领域少见的短反馈练习",待核验,cloud-draft
+# === 备注 ===
+# 1. 冲突（已按任务节执行，待你确认）：6.1 字段顺序与 6.2 示例行均为 verify_status,source，与 4.1"末尾两列为 source、verify_status"不一致。
+# 2. 全部 227 行未出现任何具体 URL、群号、UP 主 ID；url_or_location 只写"平台名 · 入口位置"。
+# 3. 书籍 29 条中，仅我能确认书名+作者真实存在的标 ok，其余标 待核验；未确认的一律未写书名。
+# 4. 建议（未混入正式产出）：counseling 相关资源请加产品层提示——同伴倾听练习不等同心理咨询，不处理真实危机个案。
+# 5. 建议（未混入正式产出）：gardening、astronomy、bridge 等长反馈领域的"4 周斜率"可能偏平，建议 Module 2 单独给斜率解读口径。
+# === END 备注 ===

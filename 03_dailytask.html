@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!-- === TILT-CONTRACT-MANIFEST ===
+# task_id: C13
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝 (Yuanbao)
+# produced_at: 2026-09-20
+# batch: 03_dailytask
+# output_files:
+#   - prototype/03_dailytask.html   (rows: 4)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - "任务正文(brief/steps)为原型演示文案，非 C11/C12 正式任务内容；工程侧接入后按任务库替换"
+#   - "埋点流水面板为原型自检用途，仅展示 event_type 与 payload 结构，不写入任何新字段"
+# === END MANIFEST === -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilt · 每日任务</title>
+<style>
+  :root{
+    --bg:#0B0F14; --card:#141A21; --line:#232D38; --text:#E6EAF0;
+    --muted:#8B93A1; --accent:#2DD4BF; --accent-soft:rgba(45,212,191,.12);
+    --done:#1E2A33;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:#06090C; color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    display:flex; justify-content:center; min-height:100vh;
+  }
+  .phone{width:100%; max-width:375px; background:var(--bg); min-height:100vh; padding:22px 18px 48px;}
+  .brand{display:flex; justify-content:space-between; align-items:center; font-size:12px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase; margin-bottom:14px;}
+  h1{font-size:20px; line-height:1.5; margin:0 0 8px; font-weight:600;}
+  p{margin:0 0 12px; font-size:14px; line-height:1.7; color:var(--muted);}
+  .note{font-size:12px; line-height:1.7; color:var(--muted);}
+  .bar{height:4px; background:var(--line); border-radius:4px; overflow:hidden; margin:12px 0 6px;}
+  .bar > i{display:block; height:100%; background:var(--accent); width:0; transition:width .25s ease;}
+  .tabs{display:flex; gap:8px; overflow-x:auto; padding:4px 0 2px; margin:6px 0 14px; -webkit-overflow-scrolling:touch;}
+  .tab{flex:0 0 auto; font:inherit; font-size:13px; padding:8px 14px; border-radius:20px; cursor:pointer; background:var(--card); border:1px solid var(--line); color:var(--muted);}
+  .tab.on{border-color:var(--accent); background:var(--accent-soft); color:var(--accent);}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:10px; transition:opacity .2s ease;}
+  .card.done{background:var(--done); opacity:.72;}
+  .card.running{border-color:var(--accent);}
+  .t-head{display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px;}
+  .t-title{font-size:15px; line-height:1.5; color:var(--text); font-weight:500;}
+  .t-id{font-size:11px; color:var(--muted); margin-top:4px; word-break:break-all;}
+  .t-level{flex:0 0 auto; font-size:11px; color:var(--accent); border:1px solid var(--line); border-radius:6px; padding:2px 7px;}
+  .t-brief{font-size:13px; line-height:1.7; color:var(--muted); margin:8px 0;}
+  .t-steps{font-size:12px; line-height:1.8; color:var(--muted); margin:0 0 10px; padding-left:16px;}
+  .spec{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-size:11px; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:2px 7px;}
+  .row{display:flex; gap:8px;}
+  .btn{flex:1; font:inherit; font-size:13px; padding:11px 8px; border-radius:10px; cursor:pointer; border:1px solid var(--line); background:transparent; color:var(--text);}
+  .btn.primary{border-color:var(--accent); background:var(--accent); color:#06221E; font-weight:600;}
+  .btn.ghost{color:var(--muted);}
+  .btn:disabled{opacity:.4; cursor:default;}
+  .btn:hover:not(:disabled){border-color:var(--accent);}
+  .timer{display:flex; align-items:baseline; gap:8px; margin:10px 0; padding:10px 12px; background:var(--accent-soft); border-radius:10px;}
+  .timer .t{font-size:26px; font-weight:600; color:var(--accent); font-variant-numeric:tabular-nums; letter-spacing:.02em;}
+  .timer .l{font-size:11px; color:var(--muted);}
+  .done-tag{display:inline-block; font-size:11px; color:var(--accent); border:1px solid var(--accent); border-radius:6px; padding:2px 7px; margin-bottom:8px;}
+  .log{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; margin-top:6px;}
+  .log-row{display:flex; justify-content:space-between; gap:8px; font-size:11px; color:var(--muted); padding:4px 0; border-bottom:1px dashed var(--line);}
+  .log-row:last-child{border-bottom:none;}
+  .log-row .e{color:var(--accent); font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}
+  h2{font-size:15px; margin:22px 0 10px; font-weight:600;}
+  .divider{height:1px; background:var(--line); margin:20px 0;}
+  .center{text-align:center;}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="brand"><span>Tilt · 每日任务</span><span id="today"></span></div>
+  <main id="app"></main>
+</div>
+
+<script>
+/* ============================================================
+   数据集中区：文案、领域、任务、枚举均在此，不在逻辑里硬编码
+   ============================================================ */
+const DATA = {
+  meta: {
+    product: "Tilt",
+    page: "03_dailytask",
+    spec_version: "V1.3",
+    ssot_checksum: "TL-SSOT-2026-09-20-A",
+    storage_key: "tilt_c13_dailytask_v1",
+    api_task:   "/api/v1/daily/tasks",   /* TODO: 接入真实 API */
+    api_event:  "/api/v1/events"         /* TODO: 接入真实 API */
+  },
+
+  copy: {
+    title: "今天的任务",
+    lead: "每天每个领域 15-30 分钟。任务只负责把你带进门，不评判你做得好不好。",
+    today_done: "今日已完成 {done}/{total} 个任务",
+    tab_label: "领域",
+    min_hint: "建议时长 {min}-{max} 分钟",
+    level_label: "等级",
+    evaluator_label: "评估器",
+    type_standard: "常规任务",
+    type_disaccharide: "双糖任务",
+    btn_start: "开始",
+    btn_pause: "暂停",
+    btn_resume: "继续",
+    btn_complete: "完成打卡",
+    btn_abandon: "放弃",
+    btn_retry: "重做",
+    timer_label: "已投入",
+    timer_idle: "计时未开始",
+    done_tag: "已完成",
+    done_minutes: "本次投入 {m} 分 {s} 秒",
+    log_title: "埋点流水（原型自检）",
+    log_note: "仅展示 event_type 与上报结构，用于工程侧核对字段；真实环境由 SDK 静默上报。",
+    log_empty: "暂无事件",
+    week_title: "当前周次节奏",
+    week_note: "第 {w} 周使用 {level} 的任务。",
+    footer: "进度由你自己掌握，随时可以暂停或换一个方向——判断权在你手里。"
+  },
+
+  /* 3.6 埋点事件类型（固定 12 个） */
+  event_types: [
+    "task_start","task_complete","task_abandon","task_retry","task_pause","task_resume",
+    "session_start","session_end","domain_switch","task_share","report_view","settings_change"
+  ],
+
+  /* 3.2 Gardner 枚举标签 */
+  gardner_label: {
+    linguistic:"语言智能", logical_mathematical:"逻辑-数学智能", spatial:"空间智能",
+    bodily_kinesthetic:"身体-运动智能", musical:"音乐智能", interpersonal:"人际智能",
+    intrapersonal:"内省智能", naturalist:"自然观察智能"
+  },
+
+  /* 3.8 任务等级语义 */
+  level_semantic: {
+    1:"纯学习", 2:"基础操作", 3:"基础操作", 4:"中级", 5:"中级",
+    6:"高级", 7:"高级", 8:"高级", 9:"高级", 10:"专家级"
+  },
+
+  /* 3.9 4 周任务递进节奏 */
+  week_level: { 1:"L1-L2", 2:"L2-L3", 3:"L3-L4", 4:"L4-L5" },
+  current_week: 3,
+
+  /* 今日领域：ID 与三项数值严格取自 3.1 表 */
+  domains: [
+    { id:"writing_general", name:"写作（通用）", gardner:"linguistic",            startup_cost:2, feedback_speed:3, mechanism_strength:2 },
+    { id:"photography",     name:"摄影",         gardner:"spatial",               startup_cost:2, feedback_speed:4, mechanism_strength:3 },
+    { id:"programming",     name:"编程",         gardner:"logical_mathematical",  startup_cost:4, feedback_speed:3, mechanism_strength:1 },
+    { id:"singing",         name:"唱歌",         gardner:"musical",               startup_cost:2, feedback_speed:4, mechanism_strength:3 }
+  ],
+
+  /* 任务 ID 命名：{domain_id}_L{level}_{三位序号}；task_type: standard | disaccharide */
+  tasks: [
+    {
+      id:"writing_general_L3_001", domain_id:"writing_general", level:3, task_type:"standard",
+      evaluator_type:"llm_writing", est_min:15, est_max:30,
+      title:"写一段 300 字的观察记录",
+      brief:"挑一件今天真实发生的小事，写下来。不追求文采，只追求具体。",
+      steps:["选一件今天发生的小事","写 300 字，只写看到的和听到的","提交后由评估器给出反馈"]
+    },
+    {
+      id:"photography_L2_001", domain_id:"photography", level:2, task_type:"standard",
+      evaluator_type:"llm_image", est_min:15, est_max:25,
+      title:"用同一主体拍 5 张不同构图",
+      brief:"找一个固定主体，换 5 种角度/距离拍下来，感受构图的差别。",
+      steps:["选定一个主体","按 5 种构图各拍一张","挑出你最喜欢的一张提交"]
+    },
+    {
+      id:"programming_L1_001", domain_id:"programming", level:1, task_type:"standard",
+      evaluator_type:"auto_test", est_min:15, est_max:30,
+      title:"读完一节入门教程并跑通示例",
+      brief:"这一节只看不做也行，重点是理解概念，没有产出压力。",
+      steps:["阅读指定教程的一节","照着跑通示例代码","记录一个你没看懂的点"]
+    },
+    {
+      id:"singing_L2_001", domain_id:"singing", level:2, task_type:"standard",
+      evaluator_type:"llm_audio", est_min:15, est_max:20,
+      title:"跟唱一段副歌并录音",
+      brief:"选一首你熟悉的歌，只唱副歌部分，录一遍自己听。",
+      steps:["选一首熟悉的歌","跟唱副歌并录音","回听一遍，标出一个想改的地方"]
+    },
+    {
+      id:"writing_general_L3_002", domain_id:"writing_general", level:3, task_type:"disaccharide",
+      evaluator_type:"llm_writing", est_min:20, est_max:30,
+      title:"把今天的观察改写成一段对话",
+      brief:"把上午写的观察记录改写成两个人的对话，看看同一件事换种载体会不会更顺。",
+      steps:["打开上午的记录","改写成 8-10 句对话","对比两种写法的手感差异"]
+    }
+  ]
+};
+
+/* ============================================================
+   状态
+   ============================================================ */
+const state = {
+  domain: DATA.domains[0].id,
+  running: null,          /* 正在计时的 task_id */
+  elapsed: {},            /* task_id -> 累计秒 */
+  status: {},             /* task_id -> running | paused | completed | abandoned */
+  events: []              /* 埋点流水 */
+};
+let ticker = null;
+
+function load(){
+  try{
+    const raw = localStorage.getItem(DATA.meta.storage_key);
+    if(!raw) return;
+    const o = JSON.parse(raw);
+    if(o && o.status){ state.status = o.status; state.elapsed = o.elapsed || {}; }
+  }catch(e){}
+  /* TODO: 接入真实 API —— 按 user_id + date 拉取当日任务与完成状态 */
+}
+function save(){
+  try{ localStorage.setItem(DATA.meta.storage_key, JSON.stringify({ status:state.status, elapsed:state.elapsed, updated_at:new Date().toISOString() })); }catch(e){}
+}
+function track(event_type, payload){
+  const ev = {
+    event_type: event_type,
+    task_id: payload && payload.task_id ? payload.task_id : null,
+    domain_id: payload && payload.domain_id ? payload.domain_id : null,
+    ts: new Date().toISOString()
+  };
+  state.events.unshift(ev);
+  if(state.events.length > 30) state.events.pop();
+  /* TODO: 接入真实 API —— POST /api/v1/events，event_type 必须取自 3.6 的 12 个固定值 */
+}
+
+/* ============================================================
+   渲染
+   ============================================================ */
+const app = document.getElementById("app");
+function el(html){ const d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
+function tpl(s, kv){ return s.replace(/\{(\w+)\}/g, function(m,k){ return kv[k] !== undefined ? kv[k] : m; }); }
+function fmt(sec){
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+}
+function domainTasks(){
+  return DATA.tasks.filter(function(t){ return t.domain_id === state.domain; });
+}
+function doneCount(){
+  return Object.keys(state.status).filter(function(k){ return state.status[k] === "completed"; }).length;
+}
+
+function render(){
+  stopTicker();
+  app.innerHTML = "";
+  const tasks = domainTasks();
+  const done = doneCount();
+  const total = DATA.tasks.length;
+  const pct = total ? Math.round(done / total * 100) : 0;
+
+  app.appendChild(el(
+    '<div>' +
+      '<h1>' + DATA.copy.title + '</h1>' +
+      '<p>' + DATA.copy.lead + '</p>' +
+      '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+      '<div class="note">' + tpl(DATA.copy.today_done, {done:done, total:total}) + '</div>' +
+    '</div>'
+  ));
+
+  /* 领域切换 */
+  const tabsBox = el('<div style="margin-top:16px"><div class="note" style="margin-bottom:6px">' + DATA.copy.tab_label + '</div><div class="tabs" id="tabs"></div></div>');
+  app.appendChild(tabsBox);
+  const tabs = tabsBox.querySelector("#tabs");
+  DATA.domains.forEach(function(d){
+    const b = el('<button class="tab' + (d.id === state.domain ? ' on' : '') + '">' + d.name + '</button>');
+    b.onclick = function(){
+      if(state.domain !== d.id){ track("domain_switch", { domain_id:d.id }); }   /* TODO: 接入真实 API */
+      state.domain = d.id; save(); render();
+    };
+    tabs.appendChild(b);
+  });
+
+  /* 当前领域信息 */
+  const d = DATA.domains.filter(function(x){ return x.id === state.domain; })[0];
+  app.appendChild(el(
+    '<div class="card">' +
+      '<div style="font-size:14px;color:var(--text);margin-bottom:8px">' + d.name + ' · <span class="note">' + d.id + '</span></div>' +
+      '<div class="spec" style="margin-bottom:0">' +
+        '<span class="chip">' + DATA.gardner_label[d.gardner] + '</span>' +
+        '<span class="chip">启动成本 ' + d.startup_cost + '</span>' +
+        '<span class="chip">反馈速度 ' + d.feedback_speed + '</span>' +
+        '<span class="chip">机制强度 ' + d.mechanism_strength + '</span>' +
+        '<span class="chip">' + tpl(DATA.copy.week_note, {w:DATA.current_week, level:DATA.week_level[DATA.current_week]}) + '</span>' +
+      '</div>' +
+    '</div>'
+  ));
+
+  /* 任务卡片 */
+  tasks.forEach(function(t){ app.appendChild(taskCard(t)); });
+
+  /* 埋点流水 */
+  app.appendChild(el('<h2>' + DATA.copy.log_title + '</h2>'));
+  app.appendChild(el('<p class="note" style="margin-bottom:8px">' + DATA.copy.log_note + '</p>'));
+  app.appendChild(logBox());
+
+  app.appendChild(el('<div class="divider"></div>'));
+  app.appendChild(el('<p class="note center">' + DATA.copy.footer + '</p>'));
+
+  if(state.running) startTicker();
+}
+
+function taskCard(t){
+  const st = state.status[t.id];
+  const sec = state.elapsed[t.id] || 0;
+  const running = state.running === t.id;
+  const card = el('<div class="card' + (st === "completed" ? ' done' : '') + (running ? ' running' : '') + '"></div>');
+
+  card.appendChild(el(
+    '<div class="t-head">' +
+      '<div><div class="t-title">' + t.title + '</div><div class="t-id">' + t.id + '</div></div>' +
+      '<div class="t-level">' + DATA.copy.level_label + ' L' + t.level + '</div>' +
+    '</div>'
+  ));
+
+  if(st === "completed"){
+    card.appendChild(el('<div class="done-tag">✓ ' + DATA.copy.done_tag + '</div>'));
+  }
+  card.appendChild(el('<div class="t-brief">' + t.brief + '</div>'));
+  const ul = el('<ul class="t-steps"></ul>');
+  t.steps.forEach(function(s){ ul.appendChild(el('<li>' + s + '</li>')); });
+  card.appendChild(ul);
+
+  card.appendChild(el(
+    '<div class="spec">' +
+      '<span class="chip">' + (t.task_type === "disaccharide" ? DATA.copy.type_disaccharide : DATA.copy.type_standard) + '</span>' +
+      '<span class="chip">' + DATA.copy.evaluator_label + '：' + t.evaluator_type + '</span>' +
+      '<span class="chip">' + DATA.level_semantic[t.level] + '</span>' +
+      '<span class="chip">' + tpl(DATA.copy.min_hint, {min:t.est_min, max:t.est_max}) + '</span>' +
+    '</div>'
+  ));
+
+  /* 计时器 */
+  card.appendChild(el(
+    '<div class="timer">' +
+      '<span class="t" id="tk-' + t.id + '">' + (sec ? fmt(sec) : "00:00") + '</span>' +
+      '<span class="l">' + (running || sec ? DATA.copy.timer_label : DATA.copy.timer_idle) + '</span>' +
+    '</div>'
+  ));
+
+  /* 按钮区 */
+  const row = el('<div class="row"></div>');
+  if(st === "completed"){
+    const retry = el('<button class="btn ghost">' + DATA.copy.btn_retry + '</button>');
+    retry.onclick = function(){
+      state.status[t.id] = undefined; state.elapsed[t.id] = 0;
+      track("task_retry", { task_id:t.id, domain_id:t.domain_id });   /* TODO: 接入真实 API */
+      save(); render();
+    };
+    row.appendChild(retry);
+    card.appendChild(el('<div class="note" style="margin-top:8px">' + tpl(DATA.copy.done_minutes, {m:Math.floor(sec/60), s:sec%60}) + '</div>'));
+  } else if(running){
+    const pause = el('<button class="btn">' + DATA.copy.btn_pause + '</button>');
+    pause.onclick = function(){
+      state.running = null; state.status[t.id] = "paused"; stopTicker();
+      track("task_pause", { task_id:t.id, domain_id:t.domain_id });   /* TODO: 接入真实 API */
+      save(); render();
+    };
+    const done = el('<button class="btn primary">' + DATA.copy.btn_complete + '</button>');
+    done.onclick = function(){ complete(t); };
+    const drop = el('<button class="btn ghost">' + DATA.copy.btn_abandon + '</button>');
+    drop.onclick = function(){
+      state.running = null; state.status[t.id] = "abandoned"; stopTicker();
+      track("task_abandon", { task_id:t.id, domain_id:t.domain_id });   /* TODO: 接入真实 API */
+      save(); render();
+    };
+    row.appendChild(pause); row.appendChild(done); row.appendChild(drop);
+  } else if(st === "paused"){
+    const resume = el('<button class="btn primary">' + DATA.copy.btn_resume + '</button>');
+    resume.onclick = function(){
+      state.running = t.id; state.status[t.id] = "running";
+      track("task_resume", { task_id:t.id, domain_id:t.domain_id });   /* TODO: 接入真实 API */
+      save(); render();
+    };
+    const done = el('<button class="btn">' + DATA.copy.btn_complete + '</button>');
+    done.onclick = function(){ complete(t); };
+    row.appendChild(resume); row.appendChild(done);
+  } else {
+    const start = el('<button class="btn primary">' + (st === "abandoned" ? DATA.copy.btn_resume : DATA.copy.btn_start) + '</button>');
+    start.onclick = function(){
+      state.running = t.id; state.status[t.id] = "running";
+      track("task_start", { task_id:t.id, domain_id:t.domain_id });   /* TODO: 接入真实 API */
+      save(); render();
+    };
+    row.appendChild(start);
+  }
+  card.appendChild(row);
+  return card;
+}
+
+function complete(t){
+  state.running = null; state.status[t.id] = "completed"; stopTicker();
+  track("task_complete", { task_id:t.id, domain_id:t.domain_id });   /* TODO: 接入真实 API */
+  save(); render();
+}
+
+function logBox(){
+  const box = el('<div class="log" id="log"></div>');
+  if(!state.events.length){ box.appendChild(el('<div class="note">' + DATA.copy.log_empty + '</div>')); return box; }
+  state.events.forEach(function(e){
+    box.appendChild(el(
+      '<div class="log-row">' +
+        '<span class="e">' + e.event_type + '</span>' +
+        '<span>' + (e.task_id ? e.task_id : '—') + ' · ' + e.ts.slice(11,19) + '</span>' +
+      '</div>'
+    ));
+  });
+  return box;
+}
+
+/* ============================================================
+   计时器
+   ============================================================ */
+function startTicker(){
+  stopTicker();
+  ticker = setInterval(function(){
+    const id = state.running;
+    if(!id){ stopTicker(); return; }
+    state.elapsed[id] = (state.elapsed[id] || 0) + 1;
+    const node = document.getElementById("tk-" + id);
+    if(node) node.textContent = fmt(state.elapsed[id]);
+    if(state.elapsed[id] % 30 === 0) save();
+  }, 1000);
+}
+function stopTicker(){ if(ticker){ clearInterval(ticker); ticker = null; } }
+
+/* 初始化 */
+document.getElementById("today").textContent = new Date().toISOString().slice(0,10);
+load();
+track("session_start", null);   /* TODO: 接入真实 API */
+render();
+/* TODO: 接入真实 API —— 页面加载时按 user_id + date 拉取当日任务清单，替换 DATA.tasks 中的示例任务 */
+</script>
+</body>
+</html>

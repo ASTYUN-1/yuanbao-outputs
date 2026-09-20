@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!-- === TILT-CONTRACT-MANIFEST ===
+# task_id: C13
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝 (Yuanbao)
+# produced_at: 2026-09-20
+# batch: 01_questionnaire
+# output_files:
+#   - prototype/01_questionnaire.html   (rows: 18)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - "雷达图纵轴=该维度3题中选项的集中比例(0-100)，仅为可视化展示口径，不写入任何字段、不作为产品指标"
+# === END MANIFEST === -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilt · Day 0 坐标系问卷</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0B0F14; --card:#141A21; --line:#232D38; --text:#E6EAF0;
+    --muted:#8B93A1; --accent:#2DD4BF; --accent-soft:rgba(45,212,191,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:#06090C; color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    display:flex; justify-content:center; min-height:100vh;
+  }
+  .phone{width:100%; max-width:375px; background:var(--bg); min-height:100vh; padding:22px 18px 48px;}
+  .brand{font-size:12px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase; margin-bottom:18px;}
+  h1{font-size:20px; line-height:1.5; margin:0 0 10px; font-weight:600;}
+  p{margin:0 0 12px; font-size:14px; line-height:1.7; color:var(--muted);}
+  .bar{height:4px; background:var(--line); border-radius:4px; overflow:hidden; margin:14px 0 8px;}
+  .bar > i{display:block; height:100%; background:var(--accent); width:0; transition:width .25s ease;}
+  .meta{display:flex; justify-content:space-between; font-size:12px; color:var(--muted);}
+  .group{font-size:12px; color:var(--accent); margin:18px 0 6px;}
+  .q{font-size:17px; line-height:1.6; margin:6px 0 18px; font-weight:500; color:var(--text);}
+  .opt{
+    display:block; width:100%; text-align:left; font:inherit; font-size:14px; line-height:1.6;
+    color:var(--text); background:var(--card); border:1px solid var(--line);
+    border-radius:12px; padding:14px 14px; margin-bottom:10px; cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .opt:hover{border-color:#35424F}
+  .opt.on{border-color:var(--accent); background:var(--accent-soft);}
+  .opt.unknown{color:var(--muted); font-size:13px;}
+  .btn{
+    display:block; width:100%; font:inherit; font-size:15px; padding:14px;
+    border-radius:12px; border:1px solid var(--accent); background:var(--accent);
+    color:#06221E; font-weight:600; cursor:pointer; margin-bottom:10px;
+  }
+  .btn.ghost{background:transparent; color:var(--accent); border-color:var(--line);} 
+  .btn.ghost:hover{border-color:var(--accent)}
+  .btn:disabled{opacity:.4; cursor:default}
+  .row{display:flex; gap:10px;}
+  .row .btn{margin-bottom:0}
+  .top-nav{display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--muted); margin-bottom:6px;}
+  .link{background:none; border:none; color:var(--muted); font:inherit; font-size:13px; cursor:pointer; padding:0;}
+  .link:hover{color:var(--accent)}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:10px;}
+  .dim-name{font-size:13px; color:var(--muted); margin-bottom:6px;}
+  .dim-val{font-size:15px; line-height:1.6; color:var(--text);}
+  .dim-track{height:3px; background:var(--line); border-radius:3px; margin-top:10px; overflow:hidden}
+  .dim-track > i{display:block; height:100%; background:var(--accent)}
+  .chart-wrap{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px; margin:14px 0}
+  .note{font-size:12px; line-height:1.7; color:var(--muted); margin-top:10px}
+  .divider{height:1px; background:var(--line); margin:18px 0}
+  .tag{display:inline-block; font-size:11px; color:var(--accent); border:1px solid var(--line); border-radius:20px; padding:3px 10px; margin-bottom:14px;}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="brand">Tilt · Day 0</div>
+  <main id="app"></main>
+</div>
+
+<script>
+/* ============================================================
+   数据集中区：所有文案、维度、题目、枚举标签均在此，不在逻辑里硬编码
+   ============================================================ */
+const DATA = {
+  meta: {
+    product: "Tilt",
+    page: "01_questionnaire",
+    spec_version: "V1.3",
+    ssot_checksum: "TL-SSOT-2026-09-20-A",
+    storage_key: "tilt_c13_questionnaire_v1",
+    api_endpoint: "/api/v1/coordinate"   /* TODO: 接入真实 API */
+  },
+  copy: {
+    intro_tag: "18 题 · 6 组",
+    intro_title: "先建立你的 6 维自我坐标系",
+    intro_body: "天赋不是被「扫描」出来的，是被「试」出来的。这 18 题只用来描述你此刻的偏好，不给任何结论。",
+    intro_hint: "每题都可以选「我不知道」，随时可以回来改。",
+    start: "开始",
+    resume: "继续上次作答",
+    restart: "重新开始",
+    prev: "上一题",
+    progress: "第 {cur}/18 题",
+    group_of: "第 {g}/6 组 · {name}",
+    unknown: "我不知道",
+    result_title: "你的 6 维自我坐标系",
+    result_lead: "下面是你此刻的自我描述，不代表能力高低，也不构成结论。",
+    chart_note: "图中数值 = 你在该维度 3 道题里选择的集中程度（0-100），只用来看「是否集中」，不代表水平高低。",
+    consistency_label: "集中度",
+    dim_known: "你的坐标系偏向「{label}」特征",
+    dim_unknown: "这一维你选了「我不知道」，之后随时可以补",
+    dim_none: "这一维还没有作答",
+    result_next: "接下来会据此映射出一批候选领域；要不要按这个坐标系继续，由你自己决定。",
+    copy_btn: "复制我的坐标系",
+    copied: "已复制",
+    copy_fail: "复制失败，请长按选择文本",
+    redo: "重新作答",
+    back: "回到题目",
+    chart_fail: "图表需要联网加载 Chart.js，下方文字结果不受影响。",
+    saved: "作答已保存在本机浏览器（localStorage）"
+  },
+  dimensions: [
+    { field:"cognitive_style",    name:"认知风格", options:{ visual:"画面", auditory:"声音", textual:"文字", logical:"逻辑", bodily:"身体" } },
+    { field:"energy_source",      name:"能量来源", options:{ solitude:"独处", social:"社交", competition:"竞争", collaboration:"协作" } },
+    { field:"feedback_speed",     name:"反馈速度", options:{ short:"短反馈", long:"长反馈" } },
+    { field:"value_orientation",  name:"价值取向", options:{ creation:"创造", helping:"助人", influence:"影响", money:"回报", aesthetics:"美感" } },
+    { field:"risk_attitude",      name:"风险态度", options:{ conservative:"保守", neutral:"中性", aggressive:"激进" } },
+    { field:"abstraction_level",  name:"抽象层级", options:{ theory:"理论", application:"应用", operation:"操作" } }
+  ],
+  unknown_value: "unknown",
+  questions: [
+    /* 第 1 组 · 认知风格 */
+    { id:"Q01", field:"cognitive_style", text:"接触一个全新的东西时，你最想先看到什么？", options:[
+      {label:"图、示意图、演示画面", value:"visual"},
+      {label:"有人讲给你听", value:"auditory"},
+      {label:"一段文字说明", value:"textual"},
+      {label:"数据或推演过程", value:"logical"},
+      {label:"先自己动手摸一遍", value:"bodily"}
+    ]},
+    { id:"Q02", field:"cognitive_style", text:"下面这些，你通常更容易记住哪一类？", options:[
+      {label:"见过的画面", value:"visual"},
+      {label:"听过的声音", value:"auditory"},
+      {label:"读过的段落", value:"textual"},
+      {label:"自己推出来的规律", value:"logical"},
+      {label:"做过的动作", value:"bodily"}
+    ]},
+    { id:"Q03", field:"cognitive_style", text:"空闲时间里，你更容易被什么吸引？", options:[
+      {label:"图片、展陈、影像", value:"visual"},
+      {label:"播客、有声内容", value:"auditory"},
+      {label:"长文、书", value:"textual"},
+      {label:"谜题、推演、策略分析", value:"logical"},
+      {label:"运动、手工、实操", value:"bodily"}
+    ]},
+    /* 第 2 组 · 能量来源 */
+    { id:"Q04", field:"energy_source", text:"什么样的状态让你更有劲？", options:[
+      {label:"一个人安静地做", value:"solitude"},
+      {label:"跟人聊着做", value:"social"},
+      {label:"有对手比着做", value:"competition"},
+      {label:"和同伴分工一起做", value:"collaboration"}
+    ]},
+    { id:"Q05", field:"energy_source", text:"一件事卡住时，你更倾向于？", options:[
+      {label:"自己先想一阵", value:"solitude"},
+      {label:"找人聊聊", value:"social"},
+      {label:"找个高手挑战一下", value:"competition"},
+      {label:"拉几个人一起解决", value:"collaboration"}
+    ]},
+    { id:"Q06", field:"energy_source", text:"如果要在某个方向上投入 4 周，你更愿意待在哪种氛围里？", options:[
+      {label:"独自推进，少打扰", value:"solitude"},
+      {label:"热闹的社群", value:"social"},
+      {label:"有排名和对抗", value:"competition"},
+      {label:"固定的协作小组", value:"collaboration"}
+    ]},
+    /* 第 3 组 · 反馈速度（SPEC 2.2 两档） */
+    { id:"Q07", field:"feedback_speed", text:"你更愿意做哪一类事？", options:[
+      {label:"几小时内就能看到结果", value:"short"},
+      {label:"要几个月后才看得到结果", value:"long"}
+    ]},
+    { id:"Q08", field:"feedback_speed", text:"如果坚持了一阵还看不到进展，你通常会？", options:[
+      {label:"很快想换个方向", value:"short"},
+      {label:"愿意继续等一等", value:"long"}
+    ]},
+    { id:"Q09", field:"feedback_speed", text:"你更偏好哪种回报节奏？", options:[
+      {label:"每天都有小反馈", value:"short"},
+      {label:"攒很久，一次性兑现", value:"long"}
+    ]},
+    /* 第 4 组 · 价值取向 */
+    { id:"Q10", field:"value_orientation", text:"4 周之后，你更希望手里留下什么？", options:[
+      {label:"一个自己做出来的东西", value:"creation"},
+      {label:"确实帮到了某个人", value:"helping"},
+      {label:"有人因为你说的话改变了想法", value:"influence"},
+      {label:"一份能变现的能力", value:"money"},
+      {label:"一件好看的作品", value:"aesthetics"}
+    ]},
+    { id:"Q11", field:"value_orientation", text:"哪个场景最让你有满足感？", options:[
+      {label:"做出了新的东西", value:"creation"},
+      {label:"被人需要", value:"helping"},
+      {label:"影响了一群人", value:"influence"},
+      {label:"拿到了回报", value:"money"},
+      {label:"把细节打磨出美感", value:"aesthetics"}
+    ]},
+    { id:"Q12", field:"value_orientation", text:"如果只能选一个理由让自己坚持下去，那更可能是？", options:[
+      {label:"想创造点什么", value:"creation"},
+      {label:"想帮到人", value:"helping"},
+      {label:"想被听见", value:"influence"},
+      {label:"想赚到钱", value:"money"},
+      {label:"想做出美的东西", value:"aesthetics"}
+    ]},
+    /* 第 5 组 · 风险态度 */
+    { id:"Q13", field:"risk_attitude", text:"面对一个完全没做过的领域，你通常？", options:[
+      {label:"先小范围试一试", value:"conservative"},
+      {label:"看情况再说", value:"neutral"},
+      {label:"直接全力投入", value:"aggressive"}
+    ]},
+    { id:"Q14", field:"risk_attitude", text:"在这 4 周里，你更能接受哪种状态？", options:[
+      {label:"稳一点，少犯错", value:"conservative"},
+      {label:"不好说", value:"neutral"},
+      {label:"为了突破，可以翻车", value:"aggressive"}
+    ]},
+    { id:"Q15", field:"risk_attitude", text:"选方向时你更看重什么？", options:[
+      {label:"确定性高", value:"conservative"},
+      {label:"两头平衡", value:"neutral"},
+      {label:"上限高，哪怕不稳", value:"aggressive"}
+    ]},
+    /* 第 6 组 · 抽象层级 */
+    { id:"Q16", field:"abstraction_level", text:"学一样新东西，你更想先弄明白？", options:[
+      {label:"它背后的原理", value:"theory"},
+      {label:"它能怎么用起来", value:"application"},
+      {label:"每一步具体怎么做", value:"operation"}
+    ]},
+    { id:"Q17", field:"abstraction_level", text:"你更容易在什么情况下进入状态？", options:[
+      {label:"读体系化的理论", value:"theory"},
+      {label:"看别人怎么把它用起来", value:"application"},
+      {label:"直接上手操作", value:"operation"}
+    ]},
+    { id:"Q18", field:"abstraction_level", text:"你更愿意产出哪一种？", options:[
+      {label:"一套自己的理解", value:"theory"},
+      {label:"一个能用的方案", value:"application"},
+      {label:"一次完成的实操", value:"operation"}
+    ]}
+  ]
+};
+
+/* ============================================================
+   状态与存储
+   ============================================================ */
+const TOTAL = DATA.questions.length;
+const state = { screen:"intro", index:0, answers:new Array(TOTAL).fill(undefined) };
+let chartInstance = null;
+
+function loadSaved(){
+  try{
+    const raw = localStorage.getItem(DATA.meta.storage_key);
+    if(!raw) return null;
+    const obj = JSON.parse(raw);
+    if(!obj || !Array.isArray(obj.answers)) return null;
+    return obj;
+    /* TODO: 接入真实 API —— 登录后改为从服务端读取该用户的坐标系存档 */
+  }catch(e){ return null; }
+}
+function save(){
+  const payload = {
+    answers: state.answers,
+    updated_at: new Date().toISOString(),
+    source: "prototype-local"
+  };
+  try{ localStorage.setItem(DATA.meta.storage_key, JSON.stringify(payload)); }catch(e){}
+  /* TODO: 接入真实 API —— 提交 /api/v1/coordinate，unknown 需转换为 null 后上报 */
+}
+function clearSaved(){
+  try{ localStorage.removeItem(DATA.meta.storage_key); }catch(e){}
+}
+
+/* ============================================================
+   计算：每维取 3 题中的众数，集中度 = 众数次数 / 有效题数 * 100
+   （仅为可视化展示口径，不写入任何字段、不作为产品指标）
+   ============================================================ */
+function computeResult(){
+  return DATA.dimensions.map(function(dim){
+    const qs = DATA.questions.filter(function(q){ return q.field === dim.field; });
+    const picked = qs.map(function(q){
+      const i = DATA.questions.indexOf(q);
+      return state.answers[i];
+    });
+    const valid = picked.filter(function(v){ return v !== undefined && v !== DATA.unknown_value; });
+    const answered = picked.filter(function(v){ return v !== undefined; });
+    const counts = {};
+    valid.forEach(function(v){ counts[v] = (counts[v] || 0) + 1; });
+    let top = null, topN = 0;
+    Object.keys(dim.options).forEach(function(k){
+      const n = counts[k] || 0;
+      if(n > topN){ topN = n; top = k; }
+    });
+    const consistency = valid.length ? Math.round(topN / valid.length * 100) : 0;
+    return {
+      field: dim.field,
+      name: dim.name,
+      value: top,
+      label: top ? dim.options[top] : null,
+      consistency: consistency,
+      valid_count: valid.length,
+      answered_count: answered.length,
+      total: qs.length
+    };
+  });
+}
+
+/* ============================================================
+   渲染
+   ============================================================ */
+const app = document.getElementById("app");
+function el(html){ const d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
+function tpl(str, kv){ return str.replace(/\{(\w+)\}/g, function(m,k){ return kv[k] !== undefined ? kv[k] : m; }); }
+
+function render(){
+  if(chartInstance){ chartInstance.destroy(); chartInstance = null; }
+  app.innerHTML = "";
+  if(state.screen === "intro") renderIntro();
+  else if(state.screen === "question") renderQuestion();
+  else renderResult();
+}
+
+function renderIntro(){
+  const saved = loadSaved();
+  const answered = saved ? saved.answers.filter(function(v){ return v !== undefined; }).length : 0;
+  const node = el(
+    '<div>' +
+      '<span class="tag">' + DATA.copy.intro_tag + '</span>' +
+      '<h1>' + DATA.copy.intro_title + '</h1>' +
+      '<p>' + DATA.copy.intro_body + '</p>' +
+      '<p>' + DATA.copy.intro_hint + '</p>' +
+      '<div class="divider"></div>' +
+      '<button class="btn" id="btn-start">' + (answered ? DATA.copy.resume : DATA.copy.start) + '</button>' +
+      (answered ? '<button class="btn ghost" id="btn-reset">' + DATA.copy.restart + '</button><p class="note">已答 ' + answered + '/18 题，' + DATA.copy.saved + '</p>' : '') +
+    '</div>'
+  );
+  app.appendChild(node);
+  document.getElementById("btn-start").onclick = function(){
+    if(answered && saved){ state.answers = saved.answers.slice(0, TOTAL); while(state.answers.length < TOTAL) state.answers.push(undefined); }
+    state.index = firstUnanswered();
+    state.screen = "question";
+    render();
+  };
+  const reset = document.getElementById("btn-reset");
+  if(reset) reset.onclick = function(){
+    clearSaved();
+    state.answers = new Array(TOTAL).fill(undefined);
+    state.index = 0; state.screen = "question"; render();
+  };
+}
+function firstUnanswered(){
+  for(let i=0;i<TOTAL;i++){ if(state.answers[i] === undefined) return i; }
+  return TOTAL - 1;
+}
+
+function renderQuestion(){
+  const q = DATA.questions[state.index];
+  const dim = DATA.dimensions.filter(function(d){ return d.field === q.field; })[0];
+  const groupNo = DATA.dimensions.indexOf(dim) + 1;
+  const pct = Math.round((state.index + 1) / TOTAL * 100);
+
+  const wrap = el(
+    '<div>' +
+      '<div class="top-nav">' +
+        '<button class="link" id="btn-prev">' + '← ' + DATA.copy.prev + '</button>' +
+        '<span>' + tpl(DATA.copy.progress, {cur: state.index + 1}) + '</span>' +
+      '</div>' +
+      '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+      '<div class="group">' + tpl(DATA.copy.group_of, {g: groupNo, name: dim.name}) + '</div>' +
+      '<div class="q">' + q.text + '</div>' +
+      '<div id="opts"></div>' +
+    '</div>'
+  );
+  app.appendChild(wrap);
+
+  const box = wrap.querySelector("#opts");
+  q.options.forEach(function(o){
+    const on = state.answers[state.index] === o.value;
+    const b = el('<button class="opt' + (on ? ' on' : '') + '">' + o.label + '</button>');
+    b.onclick = function(){ choose(o.value); };
+    box.appendChild(b);
+  });
+  const unk = el('<button class="opt unknown' + (state.answers[state.index] === DATA.unknown_value ? ' on' : '') + '">' + DATA.copy.unknown + '</button>');
+  unk.onclick = function(){ choose(DATA.unknown_value); };
+  box.appendChild(unk);
+
+  const prev = wrap.querySelector("#btn-prev");
+  if(state.index === 0){ prev.style.visibility = "hidden"; }
+  else prev.onclick = function(){ state.index -= 1; render(); };
+}
+
+function choose(value){
+  state.answers[state.index] = value;
+  save();
+  Array.prototype.forEach.call(app.querySelectorAll(".opt"), function(n){ n.classList.remove("on"); });
+  const target = Array.prototype.filter.call(app.querySelectorAll(".opt"), function(n){
+    return n.textContent === (value === DATA.unknown_value ? DATA.copy.unknown : DATA.questions[state.index].options.filter(function(o){ return o.value === value; })[0].label);
+  })[0];
+  if(target) target.classList.add("on");
+  setTimeout(function(){
+    if(state.index < TOTAL - 1){ state.index += 1; render(); }
+    else { state.screen = "result"; render(); }
+  }, 260);
+}
+
+function renderResult(){
+  const res = computeResult();
+  const unknownCount = state.answers.filter(function(v){ return v === DATA.unknown_value; }).length;
+
+  const wrap = el(
+    '<div>' +
+      '<h1>' + DATA.copy.result_title + '</h1>' +
+      '<p>' + DATA.copy.result_lead + '</p>' +
+      '<div class="chart-wrap"><canvas id="radar" height="260"></canvas></div>' +
+      '<p class="note" id="chart-note">' + DATA.copy.chart_note + '</p>' +
+      '<div id="dims"></div>' +
+      '<div class="divider"></div>' +
+      '<p>' + DATA.copy.result_next + '</p>' +
+      '<button class="btn ghost" id="btn-copy">' + DATA.copy.copy_btn + '</button>' +
+      '<div class="row">' +
+        '<button class="btn ghost" id="btn-back">' + DATA.copy.back + '</button>' +
+        '<button class="btn ghost" id="btn-redo">' + DATA.copy.redo + '</button>' +
+      '</div>' +
+      '<p class="note">' + DATA.copy.saved + (unknownCount ? ' · 其中「我不知道」' + unknownCount + ' 题' : '') + '</p>' +
+    '</div>'
+  );
+  app.appendChild(wrap);
+
+  const dims = wrap.querySelector("#dims");
+  res.forEach(function(r){
+    const text = r.label ? tpl(DATA.copy.dim_known, {label:r.label})
+               : (r.answered_count ? DATA.copy.dim_unknown : DATA.copy.dim_none);
+    const card = el(
+      '<div class="card">' +
+        '<div class="dim-name">' + r.name + ' · ' + r.field + '</div>' +
+        '<div class="dim-val">' + text + '</div>' +
+        '<div class="dim-track"><i style="width:' + r.consistency + '%"></i></div>' +
+        '<div class="dim-name" style="margin-top:8px">' + DATA.copy.consistency_label + ' ' + r.consistency + '（' + r.valid_count + '/' + r.total + ' 题有效）</div>' +
+      '</div>'
+    );
+    dims.appendChild(card);
+  });
+
+  drawChart(res);
+
+  document.getElementById("btn-copy").onclick = function(){ copyJSON(res); };
+  document.getElementById("btn-back").onclick = function(){ state.index = TOTAL - 1; state.screen = "question"; render(); };
+  document.getElementById("btn-redo").onclick = function(){
+    clearSaved();
+    state.answers = new Array(TOTAL).fill(undefined);
+    state.index = 0; state.screen = "question"; render();
+  };
+}
+
+function drawChart(res){
+  const cv = document.getElementById("radar");
+  if(typeof Chart === "undefined"){
+    const tip = el('<p class="note">' + DATA.copy.chart_fail + '</p>');
+    cv.parentNode.parentNode.insertBefore(tip, cv.parentNode.nextSibling);
+    cv.parentNode.style.display = "none";
+    return;
+  }
+  chartInstance = new Chart(cv.getContext("2d"), {
+    type: "radar",
+    data: {
+      labels: res.map(function(r){ return r.name; }),
+      datasets: [{
+        label: "集中度",
+        data: res.map(function(r){ return r.consistency; }),
+        borderColor: "#2DD4BF",
+        backgroundColor: "rgba(45,212,191,.16)",
+        pointBackgroundColor: "#2DD4BF",
+        pointBorderColor: "#0B0F14",
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 25, color: "#8B93A1", backdropColor: "transparent", font:{size:9} },
+          grid: { color: "rgba(255,255,255,.08)" },
+          angleLines: { color: "rgba(255,255,255,.08)" },
+          pointLabels: { color: "#E6EAF0", font:{size:12} }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx){
+              const r = res[ctx.dataIndex];
+              return r.label ? (r.label + " · 集中度 " + r.consistency) : ("未选择 · 集中度 " + r.consistency);
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+function toJSON(res){
+  const out = { spec_version: DATA.meta.spec_version, ssot_checksum: DATA.meta.ssot_checksum, dimensions:{} };
+  res.forEach(function(r){ out.dimensions[r.field] = r.value === null ? null : r.value; });
+  return out;
+}
+function copyJSON(res){
+  const text = JSON.stringify(toJSON(res), null, 2);
+  const btn = document.getElementById("btn-copy");
+  function done(ok){ if(btn) btn.textContent = ok ? DATA.copy.copied : DATA.copy.copy_fail; setTimeout(function(){ if(btn) btn.textContent = DATA.copy.copy_btn; }, 1600); }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ fallback(); });
+  } else fallback();
+  function fallback(){
+    try{
+      const ta = document.createElement("textarea");
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta); done(ok);
+    }catch(e){ done(false); }
+  }
+}
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿# === TILT-CONTRACT-MANIFEST ===
+# task_id: C05
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: Yuanbao
+# produced_at: 2026-09-20
+# batch: all
+# output_files:
+#   - domains/ideal_coordinates.csv   (rows: 50)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations: []
+# === END MANIFEST ===
+"domain_id","cognitive_style","energy_source","feedback_speed","value_orientation","risk_attitude","abstraction_level","match_weight","reasoning","source","verify_status"
+"writing_general","textual","solitude","long","creation","neutral","application","3","以文字沉淀思考，独处产出，反馈慢但创作驱动","cloud-draft","ok"
+"translation","textual","solitude","short","aesthetics","conservative","operation","3","逐句对照原文即时校验，忠实优先于发挥","cloud-draft","ok"
+"podcasting","auditory","social","short","influence","neutral","application","4","口语对谈与听众反馈驱动，追求表达影响力","cloud-draft","ok"
+"teaching","auditory","social","short","helping","neutral","application","4","靠讲解与即时回应传递知识，助人取向明显","cloud-draft","ok"
+"debating","logical","competition","short","influence","aggressive","application","4","对抗式立论与即时攻防，追求说服与胜势","cloud-draft","ok"
+"script_writing","textual","solitude","long","creation","neutral","application","4","人物与结构设计周期长，需耐受延迟反馈","cloud-draft","ok"
+"blogging","textual","solitude","short","creation","neutral","application","3","公开发布即有数据与评论反馈，重持续输出","cloud-draft","ok"
+"go","logical","competition","short","aesthetics","neutral","operation","4","每局即分胜负，重局面计算与棋形取舍","cloud-draft","ok"
+"chess","logical","competition","short","aesthetics","neutral","operation","4","战术组合即时见胜负，依赖严密计算","cloud-draft","ok"
+"programming","logical","solitude","short","creation","neutral","application","4","逻辑拆解为主，报错调试要求高痛苦耐受","cloud-draft","ok"
+"math_olympiad","logical","solitude","long","creation","neutral","theory","5","长周期无反馈的抽象推演，理论门槛极高","cloud-draft","ok"
+"strategy_games","logical","competition","short","creation","aggressive","application","4","局面即时结算，需快速决策与进攻布局","cloud-draft","ok"
+"cryptography","logical","solitude","long","creation","neutral","theory","5","数学理论门槛高，长期无反馈的严密推演","cloud-draft","ok"
+"bridge","logical","collaboration","short","influence","neutral","operation","4","与搭档约定叫牌体系，一副即见结果，重配合","cloud-draft","ok"
+"photography","visual","solitude","short","aesthetics","neutral","operation","3","镜头即时成像，靠审美与观察定格瞬间","cloud-draft","ok"
+"ui_design","visual","collaboration","short","aesthetics","neutral","application","3","界面审美与可用性并重，迭代反馈较快","cloud-draft","ok"
+"modeling_3d","visual","solitude","short","creation","neutral","operation","3","空间建模即时可见成果，创作驱动","cloud-draft","ok"
+"architecture_design","visual","solitude","long","creation","neutral","application","4","方案周期长落地慢，需空间感与规范并重","cloud-draft","ok"
+"video_editing","visual","solitude","short","aesthetics","neutral","operation","3","时间线即时预览，靠节奏与画面审美驱动","cloud-draft","ok"
+"animation","visual","solitude","long","creation","neutral","operation","4","逐帧打磨周期长，需耐受延迟反馈","cloud-draft","ok"
+"painting","visual","solitude","short","aesthetics","neutral","operation","3","画面即时可见，靠色彩与造型审美表达","cloud-draft","ok"
+"running","bodily","solitude","short","creation","neutral","operation","2","配速与距离数据即时，起点门槛低","cloud-draft","ok"
+"fitness","bodily","solitude","short","aesthetics","neutral","operation","2","身体与镜面反馈即时，形体塑造为主","cloud-draft","ok"
+"yoga","bodily","solitude","short","aesthetics","conservative","operation","3","身体觉察与呼吸配合，强调安全不冒进","cloud-draft","ok"
+"martial_arts","bodily","competition","short","creation","neutral","operation","3","套路与对练并重，攻防反馈即时","cloud-draft","ok"
+"dance","bodily","social","short","aesthetics","neutral","operation","3","动作与音乐即时反馈，肢体表现力优先","cloud-draft","ok"
+"climbing","bodily","solitude","short","creation","aggressive","operation","4","线路即时成败，需身体解谜与冒险意愿","cloud-draft","ok"
+"badminton","bodily","competition","short","influence","aggressive","operation","3","每球即时判分，对抗节奏快，攻击性强","cloud-draft","ok"
+"piano","auditory","solitude","short","aesthetics","neutral","operation","4","音准节奏即时可听，需手耳协调与耐心","cloud-draft","ok"
+"guitar","auditory","solitude","short","aesthetics","neutral","operation","3","和弦转换即时出声，弹唱反馈快","cloud-draft","ok"
+"composition","auditory","solitude","long","creation","neutral","theory","4","作品成型慢，需和声与曲式理论支撑","cloud-draft","ok"
+"singing","auditory","social","short","aesthetics","neutral","operation","3","发声即时可听，情感表达与舞台反馈","cloud-draft","ok"
+"djing","auditory","social","short","aesthetics","aggressive","operation","4","舞池反应即时，需大胆接歌与氛围掌控","cloud-draft","ok"
+"sales","auditory","competition","short","money","aggressive","application","5","业绩数字即时反馈，金钱与竞争驱动极强","cloud-draft","ok"
+"counseling","auditory","collaboration","long","helping","conservative","application","5","深度倾听需长周期信任，助人取向极强","cloud-draft","ok"
+"negotiation","auditory","competition","short","influence","neutral","application","4","双方即时交锋，需说服与利益平衡并重","cloud-draft","ok"
+"mediation","auditory","collaboration","long","helping","conservative","application","4","促成共识周期长，需中立克制与共情","cloud-draft","ok"
+"coaching","auditory","collaboration","short","helping","neutral","application","4","对话促改变，反馈较快，助人成长取向","cloud-draft","ok"
+"recruiting","auditory","social","short","influence","neutral","application","4","沟通量即结果，识人与说服并重","cloud-draft","ok"
+"philosophy","logical","solitude","long","creation","neutral","theory","5","长期无反馈的概念推演，抽象层级要求极高","cloud-draft","ok"
+"psychology","logical","solitude","long","helping","neutral","theory","4","理论与实证并重，理解人心的周期长","cloud-draft","ok"
+"meditation","bodily","solitude","long","creation","conservative","operation","4","身心觉察进步极慢，需独处与稳定节律","cloud-draft","ok"
+"reading","textual","solitude","long","creation","neutral","theory","4","输入为主反馈慢，需文本耐性与长期积累","cloud-draft","ok"
+"biography_writing","textual","solitude","long","creation","neutral","application","4","史料梳理周期长，需共情与文字并重","cloud-draft","ok"
+"cooking","bodily","solitude","short","aesthetics","neutral","operation","2","成品即时可尝，门槛低，人人可上手","cloud-draft","ok"
+"gardening","bodily","solitude","long","aesthetics","conservative","operation","4","植物生长反馈极慢，需耐心与持续照料","cloud-draft","ok"
+"astronomy","visual","solitude","long","creation","neutral","theory","4","观测机会稀少，理论门槛高，反馈极慢","cloud-draft","ok"
+"biology","logical","solitude","long","creation","neutral","theory","4","实验周期长，需观察记录与理论双支撑","cloud-draft","ok"
+"pet_training","bodily","collaboration","short","helping","neutral","operation","3","动物反应即时可见，需耐心与指令一致","cloud-draft","ok"
+"meteorology","logical","solitude","long","creation","neutral","application","4","预报需事后验证，依赖数据与模型推演","cloud-draft","ok"

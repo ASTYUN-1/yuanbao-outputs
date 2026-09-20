@@ -1,0 +1,2651 @@
+{
+  "_manifest": {
+    "task_id": "C07",
+    "spec_version": "V1.3",
+    "ssot_checksum": "TL-SSOT-2026-09-20-A",
+    "baseline_version": "B1.0",
+    "produced_by": "Yuanbao",
+    "produced_at": "2026-09-20",
+    "batch": "all",
+    "output_files": [
+      {
+        "name": "docs/cognitive_test_bank.json",
+        "rows": 200
+      }
+    ],
+    "unverified_count": 0,
+    "self_check": {
+      "frozen_ids_only": true,
+      "enum_from_spec": true,
+      "no_absolute_claims": true,
+      "no_new_concepts": true,
+      "spec_numbers_unchanged": true
+    },
+    "known_deviations": [
+      "manifest 以 _manifest 字段内嵌于 JSON 顶部：JSON 不支持 # 注释块，若按 4.5 的 # 注释写法置于文件首行将导致 JSON 无法解析（与 4.2 冲突），已按可解析优先处理，请确认或改为独立的 sidecar manifest 文件"
+    ]
+  },
+  "disclaimer": "本题库未经信效度检验，MVP 阶段仅供体验，不得对外宣称科学测评",
+  "dimensions": [
+    {
+      "dimension": "reaction_speed",
+      "dimension_cn": "反应速度",
+      "items": [
+        {
+          "id": "rs_001",
+          "stem": "请尽快选出下列数字中最大的一个。",
+          "type": "timed",
+          "options": [
+            "47",
+            "62",
+            "58",
+            "39"
+          ],
+          "correct_answer": "62",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_002",
+          "stem": "请尽快选出与「苹果」属于同一类别的词。",
+          "type": "timed",
+          "options": [
+            "香蕉",
+            "汽车",
+            "锤子",
+            "河流"
+          ],
+          "correct_answer": "香蕉",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_003",
+          "stem": "请尽快选出边数最多的图形。",
+          "type": "timed",
+          "options": [
+            "三角形",
+            "正方形",
+            "五边形",
+            "圆形"
+          ],
+          "correct_answer": "五边形",
+          "time_limit_seconds": 7,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_004",
+          "stem": "请尽快选出与其他三个不属于同一类的词。",
+          "type": "timed",
+          "options": [
+            "猫",
+            "狗",
+            "麻雀",
+            "书桌"
+          ],
+          "correct_answer": "书桌",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_005",
+          "stem": "请尽快算出 24 + 17 的个位数。",
+          "type": "timed",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correct_answer": "1",
+          "time_limit_seconds": 8,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_006",
+          "stem": "请尽快选出下列数字中的偶数。",
+          "type": "timed",
+          "options": [
+            "13",
+            "21",
+            "34",
+            "47"
+          ],
+          "correct_answer": "34",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_007",
+          "stem": "请尽快选出「上」的反义词。",
+          "type": "timed",
+          "options": [
+            "左",
+            "右",
+            "下",
+            "前"
+          ],
+          "correct_answer": "下",
+          "time_limit_seconds": 5,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_008",
+          "stem": "请尽快选出属于暖色的颜色。",
+          "type": "timed",
+          "options": [
+            "蓝色",
+            "绿色",
+            "橙色",
+            "紫色"
+          ],
+          "correct_answer": "橙色",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_009",
+          "stem": "请尽快算出 3 × 7 的结果。",
+          "type": "timed",
+          "options": [
+            "18",
+            "21",
+            "24",
+            "27"
+          ],
+          "correct_answer": "21",
+          "time_limit_seconds": 7,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_010",
+          "stem": "请尽快写出数列 5, 9, 13, 17 的下一个数。",
+          "type": "timed",
+          "options": [
+            "19",
+            "21",
+            "23",
+            "25"
+          ],
+          "correct_answer": "21",
+          "time_limit_seconds": 9,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_011",
+          "stem": "请尽快选出最重的一项。",
+          "type": "timed",
+          "options": [
+            "一本词典",
+            "一辆小汽车",
+            "一支铅笔",
+            "一个苹果"
+          ],
+          "correct_answer": "一辆小汽车",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_012",
+          "stem": "请尽快选出「快」的反义词。",
+          "type": "timed",
+          "options": [
+            "慢",
+            "高",
+            "大",
+            "新"
+          ],
+          "correct_answer": "慢",
+          "time_limit_seconds": 5,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_013",
+          "stem": "请尽快选出时间最晚的一项。",
+          "type": "timed",
+          "options": [
+            "上午 8 点",
+            "中午 12 点",
+            "下午 3 点",
+            "晚上 9 点"
+          ],
+          "correct_answer": "晚上 9 点",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_014",
+          "stem": "请尽快算出 100 − 37 的结果。",
+          "type": "timed",
+          "options": [
+            "57",
+            "63",
+            "67",
+            "73"
+          ],
+          "correct_answer": "63",
+          "time_limit_seconds": 8,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_015",
+          "stem": "请尽快选出与其他三个不属于同一类的词。",
+          "type": "timed",
+          "options": [
+            "跑步",
+            "游泳",
+            "骑车",
+            "读书"
+          ],
+          "correct_answer": "读书",
+          "time_limit_seconds": 7,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_016",
+          "stem": "请尽快选出下列数字中最小的一个。",
+          "type": "timed",
+          "options": [
+            "0.5",
+            "0.05",
+            "0.25",
+            "0.3"
+          ],
+          "correct_answer": "0.05",
+          "time_limit_seconds": 8,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_017",
+          "stem": "请尽快回答：一周有几天？",
+          "type": "timed",
+          "options": [
+            "5 天",
+            "6 天",
+            "7 天",
+            "8 天"
+          ],
+          "correct_answer": "7 天",
+          "time_limit_seconds": 5,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_018",
+          "stem": "请尽快选出与其他三个不属于同一类的项。",
+          "type": "timed",
+          "options": [
+            "红色",
+            "圆形",
+            "蓝色",
+            "绿色"
+          ],
+          "correct_answer": "圆形",
+          "time_limit_seconds": 7,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_019",
+          "stem": "请尽快回答：8 的一半是多少？",
+          "type": "timed",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "6"
+          ],
+          "correct_answer": "4",
+          "time_limit_seconds": 5,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        },
+        {
+          "id": "rs_020",
+          "stem": "请尽快选出能在最短时间内完成的动作。",
+          "type": "timed",
+          "options": [
+            "眨眼",
+            "走一步",
+            "喝一口水",
+            "系好鞋带"
+          ],
+          "correct_answer": "眨眼",
+          "time_limit_seconds": 6,
+          "scoring_note": "限时计分：时限内作答且正确记 1 分，超时或错误记 0 分；维度分 = 正确数 ÷ 20 × 70 + 反应时得分 × 30，反应时得分 = max(0, 1 − (平均反应时 − 600ms) ÷ 2400ms)"
+        }
+      ]
+    },
+    {
+      "dimension": "spatial_rotation",
+      "dimension_cn": "空间旋转",
+      "items": [
+        {
+          "id": "sr_001",
+          "stem": "一个立方体，正对你的面是三角形，右侧面是圆形，上面是正方形。把它绕竖直轴向右旋转 90°（原右侧面转到正对你的位置），此时正对你的面是？",
+          "type": "single_choice",
+          "options": [
+            "圆形",
+            "正方形",
+            "三角形",
+            "无法确定"
+          ],
+          "correct_answer": "圆形",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_002",
+          "stem": "把一张正方形纸先上下对折、再左右对折，展开后折痕把纸面分成几个区域？",
+          "type": "single_choice",
+          "options": [
+            "2 个",
+            "3 个",
+            "4 个",
+            "8 个"
+          ],
+          "correct_answer": "4 个",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_003",
+          "stem": "一面镜子中的时钟显示为 3 点整，实际时间最可能是？",
+          "type": "single_choice",
+          "options": [
+            "3 点",
+            "6 点",
+            "9 点",
+            "12 点"
+          ],
+          "correct_answer": "9 点",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_004",
+          "stem": "一个物体从上方看是圆形，从正面看是长方形，它最可能是？",
+          "type": "single_choice",
+          "options": [
+            "圆柱体",
+            "球体",
+            "圆锥体",
+            "正方体"
+          ],
+          "correct_answer": "圆柱体",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_005",
+          "stem": "一个物体从正面看是三角形，从上方看是圆形，它最可能是？",
+          "type": "single_choice",
+          "options": [
+            "圆锥体",
+            "圆柱体",
+            "球体",
+            "长方体"
+          ],
+          "correct_answer": "圆锥体",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_006",
+          "stem": "你面向北方站立，你的右手边是哪个方向？",
+          "type": "single_choice",
+          "options": [
+            "东",
+            "南",
+            "西",
+            "北"
+          ],
+          "correct_answer": "东",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_007",
+          "stem": "你面向北方，先向左转 90°，再向后转 180°，现在你面向？",
+          "type": "single_choice",
+          "options": [
+            "东",
+            "南",
+            "西",
+            "北"
+          ],
+          "correct_answer": "东",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_008",
+          "stem": "一个立方体有多少个顶点？",
+          "type": "single_choice",
+          "options": [
+            "6 个",
+            "8 个",
+            "12 个",
+            "16 个"
+          ],
+          "correct_answer": "8 个",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_009",
+          "stem": "一个箭头指向右方，顺时针旋转 90° 后指向？",
+          "type": "single_choice",
+          "options": [
+            "上方",
+            "下方",
+            "左方",
+            "右方"
+          ],
+          "correct_answer": "下方",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_010",
+          "stem": "一个箭头指向上方，逆时针旋转 90° 后指向？",
+          "type": "single_choice",
+          "options": [
+            "上方",
+            "下方",
+            "左方",
+            "右方"
+          ],
+          "correct_answer": "左方",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_011",
+          "stem": "把一个 L 形图案整体旋转 180°，它的形状会？",
+          "type": "single_choice",
+          "options": [
+            "变成 T 形",
+            "保持不变",
+            "左右镜像翻转",
+            "变成一条直线"
+          ],
+          "correct_answer": "保持不变",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_012",
+          "stem": "在正方体中，与任意一个面相对的面有几个？",
+          "type": "single_choice",
+          "options": [
+            "1 个",
+            "2 个",
+            "3 个",
+            "4 个"
+          ],
+          "correct_answer": "1 个",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_013",
+          "stem": "用同样大小的小正方形拼成一个更大的正方形，最少需要几个？",
+          "type": "single_choice",
+          "options": [
+            "2 个",
+            "3 个",
+            "4 个",
+            "6 个"
+          ],
+          "correct_answer": "4 个",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_014",
+          "stem": "钟表的时针从 12 点走到 3 点，转过多少度？",
+          "type": "single_choice",
+          "options": [
+            "45°",
+            "90°",
+            "180°",
+            "270°"
+          ],
+          "correct_answer": "90°",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_015",
+          "stem": "钟表的时针从 3 点走到 9 点，转过多少度？",
+          "type": "single_choice",
+          "options": [
+            "90°",
+            "120°",
+            "180°",
+            "270°"
+          ],
+          "correct_answer": "180°",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_016",
+          "stem": "绕一个圆柱体走半圈，你看到的轮廓形状会？",
+          "type": "single_choice",
+          "options": [
+            "一直是长方形",
+            "变成圆形",
+            "变成三角形",
+            "完全看不见"
+          ],
+          "correct_answer": "一直是长方形",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_017",
+          "stem": "一个球体无论从哪个方向看，轮廓都是？",
+          "type": "single_choice",
+          "options": [
+            "圆形",
+            "椭圆形",
+            "正方形",
+            "三角形"
+          ],
+          "correct_answer": "圆形",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_018",
+          "stem": "一张纸对折 3 次后展开，纸上会有几条折痕？",
+          "type": "single_choice",
+          "options": [
+            "3 条",
+            "4 条",
+            "7 条",
+            "8 条"
+          ],
+          "correct_answer": "7 条",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_019",
+          "stem": "一张纸对折 3 次后，共有几层？",
+          "type": "single_choice",
+          "options": [
+            "4 层",
+            "6 层",
+            "8 层",
+            "9 层"
+          ],
+          "correct_answer": "8 层",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "sr_020",
+          "stem": "把一个立方体放在桌面上，最多能同时看到几个面？",
+          "type": "single_choice",
+          "options": [
+            "2 个",
+            "3 个",
+            "4 个",
+            "6 个"
+          ],
+          "correct_answer": "3 个",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        }
+      ]
+    },
+    {
+      "dimension": "working_memory",
+      "dimension_cn": "工作记忆",
+      "items": [
+        {
+          "id": "wm_001",
+          "stem": "数字序列 7-2-9-4 的倒序是？",
+          "type": "single_choice",
+          "options": [
+            "4-9-2-7",
+            "7-4-9-2",
+            "2-9-4-7",
+            "9-4-7-2"
+          ],
+          "correct_answer": "4-9-2-7",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_002",
+          "stem": "数字序列 3-8-1-6-5 中，第 3 个数字是？",
+          "type": "single_choice",
+          "options": [
+            "8",
+            "1",
+            "6",
+            "5"
+          ],
+          "correct_answer": "1",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_003",
+          "stem": "把数字序列 2-5-9-7 按从小到大排列，结果是？",
+          "type": "single_choice",
+          "options": [
+            "2-5-7-9",
+            "2-5-9-7",
+            "7-9-5-2",
+            "9-7-5-2"
+          ],
+          "correct_answer": "2-5-7-9",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_004",
+          "stem": "从序列 6-1-8-3-4 中去掉最小的数字，剩下的是？",
+          "type": "single_choice",
+          "options": [
+            "6-8-3-4",
+            "1-8-3-4",
+            "6-3-8-4",
+            "8-6-3-4"
+          ],
+          "correct_answer": "6-8-3-4",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_005",
+          "stem": "序列 9-4-2-8 倒序后，第 2 个数字是？",
+          "type": "single_choice",
+          "options": [
+            "8",
+            "2",
+            "4",
+            "9"
+          ],
+          "correct_answer": "2",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_006",
+          "stem": "词表「桌子、勇气、河流、钥匙」中，属于抽象概念的是？",
+          "type": "single_choice",
+          "options": [
+            "桌子",
+            "勇气",
+            "河流",
+            "钥匙"
+          ],
+          "correct_answer": "勇气",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_007",
+          "stem": "序列 5-5-3-7 中出现次数最多的数字是？",
+          "type": "single_choice",
+          "options": [
+            "5",
+            "3",
+            "7",
+            "无法判断"
+          ],
+          "correct_answer": "5",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_008",
+          "stem": "把序列 4-9-1-6 中每个数字都加 1，得到？",
+          "type": "single_choice",
+          "options": [
+            "5-10-2-7",
+            "4-9-1-6",
+            "5-9-1-6",
+            "3-8-0-5"
+          ],
+          "correct_answer": "5-10-2-7",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_009",
+          "stem": "序列 8-3-6-2-9 前两个数字之和是？",
+          "type": "single_choice",
+          "options": [
+            "11",
+            "9",
+            "14",
+            "17"
+          ],
+          "correct_answer": "11",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_010",
+          "stem": "序列 3-6-2-9-5 中，最后一个数字比第一个数字大多少？",
+          "type": "single_choice",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "6"
+          ],
+          "correct_answer": "2",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_011",
+          "stem": "序列 7-1-4-8 中去掉最大和最小的数字（保持原顺序），剩下的是？",
+          "type": "single_choice",
+          "options": [
+            "7-4",
+            "4-7",
+            "1-8",
+            "8-1"
+          ],
+          "correct_answer": "7-4",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_012",
+          "stem": "序列 2-8-5-1 的倒序是？",
+          "type": "single_choice",
+          "options": [
+            "1-5-8-2",
+            "2-8-5-1",
+            "1-2-5-8",
+            "5-8-2-1"
+          ],
+          "correct_answer": "1-5-8-2",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 总得分 ÷ 20 × 100"
+        },
+        {
+          "id": "wm_013",
+          "stem": "默读数字序列 3-9-4-7-2，10 秒后把它的倒序写下来。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "2-7-4-9-3",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        },
+        {
+          "id": "wm_014",
+          "stem": "默读词表「桌子、月亮、钥匙、河流」，写出其中第 2 个词。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "月亮",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        },
+        {
+          "id": "wm_015",
+          "stem": "默读数字序列 8-2-6-1，10 秒后写出它的倒序。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "1-6-2-8",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        },
+        {
+          "id": "wm_016",
+          "stem": "默读数字序列 5-7-3-9-4-1，把它们从小到大排列后写下来。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "1-3-4-5-7-9",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        },
+        {
+          "id": "wm_017",
+          "stem": "默读词表「红色、圆形、安静、金属」，写出其中表示形状的词。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "圆形",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        },
+        {
+          "id": "wm_018",
+          "stem": "默读数字序列 2-4-6-8-1，写出其中的奇数。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "1",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        },
+        {
+          "id": "wm_019",
+          "stem": "默读数字序列 9-1-5-3，把每个数字都减去 1 后写下结果。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "8-0-4-2",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        },
+        {
+          "id": "wm_020",
+          "stem": "默读数字序列 4-4-7-1，写出出现两次的数字。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": "4",
+          "time_limit_seconds": 30,
+          "scoring_note": "填空计分：与标准答案完全一致记 1 分；顺序正确但分隔符不同记 0.5 分；其余记 0 分"
+        }
+      ]
+    },
+    {
+      "dimension": "pattern_recognition",
+      "dimension_cn": "模式识别",
+      "items": [
+        {
+          "id": "pr_001",
+          "stem": "数列 2, 4, 6, 8, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "correct_answer": "10",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_002",
+          "stem": "数列 1, 1, 2, 3, 5, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "correct_answer": "8",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_003",
+          "stem": "数列 3, 6, 12, 24, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "36",
+            "48",
+            "42",
+            "30"
+          ],
+          "correct_answer": "48",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_004",
+          "stem": "数列 1, 4, 9, 16, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "20",
+            "25",
+            "24",
+            "30"
+          ],
+          "correct_answer": "25",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_005",
+          "stem": "数列 100, 50, 25, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "10",
+            "12.5",
+            "15",
+            "20"
+          ],
+          "correct_answer": "12.5",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_006",
+          "stem": "数列 2, 3, 5, 7, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "9",
+            "11",
+            "10",
+            "13"
+          ],
+          "correct_answer": "11",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_007",
+          "stem": "数列 1, 2, 4, 7, 11, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "14",
+            "15",
+            "16",
+            "17"
+          ],
+          "correct_answer": "16",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_008",
+          "stem": "图形序列 ○, △, ○, △, ○, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "○",
+            "△",
+            "□",
+            "☆"
+          ],
+          "correct_answer": "△",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_009",
+          "stem": "数列 5, 10, 20, 40, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "60",
+            "70",
+            "80",
+            "100"
+          ],
+          "correct_answer": "80",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_010",
+          "stem": "数列 1, 3, 6, 10, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "13",
+            "14",
+            "15",
+            "16"
+          ],
+          "correct_answer": "15",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_011",
+          "stem": "数列 8, 4, 2, 1, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "0.5",
+            "0.25",
+            "0",
+            "-1"
+          ],
+          "correct_answer": "0.5",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_012",
+          "stem": "数列 2, 6, 12, 20, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "24",
+            "28",
+            "30",
+            "32"
+          ],
+          "correct_answer": "30",
+          "time_limit_seconds": 35,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_013",
+          "stem": "数列 1, 8, 27, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "36",
+            "48",
+            "64",
+            "81"
+          ],
+          "correct_answer": "64",
+          "time_limit_seconds": 35,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_014",
+          "stem": "数列 4, 7, 12, 19, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "24",
+            "26",
+            "28",
+            "30"
+          ],
+          "correct_answer": "28",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_015",
+          "stem": "图形序列 □, ○, △, □, ○, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "□",
+            "○",
+            "△",
+            "☆"
+          ],
+          "correct_answer": "△",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_016",
+          "stem": "数列 3, 9, 27, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "54",
+            "81",
+            "72",
+            "90"
+          ],
+          "correct_answer": "81",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_017",
+          "stem": "数列 1, 2, 6, 24, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "48",
+            "72",
+            "120",
+            "144"
+          ],
+          "correct_answer": "120",
+          "time_limit_seconds": 35,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_018",
+          "stem": "数列 16, 8, 4, 2, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "0",
+            "1",
+            "0.5",
+            "-2"
+          ],
+          "correct_answer": "1",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_019",
+          "stem": "数列 2, 5, 11, 23, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "35",
+            "41",
+            "47",
+            "46"
+          ],
+          "correct_answer": "47",
+          "time_limit_seconds": 35,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "pr_020",
+          "stem": "数列 1, 1, 3, 3, 5, 5, （ ）的下一项是？",
+          "type": "single_choice",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "9"
+          ],
+          "correct_answer": "7",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        }
+      ]
+    },
+    {
+      "dimension": "divergent_thinking",
+      "dimension_cn": "发散思维",
+      "items": [
+        {
+          "id": "dt_001",
+          "stem": "请在 60 秒内，尽可能多地写出回形针的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_002",
+          "stem": "请在 60 秒内，尽可能多地写出旧报纸的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_003",
+          "stem": "请在 60 秒内，尽可能多地写出空塑料瓶的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_004",
+          "stem": "请在 60 秒内，尽可能多地写出一块砖头的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_005",
+          "stem": "如果人类从此不再需要睡眠，请尽可能多地列出可能发生的变化。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_006",
+          "stem": "请在 60 秒内，尽可能多地写出一本书除了阅读以外的用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_007",
+          "stem": "请在 60 秒内，尽可能多地写出雨伞的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_008",
+          "stem": "请在 60 秒内，尽可能多地写出一次性纸杯的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_009",
+          "stem": "如果城市里所有楼梯都消失了，请尽可能多地列出可能发生的变化。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_010",
+          "stem": "请在 60 秒内，尽可能多地写出一根绳子的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_011",
+          "stem": "请在 60 秒内，尽可能多地列出让房间变凉快的办法。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_012",
+          "stem": "请在 60 秒内，尽可能多地写出镜子的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_013",
+          "stem": "如果世界上所有颜色都变成灰色，请尽可能多地列出可能发生的变化。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_014",
+          "stem": "请在 60 秒内，尽可能多地写出一件旧 T 恤的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_015",
+          "stem": "请在 60 秒内，尽可能多地写出会发出声音的东西。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_016",
+          "stem": "请在 60 秒内，尽可能多地写出一双旧鞋子的非穿着用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_017",
+          "stem": "如果人可以瞬间移动到任何地方，请尽可能多地列出可能发生的变化。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_018",
+          "stem": "请在 60 秒内，尽可能多地写出透明胶带的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_019",
+          "stem": "请在 60 秒内，尽可能多地写出一个普通瓶盖的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        },
+        {
+          "id": "dt_020",
+          "stem": "请在 60 秒内，尽可能多地写出废旧纸箱的非常规用途。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：流畅性＝有效答案数 × 1 分（上限 10 分）；灵活性＝不同类别数 × 2 分（上限 10 分）；原创性＝出现频率低于 5% 的答案数 × 3 分（上限 10 分）；维度分 = 三项合计 ÷ 30 × 100，重复或无效答案不计分"
+        }
+      ]
+    },
+    {
+      "dimension": "abstract_reasoning",
+      "dimension_cn": "抽象推理",
+      "items": [
+        {
+          "id": "ar_001",
+          "stem": "医生 : 医院 = 教师 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "学校",
+            "学生",
+            "课本",
+            "讲台"
+          ],
+          "correct_answer": "学校",
+          "time_limit_seconds": 40,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_002",
+          "stem": "鸟 : 羽毛 = 鱼 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "水",
+            "鳞片",
+            "尾巴",
+            "鳃"
+          ],
+          "correct_answer": "鳞片",
+          "time_limit_seconds": 40,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_003",
+          "stem": "2 : 4 = 3 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "9"
+          ],
+          "correct_answer": "6",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_004",
+          "stem": "白天 : 黑夜 = 炎热 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "寒冷",
+            "夏天",
+            "阳光",
+            "温度"
+          ],
+          "correct_answer": "寒冷",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_005",
+          "stem": "已知：所有 A 都是 B，部分 B 是 C。由此可以确定的是？",
+          "type": "single_choice",
+          "options": [
+            "所有 A 都是 C",
+            "部分 A 可能是 C",
+            "没有 A 是 C",
+            "所有 C 都是 A"
+          ],
+          "correct_answer": "部分 A 可能是 C",
+          "time_limit_seconds": 45,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_006",
+          "stem": "已知：下雨时地面一定会湿。现在地面是湿的。可以推出？",
+          "type": "single_choice",
+          "options": [
+            "一定下雨了",
+            "一定没下雨",
+            "可能下雨了，也可能是别的原因",
+            "地面不可能湿"
+          ],
+          "correct_answer": "可能下雨了，也可能是别的原因",
+          "time_limit_seconds": 45,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_007",
+          "stem": "已知：所有会飞的动物都有翅膀，蝙蝠会飞。可以推出？",
+          "type": "single_choice",
+          "options": [
+            "蝙蝠有翅膀",
+            "有翅膀的都会飞",
+            "所有有翅膀的都是蝙蝠",
+            "蝙蝠不是动物"
+          ],
+          "correct_answer": "蝙蝠有翅膀",
+          "time_limit_seconds": 45,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_008",
+          "stem": "1, 2, 3 : 2, 4, 6 = 3, 4, 5 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "4, 5, 6",
+            "6, 8, 10",
+            "3, 6, 9",
+            "9, 12, 15"
+          ],
+          "correct_answer": "6, 8, 10",
+          "time_limit_seconds": 45,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_009",
+          "stem": "书 : 纸张 = 房屋 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "门",
+            "砖块",
+            "屋顶",
+            "住户"
+          ],
+          "correct_answer": "砖块",
+          "time_limit_seconds": 40,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_010",
+          "stem": "手 : 手套 = 脚 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "鞋带",
+            "袜子",
+            "脚趾",
+            "地面"
+          ],
+          "correct_answer": "袜子",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_011",
+          "stem": "大 : 小 = 高 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "长",
+            "矮",
+            "宽",
+            "重"
+          ],
+          "correct_answer": "矮",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_012",
+          "stem": "种子 : 大树 = 蛋 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "鸟巢",
+            "小鸡",
+            "羽毛",
+            "蛋壳"
+          ],
+          "correct_answer": "小鸡",
+          "time_limit_seconds": 40,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_013",
+          "stem": "下列哪一项与其他三项不属于同一类？",
+          "type": "single_choice",
+          "options": [
+            "三角形",
+            "正方形",
+            "圆形",
+            "红色"
+          ],
+          "correct_answer": "红色",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_014",
+          "stem": "已知：所有 X 都是 Y，没有 Y 是 Z。可以推出？",
+          "type": "single_choice",
+          "options": [
+            "没有 X 是 Z",
+            "所有 Z 都是 X",
+            "有些 Z 是 X",
+            "X 与 Z 完全相同"
+          ],
+          "correct_answer": "没有 X 是 Z",
+          "time_limit_seconds": 45,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_015",
+          "stem": "已知：A 大于 B，B 大于 C。可以推出？",
+          "type": "single_choice",
+          "options": [
+            "A 大于 C",
+            "C 大于 A",
+            "A 等于 C",
+            "无法比较"
+          ],
+          "correct_answer": "A 大于 C",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_016",
+          "stem": "剪刀 : 裁剪 = 笔 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "墨水",
+            "书写",
+            "纸张",
+            "笔筒"
+          ],
+          "correct_answer": "书写",
+          "time_limit_seconds": 40,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_017",
+          "stem": "车轮 : 汽车 = 键盘 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "手指",
+            "电脑",
+            "字母",
+            "打字"
+          ],
+          "correct_answer": "电脑",
+          "time_limit_seconds": 40,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_018",
+          "stem": "开始 : 结束 = 出生 : （ ）",
+          "type": "single_choice",
+          "options": [
+            "成长",
+            "死亡",
+            "婴儿",
+            "年龄"
+          ],
+          "correct_answer": "死亡",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_019",
+          "stem": "已知：所有玫瑰都是花，有些花很快凋谢。可以推出？",
+          "type": "single_choice",
+          "options": [
+            "有些玫瑰很快凋谢",
+            "所有玫瑰很快凋谢",
+            "无法确定是否有玫瑰很快凋谢",
+            "玫瑰不会凋谢"
+          ],
+          "correct_answer": "无法确定是否有玫瑰很快凋谢",
+          "time_limit_seconds": 45,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ar_020",
+          "stem": "已知：下雨时地面会湿。今天没有下雨。地面的状态是？",
+          "type": "single_choice",
+          "options": [
+            "一定是干的",
+            "一定是湿的",
+            "无法确定",
+            "一定被雪覆盖"
+          ],
+          "correct_answer": "无法确定",
+          "time_limit_seconds": 45,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        }
+      ]
+    },
+    {
+      "dimension": "number_sense",
+      "dimension_cn": "数感",
+      "items": [
+        {
+          "id": "ns_001",
+          "stem": "估算：198 × 5 最接近哪个数？",
+          "type": "single_choice",
+          "options": [
+            "900",
+            "1000",
+            "1100",
+            "1200"
+          ],
+          "correct_answer": "1000",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_002",
+          "stem": "估算：3.7 + 8.9 最接近哪个数？",
+          "type": "single_choice",
+          "options": [
+            "11",
+            "12",
+            "13",
+            "14"
+          ],
+          "correct_answer": "13",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_003",
+          "stem": "估算：49 × 21 最接近哪个数？",
+          "type": "single_choice",
+          "options": [
+            "800",
+            "1000",
+            "1200",
+            "1500"
+          ],
+          "correct_answer": "1000",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_004",
+          "stem": "一根 1 米长的绳子平均分成 3 段，每段约多长？",
+          "type": "single_choice",
+          "options": [
+            "0.2 米",
+            "0.25 米",
+            "0.33 米",
+            "0.5 米"
+          ],
+          "correct_answer": "0.33 米",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_005",
+          "stem": "一件 200 元的商品打 8 折，售价是？",
+          "type": "single_choice",
+          "options": [
+            "120 元",
+            "160 元",
+            "180 元",
+            "190 元"
+          ],
+          "correct_answer": "160 元",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_006",
+          "stem": "100 的 15% 是多少？",
+          "type": "single_choice",
+          "options": [
+            "1.5",
+            "10",
+            "15",
+            "25"
+          ],
+          "correct_answer": "15",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_007",
+          "stem": "估算：796 + 305 最接近哪个数？",
+          "type": "single_choice",
+          "options": [
+            "1000",
+            "1100",
+            "1200",
+            "1300"
+          ],
+          "correct_answer": "1100",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_008",
+          "stem": "一个水池每分钟进水 3 升，10 分钟共进水多少？",
+          "type": "single_choice",
+          "options": [
+            "13 升",
+            "30 升",
+            "300 升",
+            "3 升"
+          ],
+          "correct_answer": "30 升",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_009",
+          "stem": "5 个苹果 12 元，买 20 个大约需要多少钱？",
+          "type": "single_choice",
+          "options": [
+            "36 元",
+            "48 元",
+            "60 元",
+            "24 元"
+          ],
+          "correct_answer": "48 元",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_010",
+          "stem": "估算：59 ÷ 6 最接近哪个数？",
+          "type": "single_choice",
+          "options": [
+            "8",
+            "9",
+            "10",
+            "12"
+          ],
+          "correct_answer": "10",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_011",
+          "stem": "一件 1000 元的商品先涨价 10%，再降价 10%，最终价格是？",
+          "type": "single_choice",
+          "options": [
+            "1000 元",
+            "990 元",
+            "1010 元",
+            "900 元"
+          ],
+          "correct_answer": "990 元",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_012",
+          "stem": "一列火车 2 小时行驶 160 公里，平均时速是？",
+          "type": "single_choice",
+          "options": [
+            "60 公里/小时",
+            "80 公里/小时",
+            "100 公里/小时",
+            "320 公里/小时"
+          ],
+          "correct_answer": "80 公里/小时",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_013",
+          "stem": "1/3 + 1/6 等于多少？",
+          "type": "single_choice",
+          "options": [
+            "1/9",
+            "1/2",
+            "2/9",
+            "1/4"
+          ],
+          "correct_answer": "1/2",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_014",
+          "stem": "估算：24 × 25 最接近哪个数？",
+          "type": "single_choice",
+          "options": [
+            "500",
+            "600",
+            "650",
+            "700"
+          ],
+          "correct_answer": "600",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_015",
+          "stem": "一杯水 250 毫升，4 杯共多少？",
+          "type": "single_choice",
+          "options": [
+            "100 毫升",
+            "1 升",
+            "10 升",
+            "100 升"
+          ],
+          "correct_answer": "1 升",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_016",
+          "stem": "一个数增加 20% 后是 60，这个数原来是多少？",
+          "type": "single_choice",
+          "options": [
+            "40",
+            "50",
+            "55",
+            "72"
+          ],
+          "correct_answer": "50",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_017",
+          "stem": "估算：999 × 3 最接近哪个数？",
+          "type": "single_choice",
+          "options": [
+            "2700",
+            "2900",
+            "3000",
+            "3300"
+          ],
+          "correct_answer": "3000",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_018",
+          "stem": "100 万元按年利率 4% 存一年，利息约是多少？",
+          "type": "single_choice",
+          "options": [
+            "400 元",
+            "4000 元",
+            "4 万元",
+            "40 万元"
+          ],
+          "correct_answer": "4 万元",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_019",
+          "stem": "1 + 2 + 3 + … + 10 等于多少？",
+          "type": "single_choice",
+          "options": [
+            "45",
+            "50",
+            "55",
+            "100"
+          ],
+          "correct_answer": "55",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ns_020",
+          "stem": "一件原价 300 元的上衣，先减 100 元再打 9 折，最终价格是？",
+          "type": "single_choice",
+          "options": [
+            "180 元",
+            "190 元",
+            "200 元",
+            "270 元"
+          ],
+          "correct_answer": "180 元",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；估算题以最接近的选项为正确；维度分 = 正确数 ÷ 20 × 100"
+        }
+      ]
+    },
+    {
+      "dimension": "verbal_fluency",
+      "dimension_cn": "言语流畅性",
+      "items": [
+        {
+          "id": "vf_001",
+          "stem": "请在 60 秒内，尽可能多地说出以「水」开头的词语。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_002",
+          "stem": "请在 60 秒内，尽可能多地说出以「心」结尾的词语。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_003",
+          "stem": "请在 60 秒内，尽可能多地说出水果的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_004",
+          "stem": "请在 60 秒内，尽可能多地说出动物的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_005",
+          "stem": "请在 60 秒内，尽可能多地说出职业的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_006",
+          "stem": "请在 60 秒内，尽可能多地说出以「电」开头的词语。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_007",
+          "stem": "请在 60 秒内，尽可能多地说出含有「火」字的词语。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_008",
+          "stem": "请在 60 秒内，尽可能多地说出颜色的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_009",
+          "stem": "请在 60 秒内，尽可能多地说出交通工具的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_010",
+          "stem": "请在 60 秒内，尽可能多地说出可以坐上去的东西。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_011",
+          "stem": "请在 60 秒内，尽可能多地说出以「开」开头的动词。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_012",
+          "stem": "请在 60 秒内，尽可能多地说出可以形容天气的词语。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_013",
+          "stem": "请在 60 秒内，尽可能多地说出厨房里常见的物品。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_014",
+          "stem": "请在 60 秒内，尽可能多地说出体育运动项目的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_015",
+          "stem": "请在 60 秒内，尽可能多地说出以「大」开头的词语。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_016",
+          "stem": "请在 60 秒内，尽可能多地说出会飞的东西。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_017",
+          "stem": "请在 60 秒内，尽可能多地说出学科或课程的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_018",
+          "stem": "请在 60 秒内，尽可能多地说出以「自」开头的词语。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_019",
+          "stem": "请在 60 秒内，尽可能多地说出乐器的名称。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        },
+        {
+          "id": "vf_020",
+          "stem": "请在 60 秒内，尽可能多地说出家里需要用电的电器。",
+          "type": "text_input",
+          "options": [],
+          "correct_answer": null,
+          "time_limit_seconds": 60,
+          "scoring_note": "计分要点（不设标准答案，correct_answer = null）：60 秒内有效词语数 × 1 分，重复词、非词、不符合限定条件（如不以指定字开头）不计分；维度分 = min(有效词数, 30) ÷ 30 × 100"
+        }
+      ]
+    },
+    {
+      "dimension": "emotion_recognition",
+      "dimension_cn": "情绪识别",
+      "items": [
+        {
+          "id": "er_001",
+          "stem": "小李准备了很久的方案被临时取消，他沉默地合上电脑。他此刻最可能的情绪是？",
+          "type": "single_choice",
+          "options": [
+            "失望",
+            "兴奋",
+            "轻松",
+            "好奇"
+          ],
+          "correct_answer": "失望",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_002",
+          "stem": "她收到录取通知后先愣了几秒，才笑着打电话给家人。她此刻最可能的情绪是？",
+          "type": "single_choice",
+          "options": [
+            "惊喜",
+            "恐惧",
+            "厌倦",
+            "愤怒"
+          ],
+          "correct_answer": "惊喜",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_003",
+          "stem": "朋友说「我没事啊」，但语气冷淡并回避眼神接触。较合理的判断是？",
+          "type": "single_choice",
+          "options": [
+            "他确实没事",
+            "他可能在掩饰情绪",
+            "他非常开心",
+            "他很困"
+          ],
+          "correct_answer": "他可能在掩饰情绪",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_004",
+          "stem": "一个人反复看手机、来回踱步、坐立不安。他最可能的状态是？",
+          "type": "single_choice",
+          "options": [
+            "焦虑",
+            "满足",
+            "困倦",
+            "骄傲"
+          ],
+          "correct_answer": "焦虑",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_005",
+          "stem": "听到坏消息后，他眼眶发红、声音颤抖。他最可能的情绪是？",
+          "type": "single_choice",
+          "options": [
+            "难过",
+            "愤怒",
+            "惊讶",
+            "自豪"
+          ],
+          "correct_answer": "难过",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_006",
+          "stem": "被告知意外的好消息时，她瞪大眼睛、用手捂住嘴。她最可能的情绪是？",
+          "type": "single_choice",
+          "options": [
+            "惊讶",
+            "厌倦",
+            "羞愧",
+            "嫉妒"
+          ],
+          "correct_answer": "惊讶",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_007",
+          "stem": "完成长期目标后，他长长地舒了一口气，肩膀放松下来。他最可能的感受是？",
+          "type": "single_choice",
+          "options": [
+            "释然",
+            "紧张",
+            "恐惧",
+            "无聊"
+          ],
+          "correct_answer": "释然",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_008",
+          "stem": "被人插队后，他眉头紧皱、握紧拳头。他最可能的情绪是？",
+          "type": "single_choice",
+          "options": [
+            "愤怒",
+            "惊喜",
+            "感激",
+            "困倦"
+          ],
+          "correct_answer": "愤怒",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_009",
+          "stem": "演讲前，她不停清嗓子、手心出汗、反复看稿。她最可能的状态是？",
+          "type": "single_choice",
+          "options": [
+            "紧张",
+            "骄傲",
+            "满足",
+            "失望"
+          ],
+          "correct_answer": "紧张",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_010",
+          "stem": "得知好友升职，你既为他高兴，又有一点点失落。这种感受最接近？",
+          "type": "single_choice",
+          "options": [
+            "纯粹的嫉妒",
+            "矛盾情绪",
+            "完全无所谓",
+            "强烈的愤怒"
+          ],
+          "correct_answer": "矛盾情绪",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_011",
+          "stem": "他说「我没事」，却重重地把杯子放在桌上。较合理的判断是？",
+          "type": "single_choice",
+          "options": [
+            "他很放松",
+            "他可能在生气",
+            "他非常开心",
+            "他毫无情绪"
+          ],
+          "correct_answer": "他可能在生气",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_012",
+          "stem": "连续加班数月后，他对什么都提不起兴趣，只想躺着。他最可能的状态是？",
+          "type": "single_choice",
+          "options": [
+            "倦怠",
+            "兴奋",
+            "好奇",
+            "自豪"
+          ],
+          "correct_answer": "倦怠",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_013",
+          "stem": "看到陌生人受伤，你心里一紧，想去帮忙。这种感受最接近？",
+          "type": "single_choice",
+          "options": [
+            "同情",
+            "嫉妒",
+            "自豪",
+            "厌倦"
+          ],
+          "correct_answer": "同情",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_014",
+          "stem": "被误解却来不及解释，他觉得心里堵得慌。他最可能的感受是？",
+          "type": "single_choice",
+          "options": [
+            "委屈",
+            "骄傲",
+            "轻松",
+            "好奇"
+          ],
+          "correct_answer": "委屈",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_015",
+          "stem": "被当众表扬时，他低头微笑、手脚不知往哪里放。他最可能的状态是？",
+          "type": "single_choice",
+          "options": [
+            "局促不安",
+            "非常自豪",
+            "毫不在意",
+            "十分愤怒"
+          ],
+          "correct_answer": "局促不安",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_016",
+          "stem": "翻到多年前的老照片，她久久没有说话。她最可能的感受是？",
+          "type": "single_choice",
+          "options": [
+            "怀念",
+            "恐惧",
+            "愤怒",
+            "厌倦"
+          ],
+          "correct_answer": "怀念",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_017",
+          "stem": "精心安排的计划被反复打乱，而且自己无法控制。他最可能的情绪是？",
+          "type": "single_choice",
+          "options": [
+            "烦躁",
+            "感激",
+            "释然",
+            "惊喜"
+          ],
+          "correct_answer": "烦躁",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_018",
+          "stem": "看到他人受到明显不公正的对待，他感到气血上涌。这种感受最接近？",
+          "type": "single_choice",
+          "options": [
+            "愤慨",
+            "羡慕",
+            "安心",
+            "无聊"
+          ],
+          "correct_answer": "愤慨",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_019",
+          "stem": "第一次独自上台领奖的孩子低着头笑，手攥着衣角。他最可能的状态是？",
+          "type": "single_choice",
+          "options": [
+            "害羞",
+            "愤怒",
+            "骄傲",
+            "无聊"
+          ],
+          "correct_answer": "害羞",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "er_020",
+          "stem": "久未联系的老朋友突然发来消息，你心头一热。你最可能的感受是？",
+          "type": "single_choice",
+          "options": [
+            "惊喜",
+            "恐惧",
+            "厌倦",
+            "羞愧"
+          ],
+          "correct_answer": "惊喜",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；本维度测查对情境线索的推断，不作任何人格或能力判定；维度分 = 正确数 ÷ 20 × 100"
+        }
+      ]
+    },
+    {
+      "dimension": "detail_sensitivity",
+      "dimension_cn": "细节敏感度",
+      "items": [
+        {
+          "id": "ds_001",
+          "stem": "第一组数字：3 8 5 2；第二组数字：3 8 6 2。两组中不同的是第几个数字？",
+          "type": "single_choice",
+          "options": [
+            "第 1 个",
+            "第 2 个",
+            "第 3 个",
+            "两组完全相同"
+          ],
+          "correct_answer": "第 3 个",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_002",
+          "stem": "「天气真好，我门去公园吧」中的错别字是？",
+          "type": "single_choice",
+          "options": [
+            "天气",
+            "我门",
+            "公园",
+            "没有错别字"
+          ],
+          "correct_answer": "我门",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_003",
+          "stem": "「这家店周一至周五营业，周六周日休息」与「这家店周末营业」两句话是否一致？",
+          "type": "single_choice",
+          "options": [
+            "一致",
+            "不一致",
+            "无法判断",
+            "说法不同但意思相同"
+          ],
+          "correct_answer": "不一致",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_004",
+          "stem": "词表「苹果、香蕉、苹果、梨」中重复出现的是？",
+          "type": "single_choice",
+          "options": [
+            "苹果",
+            "香蕉",
+            "梨",
+            "没有重复"
+          ],
+          "correct_answer": "苹果",
+          "time_limit_seconds": 20,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_005",
+          "stem": "「1024」与「10024」这两个数字的差异是？",
+          "type": "single_choice",
+          "options": [
+            "后者多了一个 0",
+            "前者多了一个 0",
+            "两者相同",
+            "后者少了一个 4"
+          ],
+          "correct_answer": "后者多了一个 0",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_006",
+          "stem": "「共有 3 人参加：小明、小红、小刚、小李」这句话的问题是？",
+          "type": "single_choice",
+          "options": [
+            "实际列出了 4 人",
+            "名单正确",
+            "缺少标点",
+            "名单有重复"
+          ],
+          "correct_answer": "实际列出了 4 人",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_007",
+          "stem": "「参会者 5 人：A、B、C、D」这句话的问题是？",
+          "type": "single_choice",
+          "options": [
+            "实际只列出 4 人",
+            "人数正确",
+            "字母应小写",
+            "没有列出时间"
+          ],
+          "correct_answer": "实际只列出 4 人",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_008",
+          "stem": "「他的建意很有价值」中的错别字是？",
+          "type": "single_choice",
+          "options": [
+            "建意",
+            "价值",
+            "很有",
+            "没有错别字"
+          ],
+          "correct_answer": "建意",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_009",
+          "stem": "「这本书共 200 页，已读 150 页，还剩 30 页」这句话的问题是？",
+          "type": "single_choice",
+          "options": [
+            "剩余页数应为 50",
+            "完全正确",
+            "总页数错误",
+            "已读页数错误"
+          ],
+          "correct_answer": "剩余页数应为 50",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_010",
+          "stem": "「所有学生都通过了考试」与「有学生没有通过考试」这两句话的关系是？",
+          "type": "single_choice",
+          "options": [
+            "意思相同",
+            "互相矛盾",
+            "无法判断",
+            "后者是前者的补充说明"
+          ],
+          "correct_answer": "互相矛盾",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_011",
+          "stem": "「他比我高，我比小李高，所以小李比他高」这个推理？",
+          "type": "single_choice",
+          "options": [
+            "正确",
+            "错误",
+            "无法判断",
+            "仅在两人一样高时正确"
+          ],
+          "correct_answer": "错误",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_012",
+          "stem": "在图形序列「○ ○ ○ ● ○」中，与其他不同的是第几个？",
+          "type": "single_choice",
+          "options": [
+            "第 3 个",
+            "第 4 个",
+            "第 5 个",
+            "没有不同"
+          ],
+          "correct_answer": "第 4 个",
+          "time_limit_seconds": 25,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_013",
+          "stem": "「会议时间是下午 3:00，请提前 30 分钟到场，即 2:00」这句话的问题是？",
+          "type": "single_choice",
+          "options": [
+            "到场时间应为 2:30",
+            "完全正确",
+            "会议时间错误",
+            "提前时间错误"
+          ],
+          "correct_answer": "到场时间应为 2:30",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_014",
+          "stem": "「原价 100 元的商品打 5 折后是 25 元」这句话的问题是？",
+          "type": "single_choice",
+          "options": [
+            "打 5 折应为 50 元",
+            "完全正确",
+            "原价应为 200 元",
+            "折扣应为 2.5 折"
+          ],
+          "correct_answer": "打 5 折应为 50 元",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_015",
+          "stem": "「我以经完成了任务」中的错别字是？",
+          "type": "single_choice",
+          "options": [
+            "以经",
+            "完成",
+            "任务",
+            "没有错别字"
+          ],
+          "correct_answer": "以经",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_016",
+          "stem": "「他从不吃辣，昨天却点了一份特辣火锅」这句话？",
+          "type": "single_choice",
+          "options": [
+            "前后存在矛盾",
+            "完全合理",
+            "说明他从不吃辣是假的",
+            "无法判断"
+          ],
+          "correct_answer": "前后存在矛盾",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_017",
+          "stem": "数列 2, 4, 6, 9, 10 中，不符合规律的是？",
+          "type": "single_choice",
+          "options": [
+            "2",
+            "6",
+            "9",
+            "10"
+          ],
+          "correct_answer": "9",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_018",
+          "stem": "「参会名单：第一组、第二组、第三组、第五组」这份名单的问题是？",
+          "type": "single_choice",
+          "options": [
+            "缺少第四组",
+            "顺序完全正确",
+            "多了一个组",
+            "应改为阿拉伯数字"
+          ],
+          "correct_answer": "缺少第四组",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_019",
+          "stem": "「报告中的数据需要再次核对一遍」这句话？",
+          "type": "single_choice",
+          "options": [
+            "有错别字",
+            "没有错别字",
+            "缺少主语",
+            "数字错误"
+          ],
+          "correct_answer": "没有错别字",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        },
+        {
+          "id": "ds_020",
+          "stem": "「本次培训共 12 人参加，实际到场 15 人，缺席 0 人」这句话的问题是？",
+          "type": "single_choice",
+          "options": [
+            "人数前后不一致",
+            "完全正确",
+            "缺席人数应为 5",
+            "到场人数应为 12"
+          ],
+          "correct_answer": "人数前后不一致",
+          "time_limit_seconds": 30,
+          "scoring_note": "单选计分：正确记 1 分，错误或超时记 0 分；维度分 = 正确数 ÷ 20 × 100"
+        }
+      ]
+    }
+  ]
+}

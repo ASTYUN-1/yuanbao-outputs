@@ -1,0 +1,70 @@
+﻿# === TILT-CONTRACT-MANIFEST ===
+# task_id: C05
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝 (Yuanbao)
+# produced_at: 2026-09-20
+# batch: all
+# output_files:
+#   - domains/ideal_coordinates.csv   (rows: 50)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations: []
+# === END MANIFEST ===
+domain_id,cognitive_style,energy_source,feedback_speed,value_orientation,risk_attitude,abstraction_level,match_weight,reasoning,source,verify_status
+writing_general,textual,solitude,long,creation,conservative,application,3,文字产出依赖长期独处积累，表达欲与坚持度决定上限,cloud-draft,ok
+translation,textual,solitude,short,aesthetics,conservative,operation,3,精确转换需耐心与语感，对错可即时判定,cloud-draft,ok
+podcasting,auditory,social,short,influence,neutral,application,4,依赖口头表达与互动，听众反应即为反馈,cloud-draft,ok
+teaching,logical,social,short,helping,conservative,application,4,需把知识讲清楚，学生反应即时可感知,cloud-draft,ok
+debating,logical,competition,short,influence,aggressive,application,5,对抗性强，需即时反驳，胜负反馈极快,cloud-draft,ok
+script_writing,textual,solitude,long,creation,neutral,application,4,故事结构需长期打磨，反馈来自他人阅读,cloud-draft,ok
+blogging,textual,solitude,short,creation,conservative,application,2,文字表达加发布反馈，门槛低适配面广,cloud-draft,ok
+go,logical,competition,short,creation,neutral,theory,4,每局胜负即时可见，需抽象棋理与专注,cloud-draft,ok
+chess,logical,competition,short,creation,neutral,theory,3,每局结果即时，依赖计算与局面抽象判断,cloud-draft,ok
+programming,logical,solitude,short,creation,neutral,application,4,代码对错即时可验证，需逻辑与调试耐心,cloud-draft,ok
+math_olympiad,logical,solitude,long,creation,neutral,theory,5,长期无反馈的深度推演，抽象与耐挫要求高,cloud-draft,ok
+strategy_games,logical,competition,short,creation,aggressive,application,3,即时决策与对抗，反馈快容错空间较大,cloud-draft,ok
+cryptography,logical,solitude,long,creation,conservative,theory,5,纯理论推演，反馈极慢且要求严密逻辑,cloud-draft,ok
+bridge,logical,collaboration,short,creation,neutral,application,4,需与搭档默契配合，每副牌结果即时可见,cloud-draft,ok
+photography,visual,solitude,short,aesthetics,neutral,operation,4,构图光影直觉决定成片，拍摄即得反馈,cloud-draft,ok
+ui_design,visual,collaboration,short,aesthetics,conservative,application,4,视觉审美与用户视角并重，方案可快速验证,cloud-draft,ok
+modeling_3d,visual,solitude,long,creation,neutral,operation,4,空间建构耗时，产出需反复调整才见效果,cloud-draft,ok
+architecture_design,visual,solitude,long,aesthetics,conservative,theory,4,长周期方案推演，需空间想象与规范约束,cloud-draft,ok
+video_editing,visual,solitude,short,aesthetics,neutral,operation,3,剪辑效果即时可见，节奏与画面感觉优先,cloud-draft,ok
+animation,visual,solitude,long,creation,conservative,operation,4,逐帧打磨周期长，需视觉耐性与细节把控,cloud-draft,ok
+painting,visual,solitude,short,aesthetics,neutral,operation,4,画面即时呈现，审美与手感决定进步速度,cloud-draft,ok
+running,bodily,solitude,short,creation,conservative,operation,2,身体反馈直接，门槛低，坐标系区分度有限,cloud-draft,ok
+fitness,bodily,solitude,short,creation,conservative,operation,2,训练效果可见，主要靠规律与自律驱动,cloud-draft,ok
+yoga,bodily,solitude,short,aesthetics,conservative,operation,3,身体感受即时，需静心觉察与持续练习,cloud-draft,ok
+martial_arts,bodily,competition,short,creation,neutral,operation,3,对抗与套路反馈直接，需身体控制与胆量,cloud-draft,ok
+dance,bodily,social,short,aesthetics,neutral,operation,4,身体与音乐同步，表现力在观众反馈中提升,cloud-draft,ok
+climbing,bodily,solitude,short,creation,aggressive,operation,4,每条线路成败即时，需身体控制与风险评估,cloud-draft,ok
+badminton,bodily,competition,short,creation,aggressive,operation,4,每回合胜负即时，对抗强度高技术要求细,cloud-draft,ok
+piano,auditory,solitude,long,aesthetics,conservative,operation,4,长期重复练习，进步反馈慢且依赖听觉校准,cloud-draft,ok
+guitar,auditory,social,short,aesthetics,neutral,operation,3,和弦弹唱即时出声，适合社交场景练习,cloud-draft,ok
+composition,auditory,solitude,long,creation,neutral,theory,5,作品完成周期长，需抽象乐理与内在驱动,cloud-draft,ok
+singing,auditory,social,short,aesthetics,neutral,operation,3,发声反馈即时，表现欲与听感校准很重要,cloud-draft,ok
+djing,auditory,social,short,aesthetics,aggressive,operation,4,现场反应即时，需胆量与节奏把控并重,cloud-draft,ok
+sales,auditory,competition,short,money,aggressive,application,5,业绩即时反馈，说服节奏与抗压决定成败,cloud-draft,ok
+counseling,auditory,collaboration,long,helping,conservative,application,5,以倾听为主，成效反馈慢且需高度共情,cloud-draft,ok
+negotiation,logical,competition,short,influence,aggressive,application,5,博弈即时交锋，策略与影响力缺一不可,cloud-draft,ok
+mediation,logical,collaboration,short,helping,conservative,application,4,需中立协调，沟通反馈即时并重关系修复,cloud-draft,ok
+coaching,auditory,collaboration,short,helping,neutral,application,4,以提问促改变，互动反馈快且关注他人成长,cloud-draft,ok
+recruiting,auditory,social,short,influence,neutral,application,3,沟通密集，识人判断依赖大量即时互动,cloud-draft,ok
+philosophy,logical,solitude,long,creation,neutral,theory,5,哲学需要长期无反馈的概念推演，抽象层级要求极高,cloud-draft,ok
+psychology,logical,solitude,long,helping,conservative,theory,5,理论与观察并重，人的变化反馈周期长,cloud-draft,ok
+meditation,bodily,solitude,long,creation,conservative,operation,3,关注内在感受，进步缓慢且需规律独处练习,cloud-draft,ok
+reading,textual,solitude,long,creation,conservative,theory,3,长期输入型活动，反馈微弱且靠内在驱动,cloud-draft,ok
+biography_writing,textual,solitude,long,creation,conservative,application,4,需访谈与考据，成稿周期长且反馈慢,cloud-draft,ok
+cooking,bodily,social,short,creation,neutral,operation,2,成品即刻可尝，动手与调整速度决定进步,cloud-draft,ok
+gardening,bodily,solitude,long,creation,conservative,operation,4,植物生长周期长，需耐心观察与持续照料,cloud-draft,ok
+astronomy,visual,solitude,long,creation,neutral,theory,4,观测机会稀少，需长期记录与理论解释,cloud-draft,ok
+biology,visual,solitude,long,creation,neutral,theory,3,实验周期长，观察记录与理论解释缺一不可,cloud-draft,ok
+pet_training,bodily,collaboration,short,helping,neutral,operation,3,动物反应即时，需耐心与反馈的一致性,cloud-draft,ok
+meteorology,logical,solitude,short,creation,neutral,theory,4,预报可快速验证，数据分析与模型理解并重,cloud-draft,ok

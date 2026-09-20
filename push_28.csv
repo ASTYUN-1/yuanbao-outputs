@@ -1,0 +1,50 @@
+﻿# === TILT-CONTRACT-MANIFEST ===
+# task_id: C10
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝(Yuanbao)
+# produced_at: 2026-09-20
+# batch: all
+# output_files:
+#   - copy/push_28.csv   (rows: 28)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: true
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - "本任务两个 CSV 无领域维度，行序按场景/天数排列（4.1 的领域序约束不适用）"
+#   - "CSV 顶部 manifest 按 4.5 执行，与 4.1「第一行为表头」的字面表述冲突，此处取 4.5"
+# === END MANIFEST ===
+"day","scenario","push_title","push_body","tone_note","source","verify_status"
+"1","onboarding_first_task","今天先跑 15 分钟","第 1 周是 L1-L2 的纯学习任务，先熟悉流程，不用急着出活。","开场只讲最小动作，不谈结果；避免“开始改变人生”式宏大叙事。","cloud-draft","ok"
+"2","domain_screening","筛到 3-5 个了吗","50 个候选领域里挑 3-5 个，每个每天 15-30 分钟，4 周后看斜率。","用 SPEC 区间给边界，不催用户“越快越好”。","cloud-draft","ok"
+"3","daily_checkin","今天也别贪多","3 个领域各 15 分钟，比 1 个领域 45 分钟更容易跑满 4 周。","日常提醒：给方法不给评价，不出现“你应该”。","cloud-draft","ok"
+"4","resume_after_gap","断了也能接着跑","昨天没记录的话，今天回到 L1-L2 补上就行，斜率照样算。","中断场景：消除羞耻感，不统计“连续天数”施压。","cloud-draft","ok"
+"5","timing_experiment","试试换个时段","早上还是晚上更容易坚持？换成你最顺的时段试试看。","引导用户自己做实验，产品不下结论。","cloud-draft","ok"
+"6","data_preview","第 1 周快过半了","已记录的行为数据会持续更新，雷达图和 5 维指标随时可看。","介绍数据存在，但不解读、不评价好坏。","cloud-draft","ok"
+"7","week1_complete","第 1 周收尾","L1-L2 阶段结束，明天进入第 2 周的 L2-L3，难度抬一档。","周切换预告：如实告知难度变化，不用“恭喜”制造奖励感。","cloud-draft","ok"
+"8","week2_level_up","进入第 2 周","这周任务在 L2-L3，会有明确产出；做不完可以先退回上一档。","允许回退，避免把跳档说成必须完成的考核。","cloud-draft","ok"
+"9","output_reminder","今天有产出了吗","L2-L3 开始要求产出，完成一个就算数，不用追求好看。","降低成果焦虑，明确“完成>完美”。","cloud-draft","ok"
+"10","slow_feedback","反馈慢也正常","有些领域反馈速度只有 1-2，4 周前的等待本来就是设计的一部分。","为长反馈领域做心理预期管理，不劝退。","cloud-draft","ok"
+"11","retry_reminder","卡住就退一档","连续 2 天没完成，可以先退回 L2-L3，稳住之后再往上加。","把困难归因到难度档位，而非用户能力。","cloud-draft","ok"
+"12","minimum_dose","给自己留 15 分钟","每天最低 15 分钟就能保住这条曲线，今天先守住下限。","给下限而非上限，避免超额要求。","cloud-draft","ok"
+"13","midterm_preview","明天看中期数据","第 14 天会出中期回顾，斜率怎么算的，到时候一起看。","预告节点，不提前透露结论。","cloud-draft","ok"
+"14","midterm_review","中期回顾来了","前两周斜率已能看了，差距小的领域不妨再跑一轮，别急着下结论。","【特殊节点·SPEC 8.1 中期 push】只给数据与观察窗口，不下判定；明确提示“别急着下结论”。","cloud-draft","ok"
+"15","week3_level_up","进入第 3 周","任务升到 L3-L4，难度跳档时斜率回落是常见的，不必紧张。","提前解释跳档导致的回落，防止用户误读为退步。","cloud-draft","ok"
+"16","domain_switch_note","今天想换领域吗","切换会被记成 domain_switch，换之前可以先看一眼前两周的斜率。","中性告知记录方式，不禁止也不鼓励。","cloud-draft","ok"
+"17","control_group_value","对照比单跑有用","同时跑 3-5 个领域，斜率之间的对比信息量最大，别急着收敛。","强调对照价值，但用“别急着”而非“必须”。","cloud-draft","ok"
+"18","community_invite","想找人一起练吗","一个人练可能损失约 60% 的信号，把进度分享出去会有额外反馈。","用产品原则第 3 条说明价值，不强制社群。","cloud-draft","ok"
+"19","focus_single_task","今天只做一件事","挑一个反馈速度 4 以上的领域，专注做满 20 分钟就收工。","给具体可执行的小目标，不用励志口吻。","cloud-draft","ok"
+"20","week4_preview","还剩 8 天","第 4 周是 L4-L5，最后 8 天的数据对最终斜率影响最大。","陈述权重，不制造倒计时压迫感。","cloud-draft","ok"
+"21","late_stage_review","进入末段了","三周斜率已经成形，哪个领域信号更强，你心里大概有数了。","【特殊节点·SPEC 8.1 末段 push】把解读权明确交给用户，产品不点名领域。","cloud-draft","ok"
+"22","week4_level_up","最后一周开始","L4-L5 需要一点练习，做不出来可以先退回 L3-L4 稳住。","最后一周仍允许退档，避免冲刺式绑架。","cloud-draft","ok"
+"23","duration_myth","别把时长拉满","30 分钟是上限不是目标，15-30 分钟区间内保持稳定更划算。","纠正“越多越好”的误解，防止过度投入。","cloud-draft","ok"
+"24","metric_reading","看看卡在哪一环","挫败后反弹力和重复意愿这两项，能帮你看清中断到底卡在哪。","引导看指标做自查，不做人格化评价。","cloud-draft","ok"
+"25","slope_preview","先看一眼斜率","4 周斜率已经出来了，先别急着定方向，看看哪条线最陡。","先呈现再解读，把决定顺序交给用户。","cloud-draft","ok"
+"26","last_three_days","还剩 3 天","最后 3 天的记录会让斜率更稳，建议到 28 天再看结论。","用“建议”而非要求，保留退出可能。","cloud-draft","ok"
+"27","report_preview","明天就是终点","4 周结束会出完整对比报告，要不要继续由你决定。","预告但不承诺结果，强调选择权。","cloud-draft","ok"
+"28","final_sprint","4 周跑完了","斜率、5 维指标和跨领域对比都在报告里，下一步的选择权在你。","【特殊节点·SPEC 8.1 末期冲刺】收尾仍不给方向判定，只交付数据与选择权。","cloud-draft","ok"

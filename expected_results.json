@@ -1,0 +1,477 @@
+{
+  "user_001": {
+    "go": {
+      "objective_level": [
+        4.25,
+        4.75
+      ],
+      "objective_slope": [
+        0.88,
+        1.18
+      ],
+      "bounce_back": [
+        7.5,
+        10.0
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        5.21,
+        6.21
+      ],
+      "proactive_optimization": [
+        4.5,
+        5.5
+      ],
+      "pain_tolerance": [
+        5.92,
+        6.52
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.33/2.50/3.33/4.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=2(半宽=单事件权重 5.0 的一半)，复练间隔 23.4h/18.5h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=14，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=14，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "writing_general": {
+      "objective_level": [
+        4.25,
+        4.75
+      ],
+      "objective_slope": [
+        0.78,
+        1.08
+      ],
+      "bounce_back": [
+        7.5,
+        10.0
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        5.93,
+        6.93
+      ],
+      "proactive_optimization": [
+        4.5,
+        5.5
+      ],
+      "pain_tolerance": [
+        6.02,
+        6.62
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.67/2.50/3.33/4.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=2(半宽=单事件权重 5.0 的一半)，复练间隔 16.8h/23.7h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=14，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=14，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "photography": {
+      "objective_level": [
+        4.25,
+        4.75
+      ],
+      "objective_slope": [
+        0.92,
+        1.22
+      ],
+      "bounce_back": [
+        7.5,
+        10.0
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        6.64,
+        7.64
+      ],
+      "proactive_optimization": [
+        4.5,
+        5.5
+      ],
+      "pain_tolerance": [
+        5.96,
+        6.56
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.33/2.33/3.50/4.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=2(半宽=单事件权重 5.0 的一半)，复练间隔 17.7h/17.0h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=14，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=14，时长抖动±45s≈±0.15分，半宽 0.3"
+    }
+  },
+  "user_002": {
+    "go": {
+      "objective_level": [
+        2.0,
+        2.66
+      ],
+      "objective_slope": [
+        0.13,
+        0.43
+      ],
+      "bounce_back": [
+        1.66,
+        5.0
+      ],
+      "repetition": [
+        5.38,
+        6.38
+      ],
+      "detail_sensitivity": [
+        1.88,
+        3.12
+      ],
+      "proactive_optimization": [
+        1.88,
+        3.12
+      ],
+      "pain_tolerance": [
+        4.46,
+        5.06
+      ],
+      "interval_basis": "水平窗口=最后事件日(第27天)前7天（不足3条已回溯14天），样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.25/2.00/2.50/2.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=3(半宽=单事件权重 3.3 的一半)，复练间隔 13.4h/168.3h;repetition 为用户级次日复访 10/17，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=8，半宽 0.62=单条权重的一半;pain_tolerance 分母 n=8，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "writing_general": {
+      "objective_level": [
+        2.0,
+        2.5
+      ],
+      "objective_slope": [
+        0.03,
+        0.33
+      ],
+      "bounce_back": [
+        1.66,
+        5.0
+      ],
+      "repetition": [
+        5.38,
+        6.38
+      ],
+      "detail_sensitivity": [
+        2.77,
+        3.89
+      ],
+      "proactive_optimization": [
+        1.66,
+        2.78
+      ],
+      "pain_tolerance": [
+        4.49,
+        5.09
+      ],
+      "interval_basis": "水平窗口=最后事件日(第27天)前7天（不足3条已回溯14天），样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.50/2.00/2.33/2.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=3(半宽=单事件权重 3.3 的一半)，复练间隔 23.8h/139.7h;repetition 为用户级次日复访 10/17，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=9，半宽 0.56=单条权重的一半;pain_tolerance 分母 n=9，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "photography": {
+      "objective_level": [
+        2.0,
+        2.66
+      ],
+      "objective_slope": [
+        0.1,
+        0.4
+      ],
+      "bounce_back": [
+        1.66,
+        5.0
+      ],
+      "repetition": [
+        5.38,
+        6.38
+      ],
+      "detail_sensitivity": [
+        3.13,
+        4.37
+      ],
+      "proactive_optimization": [
+        0.63,
+        1.87
+      ],
+      "pain_tolerance": [
+        4.46,
+        5.06
+      ],
+      "interval_basis": "水平窗口=最后事件日(第27天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.67/2.00/2.00/2.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=3(半宽=单事件权重 3.3 的一半)，复练间隔 23.7h/164.2h/94.7h;repetition 为用户级次日复访 10/17，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=8，半宽 0.62=单条权重的一半;pain_tolerance 分母 n=8，时长抖动±45s≈±0.15分，半宽 0.3"
+    }
+  },
+  "user_003": {
+    "go": {
+      "objective_level": [
+        2.6,
+        3.0
+      ],
+      "objective_slope": [
+        0.42,
+        0.72
+      ],
+      "bounce_back": [
+        6.25,
+        8.75
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        5.33,
+        6.33
+      ],
+      "proactive_optimization": [
+        2.83,
+        3.83
+      ],
+      "pain_tolerance": [
+        8.75,
+        9.35
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天（不足3条已回溯14天），样本 5 条，半宽 0.20=单条权重;斜率=周均值(1.33/2.00/2.67/3.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=4(半宽=单事件权重 2.5 的一半)，复练间隔 16.2h/17.6h/17.7h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=12，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=12，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "writing_general": {
+      "objective_level": [
+        2.67,
+        3.33
+      ],
+      "objective_slope": [
+        0.28,
+        0.58
+      ],
+      "bounce_back": [
+        6.25,
+        8.75
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        4.5,
+        5.5
+      ],
+      "proactive_optimization": [
+        1.17,
+        2.17
+      ],
+      "pain_tolerance": [
+        8.73,
+        9.33
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.67/2.33/2.67/3.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=4(半宽=单事件权重 2.5 的一半)，复练间隔 23.6h/23.4h/18.9h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=12，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=12，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "photography": {
+      "objective_level": [
+        2.67,
+        3.33
+      ],
+      "objective_slope": [
+        0.23,
+        0.53
+      ],
+      "bounce_back": [
+        6.25,
+        8.75
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        5.33,
+        6.33
+      ],
+      "proactive_optimization": [
+        2.0,
+        3.0
+      ],
+      "pain_tolerance": [
+        8.72,
+        9.32
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.67/2.50/2.25/3.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=4(半宽=单事件权重 2.5 的一半)，复练间隔 23.5h/23.6h/16.2h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=12，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=12，时长抖动±45s≈±0.15分，半宽 0.3"
+    }
+  },
+  "user_004": {
+    "go": {
+      "objective_level": [
+        4.67,
+        5.33
+      ],
+      "objective_slope": [
+        1.1,
+        1.4
+      ],
+      "bounce_back": [
+        8.0,
+        10.0
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        0.0,
+        0.5
+      ],
+      "proactive_optimization": [
+        0.0,
+        0.5
+      ],
+      "pain_tolerance": [
+        1.1,
+        1.7
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.33/3.50/5.00/5.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=0(无挫败样本，按满分先验给[8.0,10.0])，复练间隔 无挫败事件，无需判定;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=10，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=10，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "writing_general": {
+      "objective_level": [
+        4.75,
+        5.25
+      ],
+      "objective_slope": [
+        1.07,
+        1.37
+      ],
+      "bounce_back": [
+        8.0,
+        10.0
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        0.0,
+        0.56
+      ],
+      "proactive_optimization": [
+        0.0,
+        0.56
+      ],
+      "pain_tolerance": [
+        1.04,
+        1.64
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天（不足3条已回溯14天），样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.50/3.33/5.00/5.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=0(无挫败样本，按满分先验给[8.0,10.0])，复练间隔 无挫败事件，无需判定;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=9，半宽 0.56=单条权重的一半;pain_tolerance 分母 n=9，时长抖动±45s≈±0.15分，半宽 0.3"
+    },
+    "photography": {
+      "objective_level": [
+        4.8,
+        5.2
+      ],
+      "objective_slope": [
+        1.05,
+        1.35
+      ],
+      "bounce_back": [
+        8.0,
+        10.0
+      ],
+      "repetition": [
+        9.5,
+        10.0
+      ],
+      "detail_sensitivity": [
+        0.0,
+        0.56
+      ],
+      "proactive_optimization": [
+        0.0,
+        0.56
+      ],
+      "pain_tolerance": [
+        0.99,
+        1.59
+      ],
+      "interval_basis": "水平窗口=最后事件日(第28天)前7天（不足3条已回溯14天），样本 5 条，半宽 0.20=单条权重;斜率=周均值(1.50/3.50/5.00/5.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=0(无挫败样本，按满分先验给[8.0,10.0])，复练间隔 无挫败事件，无需判定;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=9，半宽 0.56=单条权重的一半;pain_tolerance 分母 n=9，时长抖动±45s≈±0.15分，半宽 0.3"
+    }
+  },
+  "user_005": {
+    "go": {
+      "objective_level": [
+        1.25,
+        1.75
+      ],
+      "objective_slope": [
+        0.0,
+        0.0
+      ],
+      "bounce_back": [
+        0.0,
+        3.33
+      ],
+      "repetition": [
+        8.07,
+        9.07
+      ],
+      "detail_sensitivity": [
+        3.75,
+        6.25
+      ],
+      "proactive_optimization": [
+        1.25,
+        3.75
+      ],
+      "pain_tolerance": [
+        4.94,
+        5.94
+      ],
+      "interval_basis": "水平窗口=最后事件日(第7天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=有效周数<3，不可辨识，按口径约定输出[0.0,0.0];bounce_back 分母 n=1(半宽=1/3 单事件权重3.33（48h窗口被退出截断）)，复练间隔 无后续成功任务;repetition 为用户级次日复访 6/7，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=4，半宽 1.25=单条权重的一半;pain_tolerance 分母 n=4，时长抖动±45s≈±0.15分，半宽 0.5"
+    },
+    "writing_general": {
+      "objective_level": [
+        1.25,
+        1.75
+      ],
+      "objective_slope": [
+        0.0,
+        0.0
+      ],
+      "bounce_back": [
+        0.0,
+        3.33
+      ],
+      "repetition": [
+        8.07,
+        9.07
+      ],
+      "detail_sensitivity": [
+        3.75,
+        6.25
+      ],
+      "proactive_optimization": [
+        1.25,
+        3.75
+      ],
+      "pain_tolerance": [
+        5.01,
+        6.01
+      ],
+      "interval_basis": "水平窗口=最后事件日(第7天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=有效周数<3，不可辨识，按口径约定输出[0.0,0.0];bounce_back 分母 n=1(半宽=1/3 单事件权重3.33（48h窗口被退出截断）)，复练间隔 无后续成功任务;repetition 为用户级次日复访 6/7，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=4，半宽 1.25=单条权重的一半;pain_tolerance 分母 n=4，时长抖动±45s≈±0.15分，半宽 0.5"
+    },
+    "photography": {
+      "objective_level": [
+        1.0,
+        1.66
+      ],
+      "objective_slope": [
+        0.0,
+        0.0
+      ],
+      "bounce_back": [
+        0.0,
+        3.33
+      ],
+      "repetition": [
+        8.07,
+        9.07
+      ],
+      "detail_sensitivity": [
+        5.0,
+        8.34
+      ],
+      "proactive_optimization": [
+        1.66,
+        5.0
+      ],
+      "pain_tolerance": [
+        5.02,
+        6.02
+      ],
+      "interval_basis": "水平窗口=最后事件日(第7天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=有效周数<3，不可辨识，按口径约定输出[0.0,0.0];bounce_back 分母 n=1(半宽=1/3 单事件权重3.33（48h窗口被退出截断）)，复练间隔 无后续成功任务;repetition 为用户级次日复访 6/7，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=3，半宽 1.67=单条权重的一半;pain_tolerance 分母 n=3，时长抖动±45s≈±0.15分，半宽 0.5"
+    }
+  }
+}

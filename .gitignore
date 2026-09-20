@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+*.tmp
+
+# Env / secrets (safety net; this repo shouldn't contain any)
+.env
+.env.*
+*.pem
+*.key
