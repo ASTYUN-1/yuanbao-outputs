@@ -1,477 +1,498 @@
 {
+  "_manifest": {
+    "task_id": "C12b-重算",
+    "spec_version": "V1.3",
+    "ssot_checksum": "TL-SSOT-2026-09-20-A",
+    "baseline_version": "B1.0",
+    "produced_by": "Yuanbao",
+    "produced_at": "2026-09-21",
+    "batch": "all",
+    "output_files": [
+      {
+        "file": "fixtures/expected_results.json",
+        "rows": 15
+      },
+      {
+        "file": "fixtures/manual_derivation.md",
+        "rows": 5
+      }
+    ],
+    "unverified_count": 0,
+    "self_check": {
+      "frozen_ids_only": true,
+      "enum_from_spec": true,
+      "no_absolute_claims": true,
+      "no_new_concepts": true,
+      "spec_numbers_unchanged": true
+    },
+    "known_deviations": [
+      "决策1 选 B：零失败用户 bounce_back 返回 null 并附 bounce_back_note，理由见 manual_derivation 第 0 节",
+      "口径 A 已钉死：objective_slope 的 week N = 开区间 (T0+7(N-1), T0+7N]，T0 = 该用户首个事件的当日 00:00（user_004 的 T0=2026-08-23）；据此 user_001 slope=1.00、user_003 slope=0.50（均与本任务第一版不同）",
+      "口径 B 已钉死：max_consecutive_failures 按领域口径计算，user_003 各领域 max_consecutive=1 → bounce_back=6.0 点值",
+      "决策2 作废：撤回上一轮拟补的 3 条 task_retry（go_L3_005/006/007 系臆造 task_id，006/007 在流中不存在、005 实为 success=true），user_003 实有 9 条 task_retry，全部按现有数据计算",
+      "manifest 位置与 4.2 冲突：4.5 要求 manifest 写在文件最顶部，但 JSON 禁止注释，故以首个顶层键 _manifest 承载",
+      "objective_level_in_week 在 SPEC 中无定义，本产出按『截至该周的累计任务』计算",
+      "按 SPEC 4.4 的 >=3 门槛算得 user_005 objective_level=0、user_002 writing_general/photography=0、user_003=3，与 6.3 人设对照冲突，未迁就人设",
+      "user_002 / go 的 repetition=1.0：go_L2_002 与 go_L3_001 各完成 2 次 → same_task_repetitions=2、voluntary_repeats=0 → min(0*2+2*0.5,10)=1.0"
+    ]
+  },
+  "meta": {
+    "formula_source": "SPEC 12.3",
+    "spec_version": "V1.3",
+    "note": "按 SPEC 12.3 的 0-10 实现版重算（第三版）。口径约定：一、零失败用户 bounce_back 返回 null 并附 bounce_back_note（决策1·B）；二、决策 2 已作废，不再补事件，全部按 events_*.jsonl 现有数据计算；三、口径 A（objective_slope 周边界）：T0 = 该用户首个事件的当日 00:00，week N = 开区间 (T0+7(N-1), T0+7N]；user_004 的 T0 = 2026-08-23；四、口径 B（max_consecutive_failures 作用域）：按领域口径，每个领域独立算连续失败；五、pain_tolerance 用领域级 max duration；六、repetition 按 SPEC 12.3 的 same_task_repetitions（同一 task_id 被完成超过 1 次的个数）计算；七、detail_sensitivity / proactive_optimization 全为 0：SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，属 SPEC 缺口",
+    "data_source": "events_user_00X.jsonl 实测统计（领域级 task_level 直方图、领域级 max duration、失败事件 task_id 与 timestamp）"
+  },
   "user_001": {
     "go": {
       "objective_level": [
-        4.25,
-        4.75
+        5.0,
+        5.0
       ],
       "objective_slope": [
-        0.88,
-        1.18
+        1.0,
+        1.0
       ],
-      "bounce_back": [
-        7.5,
-        10.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（45/45 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        5.21,
-        6.21
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        4.5,
-        5.5
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        5.92,
-        6.52
+        0.99,
+        5.99
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.33/2.50/3.33/4.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=2(半宽=单事件权重 5.0 的一半)，复练间隔 23.4h/18.5h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=14，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=14，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=5.0（每领域 L1-L5 各 3 个、全成功，逐级满足 >=3 且 100%>70%）；slope=1.00（口径 A：week N = 开区间 (T0+7(N-1), T0+7N]；达成 L2 的时刻 2026-09-01T09:20:00Z 按严格边界落在 week2，故 week1=1、week4=5，(5-1)/4=1.00）；pain_tolerance=[0.99,5.99]（领域级 max duration 计算：0.99 确定 + return_score 公式值域 [0,5]）；bounce_back=null（零失败 45/45，决策 1·B）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     },
     "writing_general": {
       "objective_level": [
-        4.25,
-        4.75
+        5.0,
+        5.0
       ],
       "objective_slope": [
-        0.78,
-        1.08
+        1.0,
+        1.0
       ],
-      "bounce_back": [
-        7.5,
-        10.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（45/45 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        5.93,
-        6.93
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        4.5,
-        5.5
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        6.02,
-        6.62
+        1.07,
+        6.07
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.67/2.50/3.33/4.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=2(半宽=单事件权重 5.0 的一半)，复练间隔 16.8h/23.7h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=14，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=14，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=5.0（每领域 L1-L5 各 3 个、全成功，逐级满足 >=3 且 100%>70%）；slope=1.00（口径 A：week N = 开区间 (T0+7(N-1), T0+7N]；达成 L2 的时刻 2026-09-01T09:20:00Z 按严格边界落在 week2，故 week1=1、week4=5，(5-1)/4=1.00）；pain_tolerance=[1.07,6.07]（领域级 max duration 计算：1.07 确定 + return_score 公式值域 [0,5]）；bounce_back=null（零失败 45/45，决策 1·B）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     },
     "photography": {
       "objective_level": [
-        4.25,
-        4.75
+        5.0,
+        5.0
       ],
       "objective_slope": [
-        0.92,
-        1.22
+        1.0,
+        1.0
       ],
-      "bounce_back": [
-        7.5,
-        10.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（45/45 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        6.64,
-        7.64
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        4.5,
-        5.5
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        5.96,
-        6.56
+        1.05,
+        6.05
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.33/2.33/3.50/4.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=2(半宽=单事件权重 5.0 的一半)，复练间隔 17.7h/17.0h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=14，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=14，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=5.0（每领域 L1-L5 各 3 个、全成功，逐级满足 >=3 且 100%>70%）；slope=1.00（口径 A：week N = 开区间 (T0+7(N-1), T0+7N]；达成 L2 的时刻 2026-09-01T09:20:00Z 按严格边界落在 week2，故 week1=1、week4=5，(5-1)/4=1.00）；pain_tolerance=[1.05,6.05]（领域级 max duration 计算：1.05 确定 + return_score 公式值域 [0,5]）；bounce_back=null（零失败 45/45，决策 1·B）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     }
   },
   "user_002": {
     "go": {
       "objective_level": [
         2.0,
-        2.66
+        2.0
       ],
       "objective_slope": [
-        0.13,
-        0.43
+        0.25,
+        0.25
       ],
       "bounce_back": [
-        1.66,
-        5.0
+        6.0,
+        6.0
       ],
       "repetition": [
-        5.38,
-        6.38
+        1.0,
+        1.0
       ],
       "detail_sensitivity": [
-        1.88,
-        3.12
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        1.88,
-        3.12
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        4.46,
-        5.06
+        0.95,
+        5.95
       ],
-      "interval_basis": "水平窗口=最后事件日(第27天)前7天（不足3条已回溯14天），样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.25/2.00/2.50/2.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=3(半宽=单事件权重 3.3 的一半)，复练间隔 13.4h/168.3h;repetition 为用户级次日复访 10/17，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=8，半宽 0.62=单条权重的一半;pain_tolerance 分母 n=8，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=2.0（L1 3/3=100%→1；L2 3/4=75%>70%→2 —— 失败 go_L2_002；L3 2/3=66.7%<=70% → break —— 失败 go_L3_001；L4 仅 1 个 <3 不参与）；slope=0.25（口径 A：week1=1、week4=2，(2-1)/4=0.25）；pain_tolerance=[0.95,5.95]（领域级 max duration 计算：0.95 确定 + return_score 公式值域 [0,5]）；bounce_back=6.0（本用户 2 次失败均在 go，且均有 24h 内同 task_id 后续事件 → retry_rate=2/2=1.0；领域口径 max_consecutive=1 → 1.0*5+1=6.0）；repetition=1.0（按 SPEC 12.3：go_L2_002 与 go_L3_001 各完成 2 次 → same_task_repetitions=2、voluntary_repeats=0 → min(0*2+2*0.5,10)=1.0）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     },
     "writing_general": {
       "objective_level": [
-        2.0,
-        2.5
+        0.0,
+        0.0
       ],
       "objective_slope": [
-        0.03,
-        0.33
+        0.0,
+        0.0
       ],
-      "bounce_back": [
-        1.66,
-        5.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "该领域零失败（L1:2 L2:2 L3:2 L4:1 共 7 个任务全成功），该指标不适用（决策 1·B）",
       "repetition": [
-        5.38,
-        6.38
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        2.77,
-        3.89
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        1.66,
-        2.78
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        4.49,
-        5.09
+        0.98,
+        5.98
       ],
-      "interval_basis": "水平窗口=最后事件日(第27天)前7天（不足3条已回溯14天），样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.50/2.00/2.33/2.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=3(半宽=单事件权重 3.3 的一半)，复练间隔 23.8h/139.7h;repetition 为用户级次日复访 10/17，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=9，半宽 0.56=单条权重的一半;pain_tolerance 分母 n=9，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=0.0（L1:2 / L2:2 / L3:2 / L4:1 均无任一等级凑满 >=3 个任务，全部被门槛跳过，不足 3 个不触发 break）；slope=0.00（口径 A：week1=week4=0）；pain_tolerance=[0.98,5.98]（领域级 max duration 计算：0.98 确定 + return_score 公式值域 [0,5]）；bounce_back=null（该领域零失败，决策 1·B）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     },
     "photography": {
       "objective_level": [
-        2.0,
-        2.66
+        0.0,
+        0.0
       ],
       "objective_slope": [
-        0.1,
-        0.4
+        0.0,
+        0.0
       ],
-      "bounce_back": [
-        1.66,
-        5.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "该领域零失败（L1:1 L2:2 L3:1 L4:1 共 5 个任务全成功），该指标不适用（决策 1·B）",
       "repetition": [
-        5.38,
-        6.38
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        3.13,
-        4.37
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        0.63,
-        1.87
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        4.46,
-        5.06
+        1.09,
+        6.09
       ],
-      "interval_basis": "水平窗口=最后事件日(第27天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.67/2.00/2.00/2.50)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=3(半宽=单事件权重 3.3 的一半)，复练间隔 23.7h/164.2h/94.7h;repetition 为用户级次日复访 10/17，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=8，半宽 0.62=单条权重的一半;pain_tolerance 分母 n=8，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=0.0（L1:1 / L2:2 / L3:1 / L4:1 均无任一等级凑满 >=3 个任务，全部被门槛跳过，不足 3 个不触发 break）；slope=0.00（口径 A：week1=week4=0）；pain_tolerance=[1.09,6.09]（领域级 max duration 计算：1.09 确定 + return_score 公式值域 [0,5]）；bounce_back=null（该领域零失败，决策 1·B）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     }
   },
   "user_003": {
     "go": {
       "objective_level": [
-        2.6,
+        3.0,
         3.0
       ],
       "objective_slope": [
-        0.42,
-        0.72
+        0.5,
+        0.5
       ],
       "bounce_back": [
-        6.25,
-        8.75
+        6.0,
+        6.0
       ],
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        5.33,
-        6.33
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        2.83,
-        3.83
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        8.75,
-        9.35
+        4.0,
+        9.0
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天（不足3条已回溯14天），样本 5 条，半宽 0.20=单条权重;斜率=周均值(1.33/2.00/2.67/3.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=4(半宽=单事件权重 2.5 的一半)，复练间隔 16.2h/17.6h/17.7h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=12，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=12，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=3.0（L1 3/3、L2 5/5、L3 5/5 均 100%>70% → 3；本域唯一失败在 L4：go_L4_001 @ 2026-09-15T18:00:00Z，L4 仅 2 个 <3 被跳过，不足 3 个不触发 break）；slope=0.50（口径 A：week1=1、week4=3，(3-1)/4=0.50）；bounce_back=6.0（口径 B：领域口径 max_consecutive=1；该失败 24h 内有同 task_id 后续事件，SPEC 12.3 不区分 event_type，task_retry 计入 → retry_rate=1/1=1.0 → 1.0*5+min(1,5)=6.0）；pain_tolerance=[4.0,9.0]（领域级 max duration 计算：4.0 确定 + return_score 公式值域 [0,5]）；bounce_back=6.0（见上，口径 B 领域口径）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     },
     "writing_general": {
       "objective_level": [
-        2.67,
-        3.33
+        3.0,
+        3.0
       ],
       "objective_slope": [
-        0.28,
-        0.58
+        0.5,
+        0.5
       ],
       "bounce_back": [
-        6.25,
-        8.75
+        6.0,
+        6.0
       ],
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        4.5,
-        5.5
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        1.17,
-        2.17
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        8.73,
-        9.33
+        4.0,
+        9.0
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.67/2.33/2.67/3.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=4(半宽=单事件权重 2.5 的一半)，复练间隔 23.6h/23.4h/18.9h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=12，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=12，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=3.0（L1 3/3、L2 5/5、L3 5/5 均 100%>70% → 3；本域唯一失败在 L4：writing_general_L4_001 @ 2026-09-15T18:36:00Z，L4 仅 2 个 <3 被跳过，不足 3 个不触发 break）；slope=0.50（口径 A：week1=1、week4=3，(3-1)/4=0.50）；bounce_back=6.0（口径 B：领域口径 max_consecutive=1；该失败 24h 内有同 task_id 后续事件，SPEC 12.3 不区分 event_type，task_retry 计入 → retry_rate=1/1=1.0 → 1.0*5+min(1,5)=6.0）；pain_tolerance=[4.0,9.0]（领域级 max duration 计算：4.0 确定 + return_score 公式值域 [0,5]）；bounce_back=6.0（见上，口径 B 领域口径）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     },
     "photography": {
       "objective_level": [
-        2.67,
-        3.33
-      ],
-      "objective_slope": [
-        0.23,
-        0.53
-      ],
-      "bounce_back": [
-        6.25,
-        8.75
-      ],
-      "repetition": [
-        9.5,
-        10.0
-      ],
-      "detail_sensitivity": [
-        5.33,
-        6.33
-      ],
-      "proactive_optimization": [
-        2.0,
+        3.0,
         3.0
       ],
-      "pain_tolerance": [
-        8.72,
-        9.32
+      "objective_slope": [
+        0.5,
+        0.5
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.67/2.50/2.25/3.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=4(半宽=单事件权重 2.5 的一半)，复练间隔 23.5h/23.6h/16.2h;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=12，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=12，时长抖动±45s≈±0.15分，半宽 0.3"
+      "bounce_back": [
+        6.0,
+        6.0
+      ],
+      "repetition": [
+        0.0,
+        0.0
+      ],
+      "detail_sensitivity": [
+        0.0,
+        0.0
+      ],
+      "proactive_optimization": [
+        0.0,
+        0.0
+      ],
+      "pain_tolerance": [
+        4.0,
+        9.0
+      ],
+      "interval_basis": "level=3.0（L1 3/3、L2 5/5、L3 5/5 均 100%>70% → 3；本域唯一失败在 L4：photography_L4_001 @ 2026-09-15T19:11:00Z，L4 仅 2 个 <3 被跳过，不足 3 个不触发 break）；slope=0.50（口径 A：week1=1、week4=3，(3-1)/4=0.50）；bounce_back=6.0（口径 B：领域口径 max_consecutive=1；该失败 24h 内有同 task_id 后续事件，SPEC 12.3 不区分 event_type，task_retry 计入 → retry_rate=1/1=1.0 → 1.0*5+min(1,5)=6.0）；pain_tolerance=[4.0,9.0]（领域级 max duration 计算：4.0 确定 + return_score 公式值域 [0,5]）；bounce_back=6.0（见上，口径 B 领域口径）；repetition=0（无 task_id 被完成超过 1 次）；detail_sensitivity / proactive_optimization=0（SPEC 4.2 event schema 无 late_edits / self_corrections / off_task_activities / path_deviation 字段，算不出来）"
     }
   },
   "user_004": {
     "go": {
       "objective_level": [
-        4.67,
-        5.33
+        4.0,
+        4.0
       ],
       "objective_slope": [
-        1.1,
-        1.4
+        0.75,
+        0.75
       ],
-      "bounce_back": [
-        8.0,
-        10.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（30/30 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
         0.0,
-        0.5
+        0.0
       ],
       "proactive_optimization": [
         0.0,
-        0.5
+        0.0
       ],
       "pain_tolerance": [
-        1.1,
-        1.7
+        0.07,
+        5.07
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=周均值(1.33/3.50/5.00/5.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=0(无挫败样本，按满分先验给[8.0,10.0])，复练间隔 无挫败事件，无需判定;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=10，半宽 0.50=单条权重的一半;pain_tolerance 分母 n=10，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=4.0（每领域 L1*3 与 L4*3 各自 >=3 且全成功；L2/L3 各仅 2 个，被 >=3 门槛跳过且不触发 break，故直达 4）；slope=0.75（累计口径 week1=1、week4=4，(4-1)/4，仅当周口径一致）；pain_tolerance=[0.07,5.07]（领域级 max 133s=2.22min/30=0.0739 + return_score [0,5]）；bounce_back=null（零失败·决策 1·B）；余三项 6.3 无对应统计量 → 0。注：均值 41s 仍得 level 4/slope 0.75，>=3 门槛无法识别刷量，见备注"
     },
     "writing_general": {
       "objective_level": [
-        4.75,
-        5.25
+        4.0,
+        4.0
       ],
       "objective_slope": [
-        1.07,
-        1.37
+        0.75,
+        0.75
       ],
-      "bounce_back": [
-        8.0,
-        10.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（30/30 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
         0.0,
-        0.56
+        0.0
       ],
       "proactive_optimization": [
         0.0,
-        0.56
+        0.0
       ],
       "pain_tolerance": [
-        1.04,
-        1.64
+        0.07,
+        5.07
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天（不足3条已回溯14天），样本 4 条，半宽 0.25=单条权重;斜率=周均值(1.50/3.33/5.00/5.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=0(无挫败样本，按满分先验给[8.0,10.0])，复练间隔 无挫败事件，无需判定;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=9，半宽 0.56=单条权重的一半;pain_tolerance 分母 n=9，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=4.0（每领域 L1*3 与 L4*3 各自 >=3 且全成功；L2/L3 各仅 2 个，被 >=3 门槛跳过且不触发 break，故直达 4）；slope=0.75（累计口径 week1=1、week4=4，(4-1)/4，仅当周口径一致）；pain_tolerance=[0.07,5.07]（领域级 max 124s=2.07min/30=0.0689 + return_score [0,5]）；bounce_back=null（零失败·决策 1·B）；余三项 6.3 无对应统计量 → 0。注：均值 41s 仍得 level 4/slope 0.75，>=3 门槛无法识别刷量，见备注"
     },
     "photography": {
       "objective_level": [
-        4.8,
-        5.2
+        4.0,
+        4.0
       ],
       "objective_slope": [
-        1.05,
-        1.35
+        0.75,
+        0.75
       ],
-      "bounce_back": [
-        8.0,
-        10.0
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（30/30 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        9.5,
-        10.0
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
         0.0,
-        0.56
+        0.0
       ],
       "proactive_optimization": [
         0.0,
-        0.56
+        0.0
       ],
       "pain_tolerance": [
-        0.99,
-        1.59
+        0.08,
+        5.08
       ],
-      "interval_basis": "水平窗口=最后事件日(第28天)前7天（不足3条已回溯14天），样本 5 条，半宽 0.20=单条权重;斜率=周均值(1.50/3.50/5.00/5.00)的OLS，半宽0.15覆盖跨周归属边界;bounce_back 分母 n=0(无挫败样本，按满分先验给[8.0,10.0])，复练间隔 无挫败事件，无需判定;repetition 为用户级次日复访 27/27，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=9，半宽 0.56=单条权重的一半;pain_tolerance 分母 n=9，时长抖动±45s≈±0.15分，半宽 0.3"
+      "interval_basis": "level=4.0（每领域 L1*3 与 L4*3 各自 >=3 且全成功；L2/L3 各仅 2 个，被 >=3 门槛跳过且不触发 break，故直达 4）；slope=0.75（累计口径 week1=1、week4=4，(4-1)/4，仅当周口径一致）；pain_tolerance=[0.08,5.08]（领域级 max 140s=2.33min/30=0.0778 + return_score [0,5]）；bounce_back=null（零失败·决策 1·B）；余三项 6.3 无对应统计量 → 0。注：均值 41s 仍得 level 4/slope 0.75，>=3 门槛无法识别刷量，见备注"
     }
   },
   "user_005": {
     "go": {
       "objective_level": [
-        1.25,
-        1.75
+        0.0,
+        0.0
       ],
       "objective_slope": [
         0.0,
         0.0
       ],
-      "bounce_back": [
-        0.0,
-        3.33
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（6/6 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        8.07,
-        9.07
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        3.75,
-        6.25
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        1.25,
-        3.75
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        4.94,
-        5.94
+        0.83,
+        5.83
       ],
-      "interval_basis": "水平窗口=最后事件日(第7天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=有效周数<3，不可辨识，按口径约定输出[0.0,0.0];bounce_back 分母 n=1(半宽=1/3 单事件权重3.33（48h窗口被退出截断）)，复练间隔 无后续成功任务;repetition 为用户级次日复访 6/7，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=4，半宽 1.25=单条权重的一半;pain_tolerance 分母 n=4，时长抖动±45s≈±0.15分，半宽 0.5"
+      "interval_basis": "level=0.0（每领域仅 2 个完成：L1*1、L2*1，均 <SPEC 4.4 的 >=3 门槛，无任何等级被认定）；slope=0.0（week1=week4=0）；pain_tolerance=[0.83,5.83]（领域级 max 1500s=25min/30=0.8333 + return_score [0,5]）；bounce_back=null（零失败·决策 1·B）；余三项 6.3 无对应统计量 → 0。警告：与 6.3 人设『level 只到 2』冲突，见备注"
     },
     "writing_general": {
       "objective_level": [
-        1.25,
-        1.75
+        0.0,
+        0.0
       ],
       "objective_slope": [
         0.0,
         0.0
       ],
-      "bounce_back": [
-        0.0,
-        3.33
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（6/6 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        8.07,
-        9.07
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        3.75,
-        6.25
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        1.25,
-        3.75
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        5.01,
-        6.01
+        0.6,
+        5.6
       ],
-      "interval_basis": "水平窗口=最后事件日(第7天)前7天，样本 4 条，半宽 0.25=单条权重;斜率=有效周数<3，不可辨识，按口径约定输出[0.0,0.0];bounce_back 分母 n=1(半宽=1/3 单事件权重3.33（48h窗口被退出截断）)，复练间隔 无后续成功任务;repetition 为用户级次日复访 6/7，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=4，半宽 1.25=单条权重的一半;pain_tolerance 分母 n=4，时长抖动±45s≈±0.15分，半宽 0.5"
+      "interval_basis": "level=0.0（每领域仅 2 个完成：L1*1、L2*1，均 <SPEC 4.4 的 >=3 门槛，无任何等级被认定）；slope=0.0（week1=week4=0）；pain_tolerance=[0.60,5.60]（领域级 max 1080s=18min/30=0.6 + return_score [0,5]）；bounce_back=null（零失败·决策 1·B）；余三项 6.3 无对应统计量 → 0。警告：与 6.3 人设『level 只到 2』冲突，见备注"
     },
     "photography": {
       "objective_level": [
-        1.0,
-        1.66
+        0.0,
+        0.0
       ],
       "objective_slope": [
         0.0,
         0.0
       ],
-      "bounce_back": [
-        0.0,
-        3.33
-      ],
+      "bounce_back": null,
+      "bounce_back_note": "零失败（6/6 成功），该指标不适用（决策 1·B）",
       "repetition": [
-        8.07,
-        9.07
+        0.0,
+        0.0
       ],
       "detail_sensitivity": [
-        5.0,
-        8.34
+        0.0,
+        0.0
       ],
       "proactive_optimization": [
-        1.66,
-        5.0
+        0.0,
+        0.0
       ],
       "pain_tolerance": [
-        5.02,
-        6.02
+        0.83,
+        5.83
       ],
-      "interval_basis": "水平窗口=最后事件日(第7天)前7天，样本 3 条，半宽 0.33=单条权重;斜率=有效周数<3，不可辨识，按口径约定输出[0.0,0.0];bounce_back 分母 n=1(半宽=1/3 单事件权重3.33（48h窗口被退出截断）)，复练间隔 无后续成功任务;repetition 为用户级次日复访 6/7，半宽0.5=单日权重;detail_sensitivity/proactive_optimization 分母 n=3，半宽 1.67=单条权重的一半;pain_tolerance 分母 n=3，时长抖动±45s≈±0.15分，半宽 0.5"
+      "interval_basis": "level=0.0（每领域仅 2 个完成：L1*1、L2*1，均 <SPEC 4.4 的 >=3 门槛，无任何等级被认定）；slope=0.0（week1=week4=0）；pain_tolerance=[0.83,5.83]（领域级 max 1500s=25min/30=0.8333 + return_score [0,5]）；bounce_back=null（零失败·决策 1·B）；余三项 6.3 无对应统计量 → 0。警告：与 6.3 人设『level 只到 2』冲突，见备注"
     }
   }
 }
