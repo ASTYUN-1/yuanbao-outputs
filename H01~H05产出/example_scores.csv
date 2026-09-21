@@ -1,0 +1,40 @@
+﻿# === TILT-CONTRACT-MANIFEST ===
+# task_id: H04
+# spec_version: V1.3
+# ssot_checksum: TL-SSOT-2026-09-20-A
+# baseline_version: B1.0
+# produced_by: 元宝 (Yuanbao)
+# produced_at: 2026-09-21
+# batch: all
+# output_files:
+#   - example_scores.csv   (rows: 18)
+# unverified_count: 0
+# self_check:
+#   frozen_ids_only: true
+#   enum_from_spec: false
+#   no_absolute_claims: true
+#   no_new_concepts: true
+#   spec_numbers_unchanged: true
+# known_deviations:
+#   - enum_from_spec=false：sample_tier 取值 good/bad 未出现在 SSOT 冻结枚举中（SSOT 未定义样本分档枚举），
+#     本文件仅用于脚本自测，不代表冻结值。
+# === END MANIFEST ===
+model,evaluator_type,sample_id,sample_tier,run_index,score,latency_ms,parse_ok,raw_response
+glm_demo,llm_writing,llm_writing_good_001,good,1,88,1180,true,"{""score"":88,""reason"":""结构完整""}"
+glm_demo,llm_writing,llm_writing_good_001,good,2,89,1240,true,"{""score"":89,""reason"":""结构完整""}"
+glm_demo,llm_writing,llm_writing_good_001,good,3,90,1210,true,"{""score"":90,""reason"":""论点清晰""}"
+glm_demo,llm_writing,llm_writing_bad_001,bad,1,42,1300,true,"{""score"":42,""reason"":""跑题""}"
+glm_demo,llm_writing,llm_writing_bad_001,bad,2,44,1250,true,"{""score"":44,""reason"":""跑题""}"
+glm_demo,llm_writing,llm_writing_bad_001,bad,3,43,1290,true,"{""score"":43,""reason"":""论证缺失""}"
+qwen_demo,llm_writing,llm_writing_good_001,good,1,95,880,true,"{""score"":95,""reason"":""表达流畅""}"
+qwen_demo,llm_writing,llm_writing_good_001,good,2,83,910,true,"{""score"":83,""reason"":""表达流畅""}"
+qwen_demo,llm_writing,llm_writing_good_001,good,3,89,860,true,"{""score"":89,""reason"":""开头略弱""}"
+qwen_demo,llm_writing,llm_writing_bad_001,bad,1,76,820,true,"{""score"":76,""reason"":""还算通顺""}"
+qwen_demo,llm_writing,llm_writing_bad_001,bad,2,74,850,true,"{""score"":74,""reason"":""还算通顺""}"
+qwen_demo,llm_writing,llm_writing_bad_001,bad,3,75,830,true,"{""score"":75,""reason"":""基本完整""}"
+ds_demo,llm_writing,llm_writing_good_001,good,1,85,1800,true,"{""score"":85,""reason"":""论点明确""}"
+ds_demo,llm_writing,llm_writing_good_001,good,2,86,1900,true,"{""score"":86,""reason"":""论点明确""}"
+ds_demo,llm_writing,llm_writing_good_001,good,3,85,1850,true,"{""score"":85,""reason"":""论点明确""}"
+ds_demo,llm_writing,llm_writing_bad_001,bad,1,,7000,false,"{""error"":""输出被截断，缺少 score 字段""}"
+ds_demo,llm_writing,llm_writing_bad_001,bad,2,39,8200,true,"{""score"":39,""reason"":""无实质内容""}"
+ds_demo,llm_writing,llm_writing_bad_001,bad,3,41,9500,true,"{""score"":41,""reason"":""篇幅不足""}"
