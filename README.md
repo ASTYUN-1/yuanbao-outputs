@@ -20,9 +20,7 @@
 | 评测素材 | `resources.csv` · `tone_guide.csv` · `push_28.csv` |
 | 打包文件 | `C01_第1批_linguistic.zip` · `C02_batch1_linguistic_tasks.zip` · `prompts.zip` |
 | 代码 / 模式 | `scoring_functions.py` · `schema.sql` |
-| 其他 | `metrics_spec (1).md` · `ideal_coordinates (1).csv` |
-
-> 带 `(1)` 后缀的文件为同名内容的历史副本，按原样保留。
+| 其他 | `metrics_spec.md` · `ideal_coordinates.csv` |
 
 ### 子目录
 
